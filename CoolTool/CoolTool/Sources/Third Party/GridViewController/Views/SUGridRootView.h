@@ -16,5 +16,6 @@
 @property (nonatomic, strong) SUToolbarView *toolbar;
 
 - (id)initWithScreenshotImage:(UIImage *)screenshotImage;
+- (void)layoutGridViewDependingOnOrientation;
 
 @end

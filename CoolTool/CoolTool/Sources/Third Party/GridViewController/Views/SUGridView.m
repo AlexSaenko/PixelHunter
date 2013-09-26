@@ -30,7 +30,6 @@
 {
     [super drawRect:rect];
     [self drawGridLinesWithCellSize:40.0f andLineColor:[UIColor blackColor]];
- 
 }
 
 void draw1PxStroke(CGContextRef context, CGPoint startPoint, CGPoint endPoint, CGColorRef color)

@@ -10,6 +10,6 @@
 
 @interface SUZoomController : NSObject
 
-- (id)initWithGestureView:(UIView *)view;
+- (id)initWithView:(UIView *)view;
 
 @end

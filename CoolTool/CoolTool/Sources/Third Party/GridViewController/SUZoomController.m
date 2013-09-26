@@ -10,7 +10,7 @@
 
 static const CGFloat kSUMaxValidScale = 3.0f;
 static const CGFloat kSUMinValidScale = 1.0f;
-static const CGFloat kSUScaleRestraintStartValue = 1.0f;
+static const CGFloat kSUScaleRestraintStartValue = 2.8f;
 
 @interface SUZoomController ()
 
@@ -21,7 +21,7 @@ static const CGFloat kSUScaleRestraintStartValue = 1.0f;
 
 @implementation SUZoomController
 
-- (id)initWithGestureView:(UIView *)view
+- (id)initWithView:(UIView *)view
 {
     self = [super init];
     if (self) {
@@ -38,9 +38,6 @@ static const CGFloat kSUScaleRestraintStartValue = 1.0f;
 
 - (void)handlePinchGesture:(UIPinchGestureRecognizer *)recognizer
 {
-//    if (UIDeviceOrientationIsLandscape([UIApplication sharedApplication].statusBarOrientation)) {
-//        
-//    }
     CGFloat oldXScale = sqrt(pow(self.gestureView.transform.a, 2) + pow(self.gestureView.transform.c, 2));
     CGFloat oldYScale = sqrt(pow(self.gestureView.transform.b, 2) + pow(self.gestureView.transform.d, 2));
     CGPoint scale = CGPointMake(oldXScale * [recognizer scale], oldYScale * [recognizer scale]);
@@ -55,7 +52,6 @@ static const CGFloat kSUScaleRestraintStartValue = 1.0f;
         
         [recognizer setScale:1.0];
     }
-//    [self.gestureView setNeedsDisplay];
 }
 - (BOOL)isScaleValid:(CGFloat)scale
 {

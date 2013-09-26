@@ -11,6 +11,7 @@
 
 static const CGFloat kSUToolBarHeight = 44.0f;
 static const CGFloat kSUToolBarWidth = 320.0f;
+static const CGFloat kSUStatusBarheight = 20.0f;
 
 @interface SUGridRootView ()
 
@@ -28,6 +29,7 @@ static const CGFloat kSUToolBarWidth = 320.0f;
         
 		// Init underlayer view
         self.gridUnderLayerView = [[SUGridUnderLayerView alloc] initWithScreenshotImage:screenshotImage];
+        self.gridUnderLayerView.contentMode = UIViewContentModeScaleAspectFit;
         [self addSubview:self.gridUnderLayerView];
         
         // Init toolbar
@@ -38,7 +40,9 @@ static const CGFloat kSUToolBarWidth = 320.0f;
         // Init tapGesture
         [self.gridUnderLayerView.gridView.tapGesture addTarget:self action:@selector(viewTapped)];
         
-        self.zoomController = [[SUZoomController alloc] initWithGestureView:self.gridUnderLayerView];
+        self.zoomController = [[SUZoomController alloc] initWithView:self.gridUnderLayerView];
+        
+        [self layoutGridViewDependingOnOrientation];
 	}
 	return self;
 }
@@ -48,9 +52,7 @@ static const CGFloat kSUToolBarWidth = 320.0f;
     [super layoutSubviews];
         
     CGSize sz = [super bounds].size;
-    
-    self.gridUnderLayerView.frame = CGRectMake(0.0f, 0.0f, sz.width, sz.height);
-    
+        
     CGSize toolbarSize = CGSizeMake(kSUToolBarWidth, kSUToolBarHeight);
     
     self.toolbar.frame = CGRectMake(sz.width / 2 - toolbarSize.width / 2,
@@ -67,5 +69,16 @@ static const CGFloat kSUToolBarWidth = 320.0f;
     }
 }
 
+- (void)layoutGridViewDependingOnOrientation
+{
+    CGSize sz = [[UIScreen mainScreen] bounds].size;
+    
+    if (UIInterfaceOrientationIsLandscape([UIDevice currentDevice].orientation)) {
+        self.gridUnderLayerView.frame = CGRectMake(0.0f, 0.0f, sz.height, sz.width - kSUStatusBarheight);
+    } else {
+        self.gridUnderLayerView.frame = CGRectMake(0.0f, 0.0f, sz.width, sz.height - kSUStatusBarheight);
+    }
+    
+}
 
 @end
