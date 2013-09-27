@@ -8,6 +8,8 @@
 
 #import "SUGridRootView.h"
 #import "SUZoomController.h"
+#import "SUMotionController.h"
+#import "SUGridTopRulerView.h"
 
 static const CGFloat kSUToolBarHeight = 44.0f;
 static const CGFloat kSUToolBarWidth = 320.0f;
@@ -16,6 +18,8 @@ static const CGFloat kSUStatusBarheight = 20.0f;
 @interface SUGridRootView ()
 
 @property (nonatomic, strong) SUZoomController *zoomController;
+@property (nonatomic, strong) SUMotionController *motionController;
+@property (nonatomic, strong) SUGridTopRulerView *topRuler;
 
 @end
 
@@ -40,8 +44,15 @@ static const CGFloat kSUStatusBarheight = 20.0f;
         // Init tapGesture
         [self.gridUnderLayerView.gridView.tapGesture addTarget:self action:@selector(viewTapped)];
         
+        // Init controllers
         self.zoomController = [[SUZoomController alloc] initWithView:self.gridUnderLayerView];
+//        self.motionController = [[SUMotionController alloc] initWithView:self.gridUnderLayerView];
         
+        // Init ruler
+        self.topRuler = [[SUGridTopRulerView alloc] init];
+        [self addSubview:self.topRuler];
+        
+        // Layout
         [self layoutGridViewDependingOnOrientation];
 	}
 	return self;
@@ -58,6 +69,10 @@ static const CGFloat kSUStatusBarheight = 20.0f;
     self.toolbar.frame = CGRectMake(sz.width / 2 - toolbarSize.width / 2,
                                     sz.height - toolbarSize.height,
                                     toolbarSize.width, toolbarSize.height);
+    
+    self.topRuler.frame = CGRectMake(0.0f, 0.0f, sz.width, 20.0f);
+    self.topRuler.scale = self.zoomController.pinchScale;
+    [self.topRuler setNeedsDisplay];
 }
 
 - (void)viewTapped

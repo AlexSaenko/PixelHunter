@@ -10,4 +10,6 @@
 
 @interface SUMotionController : NSObject
 
+- (id)initWithView:(UIView *)view;
+
 @end

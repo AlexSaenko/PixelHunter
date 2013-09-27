@@ -10,6 +10,8 @@
 
 @interface SUZoomController : NSObject
 
+@property (nonatomic, assign) CGPoint pinchScale;
+
 - (id)initWithView:(UIView *)view;
 
 @end

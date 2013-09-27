@@ -35,6 +35,7 @@
 		CE7E406217EA031F0083F861 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = CE7E406417EA031F0083F861 /* Localizable.strings */; };
 		CE9EB67117F1D49200D36860 /* SUZoomController.m in Sources */ = {isa = PBXBuildFile; fileRef = CE9EB67017F1D49200D36860 /* SUZoomController.m */; };
 		CECE538117F450A600BDEF4B /* SUMotionController.m in Sources */ = {isa = PBXBuildFile; fileRef = CECE538017F450A600BDEF4B /* SUMotionController.m */; };
+		CECE538417F460CB00BDEF4B /* SUGridTopRulerView.m in Sources */ = {isa = PBXBuildFile; fileRef = CECE538317F460CB00BDEF4B /* SUGridTopRulerView.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -91,6 +92,8 @@
 		CE9EB67017F1D49200D36860 /* SUZoomController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SUZoomController.m; sourceTree = "<group>"; };
 		CECE537F17F450A500BDEF4B /* SUMotionController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SUMotionController.h; sourceTree = "<group>"; };
 		CECE538017F450A600BDEF4B /* SUMotionController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SUMotionController.m; sourceTree = "<group>"; };
+		CECE538217F460CA00BDEF4B /* SUGridTopRulerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SUGridTopRulerView.h; sourceTree = "<group>"; };
+		CECE538317F460CB00BDEF4B /* SUGridTopRulerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SUGridTopRulerView.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -152,6 +155,8 @@
 				CE2DB85617EC673200196E3D /* SUToolbarView.m */,
 				CE20C4D917F2ED5D0065A295 /* SUGridRootView.h */,
 				CE20C4DA17F2ED5D0065A295 /* SUGridRootView.m */,
+				CECE538217F460CA00BDEF4B /* SUGridTopRulerView.h */,
+				CECE538317F460CB00BDEF4B /* SUGridTopRulerView.m */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -404,6 +409,7 @@
 				CE9EB67117F1D49200D36860 /* SUZoomController.m in Sources */,
 				CE20C4DB17F2ED5D0065A295 /* SUGridRootView.m in Sources */,
 				CECE538117F450A600BDEF4B /* SUMotionController.m in Sources */,
+				CECE538417F460CB00BDEF4B /* SUGridTopRulerView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

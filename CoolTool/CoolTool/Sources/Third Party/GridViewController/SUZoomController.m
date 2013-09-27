@@ -15,7 +15,7 @@ static const CGFloat kSUScaleRestraintStartValue = 2.8f;
 @interface SUZoomController ()
 
 @property (nonatomic, strong) UIPinchGestureRecognizer *pinchGesture;
-@property (nonatomic, strong) UIView *gestureView;
+@property (nonatomic, strong) UIView *zoomableView;
 
 @end
 
@@ -25,12 +25,12 @@ static const CGFloat kSUScaleRestraintStartValue = 2.8f;
 {
     self = [super init];
     if (self) {
-        self.gestureView = view;
+        self.zoomableView = view;
         
         //Init pinch zoom gesture
         self.pinchGesture = [[UIPinchGestureRecognizer alloc] init];
         [self.pinchGesture addTarget:self action:@selector(handlePinchGesture:)];
-        [self.gestureView addGestureRecognizer:self.pinchGesture];
+        [self.zoomableView addGestureRecognizer:self.pinchGesture];
     }
     return self;
 }
@@ -38,8 +38,8 @@ static const CGFloat kSUScaleRestraintStartValue = 2.8f;
 
 - (void)handlePinchGesture:(UIPinchGestureRecognizer *)recognizer
 {
-    CGFloat oldXScale = sqrt(pow(self.gestureView.transform.a, 2) + pow(self.gestureView.transform.c, 2));
-    CGFloat oldYScale = sqrt(pow(self.gestureView.transform.b, 2) + pow(self.gestureView.transform.d, 2));
+    CGFloat oldXScale = sqrt(pow(self.zoomableView.transform.a, 2) + pow(self.zoomableView.transform.c, 2));
+    CGFloat oldYScale = sqrt(pow(self.zoomableView.transform.b, 2) + pow(self.zoomableView.transform.d, 2));
     CGPoint scale = CGPointMake(oldXScale * [recognizer scale], oldYScale * [recognizer scale]);
         
     if ([recognizer state] == UIGestureRecognizerStateBegan ||
@@ -47,7 +47,8 @@ static const CGFloat kSUScaleRestraintStartValue = 2.8f;
         if ([self isScaleValid:scale.x] &&
             [self isScaleValid:scale.y]) {
             scale = [self getRestraintedScaleForScale:scale];
-            self.gestureView.transform = CGAffineTransformScale(self.gestureView.transform, scale.x / oldXScale, scale.y / oldYScale);
+            self.zoomableView.transform = CGAffineTransformScale(self.zoomableView.transform, scale.x / oldXScale, scale.y / oldYScale);
+            self.pinchScale = scale;
         }
         
         [recognizer setScale:1.0];
@@ -66,24 +67,11 @@ static const CGFloat kSUScaleRestraintStartValue = 2.8f;
     return YES;
 }
 
-- (CGFloat)getValidScaleForScale:(CGFloat)scale
-{
-    if (scale < kSUMinValidScale) {
-        scale = kSUMinValidScale;
-    }
-    
-    if (scale > kSUMaxValidScale) {
-        scale = kSUMaxValidScale;
-    }
-    
-    return scale;
-}
-
 - (CGPoint)getRestraintedScaleForScale:(CGPoint)scale
 {
     CGPoint resultScale = scale;
-    CGPoint oldScale = CGPointMake(sqrt(pow(self.gestureView.transform.a, 2) + pow(self.gestureView.transform.c, 2)),
-                                   sqrt(pow(self.gestureView.transform.b, 2) + pow(self.gestureView.transform.d, 2)));
+    CGPoint oldScale = CGPointMake(sqrt(pow(self.zoomableView.transform.a, 2) + pow(self.zoomableView.transform.c, 2)),
+                                   sqrt(pow(self.zoomableView.transform.b, 2) + pow(self.zoomableView.transform.d, 2)));
     
     if (oldScale.x > kSUScaleRestraintStartValue ||
         oldScale.y > kSUScaleRestraintStartValue) {
