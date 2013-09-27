@@ -40,8 +40,8 @@ static const CGFloat kSUStepSize = 40.0f;
     NSInteger numberOfVeticalLines = ceil(self.frame.size.width / stepSize);
     NSInteger startLinePoint = 0;
     for (int i = 0; i < numberOfVeticalLines; i++) {
-        NSUInteger startLinePointWithScale = ceil(startLinePoint * self.scale.x);
-        [[NSString stringWithFormat:@"%ld", (unsigned long)startLinePointWithScale] drawInRect:CGRectMake(startLinePoint, 0, stepSize, 20.0f) withFont:[UIFont systemFontOfSize:14] lineBreakMode:NSLineBreakByCharWrapping alignment:NSTextAlignmentLeft];
+        NSUInteger startLinePointWithScale = ceil(startLinePoint / self.scale.x);
+        [[NSString stringWithFormat:@"%ld", (unsigned long)startLinePointWithScale] drawInRect:CGRectMake(startLinePoint * self.scale.x, 0, stepSize * self.scale.x, 20.0f) withFont:[UIFont systemFontOfSize:14] lineBreakMode:NSLineBreakByCharWrapping alignment:NSTextAlignmentLeft];
         startLinePoint = startLinePoint + stepSize;
     }
 
