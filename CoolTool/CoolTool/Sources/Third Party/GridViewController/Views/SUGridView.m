@@ -8,6 +8,8 @@
 
 #import "SUGridView.h"
 #import <QuartzCore/QuartzCore.h>
+#import "SUConstants.h"
+#import "SUDrawUtil.h"
 
 @implementation SUGridView
 
@@ -29,19 +31,7 @@
 - (void)drawRect:(CGRect)rect
 {
     [super drawRect:rect];
-    [self drawGridLinesWithCellSize:40.0f andLineColor:[UIColor blackColor]];
-}
-
-void draw1PxStroke(CGContextRef context, CGPoint startPoint, CGPoint endPoint, CGColorRef color)
-{
-    CGContextSaveGState(context);
-    CGContextSetLineCap(context, kCGLineCapSquare);
-    CGContextSetStrokeColorWithColor(context, color);
-    CGContextSetLineWidth(context, 1.0);
-    CGContextMoveToPoint(context, startPoint.x, startPoint.y);
-    CGContextAddLineToPoint(context, endPoint.x, endPoint.y);
-    CGContextStrokePath(context);
-    CGContextRestoreGState(context);
+    [self drawGridLinesWithCellSize:kSUStepSize andLineColor:[UIColor blackColor]];
 }
 
 - (void)drawGridLinesWithCellSize:(CGFloat)cellSize andLineColor:(UIColor *)lineColor
@@ -50,7 +40,7 @@ void draw1PxStroke(CGContextRef context, CGPoint startPoint, CGPoint endPoint, C
     
     NSInteger numberOfVeticalLines = ceil(self.frame.size.width / cellSize);
     NSInteger startLinePoint = 0;
-    for (int i = 0; i < numberOfVeticalLines; i++) {
+    for (NSInteger i = 0; i < numberOfVeticalLines; i++) {
         CGPoint startPoint = CGPointMake(startLinePoint, 0);
         CGPoint endPoint = CGPointMake(startLinePoint, self.frame.size.height);
         draw1PxStroke(context, startPoint, endPoint, lineColor.CGColor);
@@ -60,7 +50,7 @@ void draw1PxStroke(CGContextRef context, CGPoint startPoint, CGPoint endPoint, C
     startLinePoint = 0;
     NSInteger numberOfHorizontalLines = ceil(self.frame.size.height / cellSize);
     
-    for (int i = 0; i < numberOfHorizontalLines; i++) {
+    for (NSInteger i = 0; i < numberOfHorizontalLines; i++) {
         CGPoint startPoint = CGPointMake(0, startLinePoint);
         CGPoint endPoint = CGPointMake(self.frame.size.width, startLinePoint);
         draw1PxStroke(context, startPoint, endPoint, lineColor.CGColor);

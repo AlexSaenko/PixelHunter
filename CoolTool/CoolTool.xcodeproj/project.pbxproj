@@ -15,6 +15,7 @@
 		CE20C4DB17F2ED5D0065A295 /* SUGridRootView.m in Sources */ = {isa = PBXBuildFile; fileRef = CE20C4DA17F2ED5D0065A295 /* SUGridRootView.m */; };
 		CE2DB85717EC673200196E3D /* SUToolbarView.m in Sources */ = {isa = PBXBuildFile; fileRef = CE2DB85617EC673200196E3D /* SUToolbarView.m */; };
 		CE4C2AF417F0613100275FFB /* iOS123.png in Resources */ = {isa = PBXBuildFile; fileRef = CE4C2AF317F0613100275FFB /* iOS123.png */; };
+		CE54445917F96948005B00AF /* SUDrawUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = CE54445817F96948005B00AF /* SUDrawUtil.m */; };
 		CE7E3FF417E9F8410083F861 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE7E3FF317E9F8410083F861 /* UIKit.framework */; };
 		CE7E3FF617E9F8410083F861 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE7E3FF517E9F8410083F861 /* Foundation.framework */; };
 		CE7E3FF817E9F8410083F861 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE7E3FF717E9F8410083F861 /* CoreGraphics.framework */; };
@@ -64,6 +65,8 @@
 		CE2DB85517EC673200196E3D /* SUToolbarView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SUToolbarView.h; sourceTree = "<group>"; };
 		CE2DB85617EC673200196E3D /* SUToolbarView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SUToolbarView.m; sourceTree = "<group>"; };
 		CE4C2AF317F0613100275FFB /* iOS123.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = iOS123.png; sourceTree = "<group>"; };
+		CE54445717F96948005B00AF /* SUDrawUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SUDrawUtil.h; sourceTree = "<group>"; };
+		CE54445817F96948005B00AF /* SUDrawUtil.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SUDrawUtil.m; sourceTree = "<group>"; };
 		CE7E3FF017E9F8410083F861 /* CoolTool.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CoolTool.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CE7E3FF317E9F8410083F861 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		CE7E3FF517E9F8410083F861 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -94,6 +97,7 @@
 		CECE538017F450A600BDEF4B /* SUMotionController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SUMotionController.m; sourceTree = "<group>"; };
 		CECE538217F460CA00BDEF4B /* SUGridTopRulerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SUGridTopRulerView.h; sourceTree = "<group>"; };
 		CECE538317F460CB00BDEF4B /* SUGridTopRulerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SUGridTopRulerView.m; sourceTree = "<group>"; };
+		CECE538517F57AFF00BDEF4B /* SUConstants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SUConstants.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -243,6 +247,9 @@
 			children = (
 				CE18EDCA17EAEE2C008000A8 /* SUScreenshotUtil.h */,
 				CE18EDCB17EAEE2C008000A8 /* SUScreenshotUtil.m */,
+				CECE538517F57AFF00BDEF4B /* SUConstants.h */,
+				CE54445717F96948005B00AF /* SUDrawUtil.h */,
+				CE54445817F96948005B00AF /* SUDrawUtil.m */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -410,6 +417,7 @@
 				CE20C4DB17F2ED5D0065A295 /* SUGridRootView.m in Sources */,
 				CECE538117F450A600BDEF4B /* SUMotionController.m in Sources */,
 				CECE538417F460CB00BDEF4B /* SUGridTopRulerView.m in Sources */,
+				CE54445917F96948005B00AF /* SUDrawUtil.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

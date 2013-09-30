@@ -8,9 +8,9 @@
 
 #import "SUZoomController.h"
 
-static const CGFloat kSUMaxValidScale = 3.0f;
+static const CGFloat kSUMaxValidScale = 15.0f;
 static const CGFloat kSUMinValidScale = 1.0f;
-static const CGFloat kSUScaleRestraintStartValue = 2.8f;
+static const CGFloat kSUScaleRestraintStartValue = 9.0f;
 
 @interface SUZoomController ()
 
@@ -49,6 +49,8 @@ static const CGFloat kSUScaleRestraintStartValue = 2.8f;
             scale = [self getRestraintedScaleForScale:scale];
             self.zoomableView.transform = CGAffineTransformScale(self.zoomableView.transform, scale.x / oldXScale, scale.y / oldYScale);
             self.pinchScale = scale;
+            self.viewCenterPoint = [recognizer locationInView:self.zoomableView];
+
         }
         
         [recognizer setScale:1.0];

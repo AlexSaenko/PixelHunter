@@ -7,6 +7,7 @@
 //
 
 #import "SUGridViewController.h"
+#import "SUCoolTool.h"
 
 @interface SUGridViewController () <SUGridViewControllerDelegate>
 
@@ -39,7 +40,13 @@
     [super viewDidLoad];
     [self.gridRootView.toolbar.closeButton addTarget:self
                                               action:@selector(tapOnCloseButton)
-                                    forControlEvents:UIControlEventTouchUpInside];   
+                                    forControlEvents:UIControlEventTouchUpInside];
+    
+}
+
+- (void)viewWillAppear:(BOOL)animated
+{
+    self.gridRootView.zoomController.pinchScale = CGPointMake(1.0f, 1.0f);
 }
 
 - (void)tapOnCloseButton
