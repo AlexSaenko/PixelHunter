@@ -8,6 +8,7 @@
 
 #import "SUGridViewController.h"
 #import "SUCoolTool.h"
+#import "SUConstants.h"
 
 @interface SUGridViewController () <SUGridViewControllerDelegate>
 
@@ -28,25 +29,82 @@
 
 #pragma mark - Viewcontroller's life cycle
 
--(void)loadView
+- (void)loadView
 {
-    SUGridRootView *view = [[SUGridRootView alloc] initWithScreenshotImage:self.screenshotImage];
+    CGSize sz = [[UIScreen mainScreen] applicationFrame].size;
+    SUGridRootView *view = [[SUGridRootView alloc] initWithFrame:CGRectMake(0.0f, 0.0f, sz.width, sz.height) withScreenshotImage:self.screenshotImage];
     self.view = view;
     self.gridRootView = view;
 }
 
 - (void)viewDidLoad
 {
-    [super viewDidLoad];
+    [super viewDidLoad];    
     [self.gridRootView.toolbar.closeButton addTarget:self
                                               action:@selector(tapOnCloseButton)
                                     forControlEvents:UIControlEventTouchUpInside];
     
+    self.gridRootView.gridUnderLayerView.scrollView.delegate = self;
+    self.gridRootView.gridUnderLayerView.scrollView.contentSize = self.gridRootView.gridUnderLayerView.containerView.frame.size;
 }
 
 - (void)viewWillAppear:(BOOL)animated
 {
     self.gridRootView.zoomController.pinchScale = CGPointMake(1.0f, 1.0f);
+
+    self.gridRootView.gridUnderLayerView.scrollView.minimumZoomScale = self.gridRootView.gridUnderLayerView.scrollView.frame.size.width / self.gridRootView.gridUnderLayerView.containerView.frame.size.width;
+    self.gridRootView.gridUnderLayerView.scrollView.maximumZoomScale = kSUMaximumZoomScale;
+    [self.gridRootView.gridUnderLayerView.scrollView setZoomScale:self.gridRootView.gridUnderLayerView.scrollView.minimumZoomScale];
+}
+
+#pragma mark - UIScrollViewDelegate
+
+- (UIView *)viewForZoomingInScrollView:(UIScrollView *)scrollView
+{
+    // Return the view that we want to zoom
+    return self.gridRootView.gridUnderLayerView.containerView;
+}
+
+- (void)scrollViewDidScroll:(UIScrollView *)scrollView
+{
+    self.gridRootView.topRuler.frame = CGRectMake(-self.gridRootView.gridUnderLayerView.scrollView.contentOffset.x, 0.0f, self.gridRootView.gridUnderLayerView.scrollView.contentSize.width , kSURulerSize);
+    self.gridRootView.sideRuler.frame = CGRectMake(0.0f, -self.gridRootView.gridUnderLayerView.scrollView.contentOffset.x, kSURulerSize, self.gridRootView.gridUnderLayerView.scrollView.contentSize.height);
+}
+
+- (void)scrollViewDidZoom:(UIScrollView *)scrollView
+{
+    self.gridRootView.gridUnderLayerView.containerView.frame = [self centeredFrameForScrollView:scrollView andUIView:self.gridRootView.gridUnderLayerView.containerView];
+    [self.gridRootView setNeedsLayout];
+    NSLog(@"%@", NSStringFromCGPoint(self.gridRootView.gridUnderLayerView.scrollView.contentOffset));
+    CGRect visibleRect;
+    visibleRect.origin = scrollView.contentOffset;
+    visibleRect.size = scrollView.bounds.size;
+    
+    self.gridRootView.topRuler.frame = CGRectMake(-self.gridRootView.gridUnderLayerView.scrollView.contentOffset.x, 0.0f, self.gridRootView.gridUnderLayerView.scrollView.contentSize.width , kSURulerSize);
+    self.gridRootView.sideRuler.frame = CGRectMake(0.0f, -self.gridRootView.gridUnderLayerView.scrollView.contentOffset.x, kSURulerSize, self.gridRootView.gridUnderLayerView.scrollView.contentSize.height);
+}
+
+- (CGRect)centeredFrameForScrollView:(UIScrollView *)scroll andUIView:(UIView *)rView {
+	CGSize boundsSize = scroll.bounds.size;
+    CGRect frameToCenter = rView.frame;
+    
+    // center horizontally
+    if (frameToCenter.size.width < boundsSize.width) {
+        frameToCenter.origin.x = (boundsSize.width - frameToCenter.size.width) / 2;
+    }
+    else {
+        frameToCenter.origin.x = 0;
+    }
+    
+    // center vertically
+    if (frameToCenter.size.height < boundsSize.height) {
+        frameToCenter.origin.y = (boundsSize.height - frameToCenter.size.height) / 2;
+    }
+    else {
+        frameToCenter.origin.y = 0;
+    }
+	
+	return frameToCenter;
 }
 
 - (void)tapOnCloseButton

@@ -1,0 +1,90 @@
+//
+//  SUGridTopRulerView.m
+//  CoolTool
+//
+//  Created by Alex Saenko on 9/26/13.
+//  Copyright (c) 2013 Sigma Ukraine. All rights reserved.
+//
+
+#import "SUGridRulerView.h"
+#import "SUConstants.h"
+#import "SUDrawUtil.h"
+
+@interface SUGridRulerView ()
+
+@property (nonatomic, assign) BOOL isHorizontal;
+
+@end
+
+@implementation SUGridRulerView
+
+- (id)initWithFrame:(CGRect)frame horizontal:(BOOL)isHorizontal
+{
+    self = [super initWithFrame:frame];
+    if (self) {
+        self.backgroundColor = [UIColor colorWithWhite:0.5f alpha:0.5f];
+        self.isHorizontal = isHorizontal;
+    }
+    return self;
+}
+
+- (void)drawRect:(CGRect)rect
+{    
+    CGFloat cellSize = [self cellWidth:rect scale:self.scale];
+    CGFloat cellDrawnSize = cellSize * self.scale;
+
+    if (cellDrawnSize > 0.0f) {
+        if (self.isHorizontal) {
+            for (NSInteger i = 0; i <= rect.size.width / cellDrawnSize; i++) {
+                CGRect rect = CGRectMake(i * cellDrawnSize, 0.0f, cellDrawnSize, kSURulerSize);
+                
+                CGContextRef context = UIGraphicsGetCurrentContext();
+                CGContextStrokeRect(context, rect);
+                CGContextSetFillColorWithColor(context, [[UIColor whiteColor] CGColor]);
+                NSString *numberString = [NSString stringWithFormat:@" %.0f", i * cellSize];
+                [numberString drawInRect:rect withFont:[UIFont boldSystemFontOfSize:11.0f] lineBreakMode:NSLineBreakByWordWrapping
+                               alignment:NSTextAlignmentLeft];
+        }
+        }
+        if (!self.isHorizontal) {
+            for (NSInteger i = 0; i <= rect.size.height / cellDrawnSize; i++) {
+                CGRect rect = CGRectMake(0.0f, i * cellDrawnSize, kSURulerSize, cellDrawnSize);
+                
+                CGContextRef context = UIGraphicsGetCurrentContext();
+                CGContextStrokeRect(context, rect);
+                CGContextSetFillColorWithColor(context, [[UIColor whiteColor] CGColor]);
+                NSString *numberString = [NSString stringWithFormat:@" %.0f", i * cellSize];
+                [numberString drawInRect:rect withFont:[UIFont boldSystemFontOfSize:11.0f] lineBreakMode:NSLineBreakByWordWrapping
+                               alignment:NSTextAlignmentLeft];
+            }
+        }
+    }
+}
+
+- (CGFloat)cellWidth:(CGRect)rect scale:(CGFloat)scale
+{
+    CGFloat result = 0.0f;
+    if (self.isHorizontal) {
+        CGFloat width = rect.size.width / scale;
+        for (NSInteger i = 0; i < kSUSizesLength; i++) {
+            CGFloat difference =  rect.size.width / (width / arrSizes[i]);
+            if (difference > kSUMinCellLength && difference < kSUMaxCellLength) {
+                result = arrSizes[i];
+                break;
+            }
+        }
+    } else {
+        CGFloat height = rect.size.height / scale;
+        for (NSInteger i = 0; i < kSUSizesLength; i++) {
+            CGFloat difference =  rect.size.height / (height / arrSizes[i]);
+            if (difference > kSUMinCellLength && difference < kSUMaxCellLength) {
+                result = arrSizes[i];
+                break;
+            }
+        }
+    }
+    
+    return result;
+}
+
+@end

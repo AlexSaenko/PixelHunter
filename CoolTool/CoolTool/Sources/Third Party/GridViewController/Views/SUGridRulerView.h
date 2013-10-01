@@ -8,8 +8,10 @@
 
 #import <UIKit/UIKit.h>
 
-@interface SUGridTopRulerView : UIView
+@interface SUGridRulerView : UIView
 
-@property (nonatomic, assign) CGPoint scale;
+@property (nonatomic, assign) CGFloat scale;
+
+- (id)initWithFrame:(CGRect)frame horizontal:(BOOL)isHorizontal;
 
 @end

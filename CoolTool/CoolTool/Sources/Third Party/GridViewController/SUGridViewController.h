@@ -15,7 +15,7 @@
 
 @end
 
-@interface SUGridViewController : UIViewController
+@interface SUGridViewController : UIViewController <UIScrollViewDelegate>
 
 @property (nonatomic, weak) SUGridRootView *gridRootView;
 @property (nonatomic, assign) id <SUGridViewControllerDelegate> delegate;

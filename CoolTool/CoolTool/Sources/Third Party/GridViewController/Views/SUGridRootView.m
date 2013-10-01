@@ -8,10 +8,9 @@
 
 #import "SUGridRootView.h"
 #import "SUMotionController.h"
-
+#import "SUConstants.h"
 static const CGFloat kSUToolBarHeight = 44.0f;
 static const CGFloat kSUToolBarWidth = 320.0f;
-static const CGFloat kSUStatusBarheight = 20.0f;
 
 @interface SUGridRootView ()
 
@@ -21,14 +20,14 @@ static const CGFloat kSUStatusBarheight = 20.0f;
 
 @implementation SUGridRootView
 
-- (id)initWithScreenshotImage:(UIImage *)screenshotImage
+- (id)initWithFrame:(CGRect)rect withScreenshotImage:(UIImage *)screenshotImage
 {
-	self = [super init];
+	self = [super initWithFrame:rect];
 	if (self) {
         self.backgroundColor = [UIColor clearColor];
         
 		// Init underlayer view
-        self.gridUnderLayerView = [[SUGridUnderLayerView alloc] initWithScreenshotImage:screenshotImage];
+        self.gridUnderLayerView = [[SUGridUnderLayerView alloc] initWithFrame:rect withScreenshotImage:screenshotImage];
         self.gridUnderLayerView.contentMode = UIViewContentModeScaleAspectFit;
         [self addSubview:self.gridUnderLayerView];
         
@@ -39,14 +38,13 @@ static const CGFloat kSUStatusBarheight = 20.0f;
         
         // Init tapGesture
         [self.gridUnderLayerView.gridView.tapGesture addTarget:self action:@selector(viewTapped)];
-        
-        // Init controllers
-        self.zoomController = [[SUZoomController alloc] initWithView:self.gridUnderLayerView];
-//        self.motionController = [[SUMotionController alloc] initWithView:self.gridUnderLayerView];
-        
-        // Init ruler
-        self.topRuler = [[SUGridTopRulerView alloc] init];
+                
+        // Init rulers
+        self.topRuler = [[SUGridRulerView alloc] initWithFrame:CGRectMake(0.0f, 0.0f, rect.size.width, kSURulerSize) horizontal:YES];
         [self addSubview:self.topRuler];
+        
+        self.sideRuler = [[SUGridRulerView alloc] initWithFrame:CGRectMake(0.0f, 0.0f, kSURulerSize, rect.size.height) horizontal:NO];
+        [self addSubview:self.sideRuler];
         
         // Layout
         [self layoutGridViewDependingOnOrientation];
@@ -66,10 +64,10 @@ static const CGFloat kSUStatusBarheight = 20.0f;
                                     sz.height - toolbarSize.height,
                                     toolbarSize.width, toolbarSize.height);
     
-    self.topRuler.frame = CGRectMake(0.0f, 0.0f, sz.width, 20.0f);
-
-    self.topRuler.scale = self.zoomController.pinchScale;
+    self.topRuler.scale = self.gridUnderLayerView.scrollView.zoomScale;
+    self.sideRuler.scale = self.gridUnderLayerView.scrollView.zoomScale;
     [self.topRuler setNeedsDisplay];
+    [self.sideRuler setNeedsDisplay];
 }
 
 - (void)viewTapped
@@ -86,9 +84,9 @@ static const CGFloat kSUStatusBarheight = 20.0f;
     CGSize sz = [[UIScreen mainScreen] bounds].size;
     
     if (UIInterfaceOrientationIsLandscape([UIDevice currentDevice].orientation)) {
-        self.gridUnderLayerView.frame = CGRectMake(0.0f, 0.0f, sz.height, sz.width - kSUStatusBarheight);
+        self.gridUnderLayerView.frame = CGRectMake(0.0f, 0.0f, sz.height, sz.width - kSUStatusBarHeight);
     } else {
-        self.gridUnderLayerView.frame = CGRectMake(0.0f, 0.0f, sz.width, sz.height - kSUStatusBarheight);
+        self.gridUnderLayerView.frame = CGRectMake(0.0f, 0.0f, sz.width, sz.height - kSUStatusBarHeight);
     }
     
 }

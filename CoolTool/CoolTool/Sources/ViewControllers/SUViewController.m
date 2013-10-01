@@ -15,12 +15,11 @@
 
 @implementation SUViewController
 
-- (void)viewDidLoad
+- (void)viewWillAppear:(BOOL)animated
 {
-    [super viewDidLoad];
+    [super viewWillAppear:animated];
     
 //    SUCoolTool *coolTool = [[SUCoolTool alloc] init];
 //    [coolTool createWindowForDebug];
 }
-
 @end
