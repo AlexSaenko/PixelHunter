@@ -62,6 +62,13 @@ static const CGFloat kSUToolBarWidth = 320.0f;
     self.sideRuler.scale = self.gridUnderLayerView.scrollView.zoomScale;
     [self.topRuler setNeedsDisplay];
     [self.sideRuler setNeedsDisplay];
+    
+    CGSize layoutSize = [[UIScreen mainScreen] bounds].size;
+    if (UIInterfaceOrientationIsLandscape([UIApplication sharedApplication].statusBarOrientation)) {
+        self.gridUnderLayerView.frame = CGRectMake(0.0f, 0.0f, layoutSize.height, layoutSize.width - kSUStatusBarHeight);
+    } else {
+        self.gridUnderLayerView.frame = CGRectMake(0.0f, 0.0f, layoutSize.width, layoutSize.height - kSUStatusBarHeight);
+    }
 }
 
 - (void)viewTapped
@@ -78,15 +85,14 @@ static const CGFloat kSUToolBarWidth = 320.0f;
     CGSize sz = [[UIScreen mainScreen] bounds].size;
     
     if (UIInterfaceOrientationIsLandscape([UIApplication sharedApplication].statusBarOrientation)) {
-        self.gridUnderLayerView.frame = CGRectMake(0.0f, 0.0f, sz.height, sz.width - kSUStatusBarHeight);
         self.topRuler.frame = CGRectMake(0.0f, 0.0f, sz.height, kSURulerSize);
         self.sideRuler.frame = CGRectMake(0.0f, 0.0f, kSURulerSize, sz.width);
     } else {
-        self.gridUnderLayerView.frame = CGRectMake(0.0f, 0.0f, sz.width, sz.height - kSUStatusBarHeight);
         self.topRuler.frame = CGRectMake(0.0f, 0.0f, sz.width, kSURulerSize);
         self.sideRuler.frame = CGRectMake(0.0f, 0.0f, kSURulerSize, sz.height);
     }    
 }
+
 
 
 @end

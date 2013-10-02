@@ -6,8 +6,8 @@
 //  Copyright (c) 2013 Sigma Ukraine. All rights reserved.
 //
 
-static const CGFloat kSUStepSize = 200.0f;
-static const CGFloat kSUMaximumZoomScale = 10.0f;
+static const CGFloat kSUStepSize = 50.0f;
+static const CGFloat kSUMaximumZoomScale = 40.0f;
 static const CGFloat kSUStatusBarHeight = 20.0f;
 static const CGFloat kSURulerSize = 20.0f;
 static const CGFloat kSUMaxCellLength = 90.0f;

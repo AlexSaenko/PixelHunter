@@ -24,6 +24,8 @@
         
         // Init scroll view
         self.scrollView = [[UIScrollView alloc] initWithFrame:rect];
+        self.scrollView.bouncesZoom = NO;
+        self.scrollView.bounces = NO;
         [self addSubview:self.scrollView];
         
         // Init container view

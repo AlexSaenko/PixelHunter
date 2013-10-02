@@ -77,7 +77,8 @@
     [self changeRulerPositions];
 }
 
-- (CGRect)centeredFrameForScrollView:(UIScrollView *)scroll andView:(UIView *)view {
+- (CGRect)centeredFrameForScrollView:(UIScrollView *)scroll andView:(UIView *)view
+{
 	CGSize boundsSize = scroll.bounds.size;
     CGRect frameToCenter = view.frame;
     
@@ -101,7 +102,7 @@
 }
 
 - (void)changeRulerPositions
-{
+{    
     self.gridRootView.topRuler.frame = CGRectMake(-self.gridRootView.gridUnderLayerView.scrollView.contentOffset.x, 0.0f,
                                                   self.gridRootView.gridUnderLayerView.scrollView.contentSize.width , kSURulerSize);
     self.gridRootView.sideRuler.frame = CGRectMake(0.0f, -self.gridRootView.gridUnderLayerView.scrollView.contentOffset.y,
