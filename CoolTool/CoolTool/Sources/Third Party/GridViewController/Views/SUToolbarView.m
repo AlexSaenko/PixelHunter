@@ -8,6 +8,9 @@
 
 #import "SUToolbarView.h"
 
+static const CGFloat kSUCloseButtonWidth = 60.0f;
+static const CGFloat kSUCloseButtonHeight = 44.0f;
+
 @implementation SUToolbarView
 
 - (id)initWithFrame:(CGRect)frame
@@ -21,6 +24,7 @@
         [self.closeButton setBackgroundColor:[UIColor yellowColor]];
         [self addSubview:self.closeButton];
     }
+    
     return self;
 }
 
@@ -28,7 +32,7 @@
 {
     [super layoutSubviews];
     
-    self.closeButton.frame = CGRectMake(0.0f, 0.0f, 60.0f, 44.0f);
+    self.closeButton.frame = CGRectMake(0.0f, 0.0f, kSUCloseButtonWidth, kSUCloseButtonHeight);
 }
 
 

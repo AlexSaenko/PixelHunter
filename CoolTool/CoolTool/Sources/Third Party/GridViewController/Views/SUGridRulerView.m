@@ -10,6 +10,8 @@
 #import "SUConstants.h"
 #import "SUDrawUtil.h"
 
+static const CGFloat kSUFontSize = 11.0f;
+
 @interface SUGridRulerView ()
 
 @property (nonatomic, assign) BOOL isHorizontal;
@@ -37,28 +39,27 @@
         if (self.isHorizontal) {
             for (NSInteger i = 0; i <= rect.size.width / cellDrawnSize; i++) {
                 CGRect rect = CGRectMake(i * cellDrawnSize, 0.0f, cellDrawnSize, kSURulerSize);
-                
-                CGContextRef context = UIGraphicsGetCurrentContext();
-                CGContextStrokeRect(context, rect);
-                CGContextSetFillColorWithColor(context, [[UIColor whiteColor] CGColor]);
                 NSString *numberString = [NSString stringWithFormat:@" %.0f", i * cellSize];
-                [numberString drawInRect:rect withFont:[UIFont boldSystemFontOfSize:11.0f] lineBreakMode:NSLineBreakByWordWrapping
-                               alignment:NSTextAlignmentLeft];
+                [self drawNumbersInRect:rect withNumberString:numberString];
         }
         }
         if (!self.isHorizontal) {
             for (NSInteger i = 0; i <= rect.size.height / cellDrawnSize; i++) {
                 CGRect rect = CGRectMake(0.0f, i * cellDrawnSize, kSURulerSize, cellDrawnSize);
-                
-                CGContextRef context = UIGraphicsGetCurrentContext();
-                CGContextStrokeRect(context, rect);
-                CGContextSetFillColorWithColor(context, [[UIColor whiteColor] CGColor]);
                 NSString *numberString = [NSString stringWithFormat:@" %.0f", i * cellSize];
-                [numberString drawInRect:rect withFont:[UIFont boldSystemFontOfSize:11.0f] lineBreakMode:NSLineBreakByWordWrapping
-                               alignment:NSTextAlignmentLeft];
+                [self drawNumbersInRect:rect withNumberString:numberString];
             }
         }
     }
+}
+
+- (void)drawNumbersInRect:(CGRect)rect withNumberString:(NSString *)numberString
+{
+    CGContextRef context = UIGraphicsGetCurrentContext();
+    CGContextStrokeRect(context, rect);
+    CGContextSetFillColorWithColor(context, [[UIColor whiteColor] CGColor]);
+    [numberString drawInRect:rect withFont:[UIFont boldSystemFontOfSize:11.0f] lineBreakMode:NSLineBreakByWordWrapping
+                   alignment:NSTextAlignmentLeft];
 }
 
 - (CGFloat)cellWidth:(CGRect)rect scale:(CGFloat)scale

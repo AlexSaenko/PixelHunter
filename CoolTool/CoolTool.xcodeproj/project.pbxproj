@@ -34,8 +34,6 @@
 		CE7E405617E9FCE30083F861 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = CE7E404B17E9FCE30083F861 /* main.m */; };
 		CE7E405717E9FCE30083F861 /* SUAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = CE7E404D17E9FCE30083F861 /* SUAppDelegate.m */; };
 		CE7E406217EA031F0083F861 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = CE7E406417EA031F0083F861 /* Localizable.strings */; };
-		CE9EB67117F1D49200D36860 /* SUZoomController.m in Sources */ = {isa = PBXBuildFile; fileRef = CE9EB67017F1D49200D36860 /* SUZoomController.m */; };
-		CECE538117F450A600BDEF4B /* SUMotionController.m in Sources */ = {isa = PBXBuildFile; fileRef = CECE538017F450A600BDEF4B /* SUMotionController.m */; };
 		CECE538417F460CB00BDEF4B /* SUGridRulerView.m in Sources */ = {isa = PBXBuildFile; fileRef = CECE538317F460CB00BDEF4B /* SUGridRulerView.m */; };
 /* End PBXBuildFile section */
 
@@ -91,10 +89,6 @@
 		CE7E404C17E9FCE30083F861 /* SUAppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SUAppDelegate.h; sourceTree = "<group>"; };
 		CE7E404D17E9FCE30083F861 /* SUAppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SUAppDelegate.m; sourceTree = "<group>"; };
 		CE7E406317EA031F0083F861 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
-		CE9EB66F17F1D49200D36860 /* SUZoomController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SUZoomController.h; sourceTree = "<group>"; };
-		CE9EB67017F1D49200D36860 /* SUZoomController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SUZoomController.m; sourceTree = "<group>"; };
-		CECE537F17F450A500BDEF4B /* SUMotionController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SUMotionController.h; sourceTree = "<group>"; };
-		CECE538017F450A600BDEF4B /* SUMotionController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SUMotionController.m; sourceTree = "<group>"; };
 		CECE538217F460CA00BDEF4B /* SUGridRulerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SUGridRulerView.h; sourceTree = "<group>"; };
 		CECE538317F460CB00BDEF4B /* SUGridRulerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SUGridRulerView.m; sourceTree = "<group>"; };
 		CECE538517F57AFF00BDEF4B /* SUConstants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SUConstants.h; sourceTree = "<group>"; };
@@ -140,10 +134,6 @@
 				CE18EDCF17EB10B2008000A8 /* SUGridViewController.h */,
 				CE18EDD017EB10B2008000A8 /* SUGridViewController.m */,
 				CE18EDD117EB10B2008000A8 /* Views */,
-				CE9EB66F17F1D49200D36860 /* SUZoomController.h */,
-				CE9EB67017F1D49200D36860 /* SUZoomController.m */,
-				CECE537F17F450A500BDEF4B /* SUMotionController.h */,
-				CECE538017F450A600BDEF4B /* SUMotionController.m */,
 			);
 			path = GridViewController;
 			sourceTree = "<group>";
@@ -413,9 +403,7 @@
 				CE18EDD817EB10B2008000A8 /* SUGridView.m in Sources */,
 				CE18EDDB17EB1151008000A8 /* SUCoolTool.m in Sources */,
 				CE2DB85717EC673200196E3D /* SUToolbarView.m in Sources */,
-				CE9EB67117F1D49200D36860 /* SUZoomController.m in Sources */,
 				CE20C4DB17F2ED5D0065A295 /* SUGridRootView.m in Sources */,
-				CECE538117F450A600BDEF4B /* SUMotionController.m in Sources */,
 				CECE538417F460CB00BDEF4B /* SUGridRulerView.m in Sources */,
 				CE54445917F96948005B00AF /* SUDrawUtil.m in Sources */,
 			);

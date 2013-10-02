@@ -9,7 +9,6 @@
 #import "SUCoolTool.h"
 #import "SUGridViewController.h"
 #import "SUScreenshotUtil.h"
-#import "SUGridRootView.h"
 
 static BOOL L0AccelerationIsShaking(UIAcceleration *last, UIAcceleration *current, double threshold) {
 	double
@@ -158,7 +157,7 @@ static id __sharedInstance;
 - (void)orientationChanged:(NSNotification *)notification
 {
     [self.debugWindow.rootViewController.view setNeedsLayout];
-    [((SUGridViewController *)self.debugWindow.rootViewController).gridRootView layoutGridViewDependingOnOrientation];
+    [((SUGridViewController *)self.debugWindow.rootViewController).gridRootView layoutViewsDependingOnOrientation];
 }
 
 - (void)tapOnCloseButton

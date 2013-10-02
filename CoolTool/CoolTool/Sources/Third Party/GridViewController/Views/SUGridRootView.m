@@ -7,16 +7,10 @@
 //
 
 #import "SUGridRootView.h"
-#import "SUMotionController.h"
 #import "SUConstants.h"
+
 static const CGFloat kSUToolBarHeight = 44.0f;
 static const CGFloat kSUToolBarWidth = 320.0f;
-
-@interface SUGridRootView ()
-
-@property (nonatomic, strong) SUMotionController *motionController;
-
-@end
 
 @implementation SUGridRootView
 
@@ -38,17 +32,17 @@ static const CGFloat kSUToolBarWidth = 320.0f;
         
         // Init tapGesture
         [self.gridUnderLayerView.gridView.tapGesture addTarget:self action:@selector(viewTapped)];
-                
-        // Init rulers
-        self.topRuler = [[SUGridRulerView alloc] initWithFrame:CGRectMake(0.0f, 0.0f, rect.size.width, kSURulerSize) horizontal:YES];
-        [self addSubview:self.topRuler];
         
-        self.sideRuler = [[SUGridRulerView alloc] initWithFrame:CGRectMake(0.0f, 0.0f, kSURulerSize, rect.size.height) horizontal:NO];
+        // Init rulers
+        self.topRuler = [[SUGridRulerView alloc] initWithFrame:CGRectZero horizontal:YES];
+        self.sideRuler = [[SUGridRulerView alloc] initWithFrame:CGRectZero horizontal:NO];
+        [self addSubview:self.topRuler];
         [self addSubview:self.sideRuler];
         
         // Layout
-        [self layoutGridViewDependingOnOrientation];
+        [self layoutViewsDependingOnOrientation];
 	}
+    
 	return self;
 }
 
@@ -79,16 +73,20 @@ static const CGFloat kSUToolBarWidth = 320.0f;
     }
 }
 
-- (void)layoutGridViewDependingOnOrientation
+- (void)layoutViewsDependingOnOrientation
 {
     CGSize sz = [[UIScreen mainScreen] bounds].size;
     
-    if (UIInterfaceOrientationIsLandscape([UIDevice currentDevice].orientation)) {
+    if (UIInterfaceOrientationIsLandscape([UIApplication sharedApplication].statusBarOrientation)) {
         self.gridUnderLayerView.frame = CGRectMake(0.0f, 0.0f, sz.height, sz.width - kSUStatusBarHeight);
+        self.topRuler.frame = CGRectMake(0.0f, 0.0f, sz.height, kSURulerSize);
+        self.sideRuler.frame = CGRectMake(0.0f, 0.0f, kSURulerSize, sz.width);
     } else {
         self.gridUnderLayerView.frame = CGRectMake(0.0f, 0.0f, sz.width, sz.height - kSUStatusBarHeight);
-    }
-    
+        self.topRuler.frame = CGRectMake(0.0f, 0.0f, sz.width, kSURulerSize);
+        self.sideRuler.frame = CGRectMake(0.0f, 0.0f, kSURulerSize, sz.height);
+    }    
 }
+
 
 @end

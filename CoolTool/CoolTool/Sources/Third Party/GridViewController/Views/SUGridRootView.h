@@ -10,7 +10,6 @@
 #import "SUGridUnderLayerView.h"
 #import "SUToolbarView.h"
 #import "SUGridRulerView.h"
-#import "SUZoomController.h"
 
 @interface SUGridRootView : UIView
 
@@ -18,9 +17,8 @@
 @property (nonatomic, strong) SUToolbarView *toolbar;
 @property (nonatomic, strong) SUGridRulerView *topRuler;
 @property (nonatomic, strong) SUGridRulerView *sideRuler;
-@property (nonatomic, strong) SUZoomController *zoomController;
 
 - (id)initWithFrame:(CGRect)rect withScreenshotImage:(UIImage *)screenshotImage;
-- (void)layoutGridViewDependingOnOrientation;
+- (void)layoutViewsDependingOnOrientation;
 
 @end

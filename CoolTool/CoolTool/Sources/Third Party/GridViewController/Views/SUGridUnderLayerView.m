@@ -7,9 +7,10 @@
 //
 
 #import "SUGridUnderLayerView.h"
-#import "SUConstants.h"
 
 @interface SUGridUnderLayerView ()
+
+@property (nonatomic, strong) UIImageView *screenshotImageView;
 
 @end
 
