@@ -10,6 +10,7 @@
 #import <QuartzCore/QuartzCore.h>
 #import "SUConstants.h"
 #import "SUDrawUtil.h"
+#import "SUGridViewController.h"
 
 @implementation SUGridView
 
@@ -18,11 +19,8 @@
     self = [super initWithFrame:frame];
     if (self) {
         self.backgroundColor = [UIColor clearColor];
-        self.userInteractionEnabled = YES;
-        
-        // Init tapGesture
-        self.tapGesture = [[UITapGestureRecognizer alloc] init];
-        [self addGestureRecognizer:self.tapGesture];
+        self.userInteractionEnabled = NO;
+        self.hidden = YES;
     }
     
     return self;
@@ -31,7 +29,7 @@
 - (void)drawRect:(CGRect)rect
 {
     [super drawRect:rect];
-    [self drawGridLinesWithCellSize:kSUStepSize andLineColor:[UIColor blackColor]];
+    [self drawGridLinesWithCellSize:kSUStepSize andLineColor:[UIColor colorWithWhite:0.5f alpha:0.5f]];
 }
 
 - (void)drawGridLinesWithCellSize:(CGFloat)cellSize andLineColor:(UIColor *)lineColor

@@ -17,6 +17,7 @@
 @property (nonatomic, strong) SUToolbarView *toolbar;
 @property (nonatomic, strong) SUGridRulerView *topRuler;
 @property (nonatomic, strong) SUGridRulerView *sideRuler;
+@property (nonatomic, strong) UITapGestureRecognizer *tapGesture;
 
 - (id)initWithFrame:(CGRect)rect withScreenshotImage:(UIImage *)screenshotImage;
 - (void)layoutViewsDependingOnOrientation;

@@ -10,6 +10,4 @@
 
 @interface SUGridView : UIView
 
-@property (nonatomic, strong) UITapGestureRecognizer *tapGesture;
-
 @end

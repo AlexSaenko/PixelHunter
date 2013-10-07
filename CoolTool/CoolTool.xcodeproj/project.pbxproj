@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		CE103A1C180308BD00873BFB /* imageeee.png in Resources */ = {isa = PBXBuildFile; fileRef = CE103A1B180308BD00873BFB /* imageeee.png */; };
 		CE18EDCC17EAEE2C008000A8 /* SUScreenshotUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = CE18EDCB17EAEE2C008000A8 /* SUScreenshotUtil.m */; };
 		CE18EDD617EB10B2008000A8 /* SUGridViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CE18EDD017EB10B2008000A8 /* SUGridViewController.m */; };
 		CE18EDD717EB10B2008000A8 /* SUGridUnderLayerView.m in Sources */ = {isa = PBXBuildFile; fileRef = CE18EDD317EB10B2008000A8 /* SUGridUnderLayerView.m */; };
@@ -14,7 +15,6 @@
 		CE18EDDB17EB1151008000A8 /* SUCoolTool.m in Sources */ = {isa = PBXBuildFile; fileRef = CE18EDDA17EB1151008000A8 /* SUCoolTool.m */; };
 		CE20C4DB17F2ED5D0065A295 /* SUGridRootView.m in Sources */ = {isa = PBXBuildFile; fileRef = CE20C4DA17F2ED5D0065A295 /* SUGridRootView.m */; };
 		CE2DB85717EC673200196E3D /* SUToolbarView.m in Sources */ = {isa = PBXBuildFile; fileRef = CE2DB85617EC673200196E3D /* SUToolbarView.m */; };
-		CE4C2AF417F0613100275FFB /* iOS123.png in Resources */ = {isa = PBXBuildFile; fileRef = CE4C2AF317F0613100275FFB /* iOS123.png */; };
 		CE54445917F96948005B00AF /* SUDrawUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = CE54445817F96948005B00AF /* SUDrawUtil.m */; };
 		CE7E3FF417E9F8410083F861 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE7E3FF317E9F8410083F861 /* UIKit.framework */; };
 		CE7E3FF617E9F8410083F861 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE7E3FF517E9F8410083F861 /* Foundation.framework */; };
@@ -34,6 +34,10 @@
 		CE7E405617E9FCE30083F861 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = CE7E404B17E9FCE30083F861 /* main.m */; };
 		CE7E405717E9FCE30083F861 /* SUAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = CE7E404D17E9FCE30083F861 /* SUAppDelegate.m */; };
 		CE7E406217EA031F0083F861 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = CE7E406417EA031F0083F861 /* Localizable.strings */; };
+		CE8DDD1E17FD7FF900E75728 /* SUCompositeButton.m in Sources */ = {isa = PBXBuildFile; fileRef = CE8DDD1D17FD7FF800E75728 /* SUCompositeButton.m */; };
+		CE8DDD2117FD8E9E00E75728 /* off.jpg in Resources */ = {isa = PBXBuildFile; fileRef = CE8DDD1F17FD8E9E00E75728 /* off.jpg */; };
+		CE8DDD2217FD8E9E00E75728 /* ON.jpg in Resources */ = {isa = PBXBuildFile; fileRef = CE8DDD2017FD8E9E00E75728 /* ON.jpg */; };
+		CE8DDD2317FD9BD800E75728 /* SUCompositeButton.m in Sources */ = {isa = PBXBuildFile; fileRef = CE8DDD1D17FD7FF800E75728 /* SUCompositeButton.m */; };
 		CECE538417F460CB00BDEF4B /* SUGridRulerView.m in Sources */ = {isa = PBXBuildFile; fileRef = CECE538317F460CB00BDEF4B /* SUGridRulerView.m */; };
 /* End PBXBuildFile section */
 
@@ -48,6 +52,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		CE103A1B180308BD00873BFB /* imageeee.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = imageeee.png; sourceTree = "<group>"; };
 		CE18EDCA17EAEE2C008000A8 /* SUScreenshotUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SUScreenshotUtil.h; sourceTree = "<group>"; };
 		CE18EDCB17EAEE2C008000A8 /* SUScreenshotUtil.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SUScreenshotUtil.m; sourceTree = "<group>"; };
 		CE18EDCF17EB10B2008000A8 /* SUGridViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SUGridViewController.h; sourceTree = "<group>"; };
@@ -62,7 +67,6 @@
 		CE20C4DA17F2ED5D0065A295 /* SUGridRootView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SUGridRootView.m; sourceTree = "<group>"; };
 		CE2DB85517EC673200196E3D /* SUToolbarView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SUToolbarView.h; sourceTree = "<group>"; };
 		CE2DB85617EC673200196E3D /* SUToolbarView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SUToolbarView.m; sourceTree = "<group>"; };
-		CE4C2AF317F0613100275FFB /* iOS123.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = iOS123.png; sourceTree = "<group>"; };
 		CE54445717F96948005B00AF /* SUDrawUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SUDrawUtil.h; sourceTree = "<group>"; };
 		CE54445817F96948005B00AF /* SUDrawUtil.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SUDrawUtil.m; sourceTree = "<group>"; };
 		CE7E3FF017E9F8410083F861 /* CoolTool.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CoolTool.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -89,6 +93,10 @@
 		CE7E404C17E9FCE30083F861 /* SUAppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SUAppDelegate.h; sourceTree = "<group>"; };
 		CE7E404D17E9FCE30083F861 /* SUAppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SUAppDelegate.m; sourceTree = "<group>"; };
 		CE7E406317EA031F0083F861 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
+		CE8DDD1C17FD7FF800E75728 /* SUCompositeButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SUCompositeButton.h; sourceTree = "<group>"; };
+		CE8DDD1D17FD7FF800E75728 /* SUCompositeButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SUCompositeButton.m; sourceTree = "<group>"; };
+		CE8DDD1F17FD8E9E00E75728 /* off.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = off.jpg; sourceTree = "<group>"; };
+		CE8DDD2017FD8E9E00E75728 /* ON.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = ON.jpg; sourceTree = "<group>"; };
 		CECE538217F460CA00BDEF4B /* SUGridRulerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SUGridRulerView.h; sourceTree = "<group>"; };
 		CECE538317F460CB00BDEF4B /* SUGridRulerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SUGridRulerView.m; sourceTree = "<group>"; };
 		CECE538517F57AFF00BDEF4B /* SUConstants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SUConstants.h; sourceTree = "<group>"; };
@@ -141,6 +149,8 @@
 		CE18EDD117EB10B2008000A8 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				CE8DDD1C17FD7FF800E75728 /* SUCompositeButton.h */,
+				CE8DDD1D17FD7FF800E75728 /* SUCompositeButton.m */,
 				CE18EDD217EB10B2008000A8 /* SUGridUnderLayerView.h */,
 				CE18EDD317EB10B2008000A8 /* SUGridUnderLayerView.m */,
 				CE18EDD417EB10B2008000A8 /* SUGridView.h */,
@@ -256,7 +266,9 @@
 		CE7E403F17E9FCE30083F861 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				CE4C2AF317F0613100275FFB /* iOS123.png */,
+				CE103A1B180308BD00873BFB /* imageeee.png */,
+				CE8DDD1F17FD8E9E00E75728 /* off.jpg */,
+				CE8DDD2017FD8E9E00E75728 /* ON.jpg */,
 				CE7E404017E9FCE30083F861 /* CoolTool-Info.plist */,
 				CE7E404117E9FCE30083F861 /* CoolTool-Prefix.pch */,
 				CE7E404217E9FCE30083F861 /* Default-568h@2x.png */,
@@ -355,11 +367,13 @@
 				CE7E405017E9FCE30083F861 /* Default-568h@2x.png in Resources */,
 				CE7E405117E9FCE30083F861 /* Default.png in Resources */,
 				CE7E405217E9FCE30083F861 /* Default@2x.png in Resources */,
+				CE103A1C180308BD00873BFB /* imageeee.png in Resources */,
 				CE7E405317E9FCE30083F861 /* InfoPlist.strings in Resources */,
 				CE7E405417E9FCE30083F861 /* MainStoryboard_iPad.storyboard in Resources */,
 				CE7E405517E9FCE30083F861 /* MainStoryboard_iPhone.storyboard in Resources */,
 				CE7E406217EA031F0083F861 /* Localizable.strings in Resources */,
-				CE4C2AF417F0613100275FFB /* iOS123.png in Resources */,
+				CE8DDD2117FD8E9E00E75728 /* off.jpg in Resources */,
+				CE8DDD2217FD8E9E00E75728 /* ON.jpg in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -394,6 +408,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CE8DDD2317FD9BD800E75728 /* SUCompositeButton.m in Sources */,
 				CE7E404E17E9FCE30083F861 /* SUViewController.m in Sources */,
 				CE7E405617E9FCE30083F861 /* main.m in Sources */,
 				CE7E405717E9FCE30083F861 /* SUAppDelegate.m in Sources */,
@@ -414,6 +429,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				CE7E402817E9F8420083F861 /* CoolToolTests.m in Sources */,
+				CE8DDD1E17FD7FF900E75728 /* SUCompositeButton.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

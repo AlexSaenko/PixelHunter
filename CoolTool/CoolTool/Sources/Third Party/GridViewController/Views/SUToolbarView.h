@@ -7,9 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "SUCompositeButton.h"
 
 @interface SUToolbarView : UIView
 
 @property (nonatomic, strong) UIButton *closeButton;
+@property (nonatomic, strong) SUCompositeButton *gridDisplayButton;
 
 @end

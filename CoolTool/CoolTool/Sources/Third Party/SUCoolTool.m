@@ -96,7 +96,7 @@ static id __sharedInstance;
 	self.lastAcceleration = acceleration;
 }
 
--(void)showAlert
+- (void)showAlert
 
 {
     UIAlertView *alertView = [[UIAlertView alloc]

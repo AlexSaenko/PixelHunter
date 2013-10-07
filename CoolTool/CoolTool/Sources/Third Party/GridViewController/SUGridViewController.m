@@ -10,7 +10,7 @@
 #import "SUCoolTool.h"
 #import "SUConstants.h"
 
-@interface SUGridViewController () <SUGridViewControllerDelegate>
+@interface SUGridViewController () <SUGridViewControllerDelegate, UIScrollViewDelegate>
 
 @property (nonatomic, strong) UIImage *screenshotImage;
 
@@ -41,13 +41,15 @@
 
 - (void)viewDidLoad
 {
-    [super viewDidLoad];    
+    [super viewDidLoad];
+    
     [self.gridRootView.toolbar.closeButton addTarget:self
                                               action:@selector(tapOnCloseButton)
                                     forControlEvents:UIControlEventTouchUpInside];
     
     self.gridRootView.gridUnderLayerView.scrollView.delegate = self;
     self.gridRootView.gridUnderLayerView.scrollView.contentSize = self.gridRootView.gridUnderLayerView.containerView.frame.size;
+    
 }
 
 - (void)viewWillAppear:(BOOL)animated
@@ -72,7 +74,7 @@
 - (void)scrollViewDidZoom:(UIScrollView *)scrollView
 {
     self.gridRootView.gridUnderLayerView.containerView.frame = [self centeredFrameForScrollView:scrollView andView:self.gridRootView.gridUnderLayerView.containerView];
-    [self.gridRootView setNeedsLayout];
+//    [self.gridRootView setNeedsLayout];
     
     [self changeRulerPositions];
 }
@@ -109,11 +111,16 @@
                                                    kSURulerSize, self.gridRootView.gridUnderLayerView.scrollView.contentSize.height);
 }
 
-#pragma mark - Other stuff
+#pragma mark - Delegate
+
 - (void)tapOnCloseButton
 {
     [self.delegate tapOnCloseButton];
 }
 
+- (BOOL)prefersStatusBarHidden
+{
+    return YES;
+}
 
 @end

@@ -57,7 +57,7 @@ static const CGFloat kSUFontSize = 11.0f;
 {
     CGContextRef context = UIGraphicsGetCurrentContext();
     CGContextStrokeRect(context, rect);
-    CGContextSetFillColorWithColor(context, [[UIColor whiteColor] CGColor]);
+    CGContextSetFillColorWithColor(context, [[UIColor blackColor] CGColor]);
     [numberString drawInRect:rect withFont:[UIFont boldSystemFontOfSize:11.0f] lineBreakMode:NSLineBreakByWordWrapping
                    alignment:NSTextAlignmentLeft];
 }

@@ -25,19 +25,22 @@ static const CGFloat kSUToolBarWidth = 320.0f;
         self.gridUnderLayerView.contentMode = UIViewContentModeScaleAspectFit;
         [self addSubview:self.gridUnderLayerView];
         
-        // Init toolbar
-        self.toolbar = [[SUToolbarView alloc] init];
-        self.toolbar.hidden = YES;
-        [self addSubview:self.toolbar];
-        
         // Init tapGesture
-        [self.gridUnderLayerView.gridView.tapGesture addTarget:self action:@selector(viewTapped)];
+        self.tapGesture = [[UITapGestureRecognizer alloc] init];
+        [self addGestureRecognizer:self.tapGesture];
+        [self.tapGesture addTarget:self action:@selector(viewTapped)];
         
         // Init rulers
         self.topRuler = [[SUGridRulerView alloc] initWithFrame:CGRectZero horizontal:YES];
         self.sideRuler = [[SUGridRulerView alloc] initWithFrame:CGRectZero horizontal:NO];
         [self addSubview:self.topRuler];
         [self addSubview:self.sideRuler];
+        
+        // Init toolbar
+        self.toolbar = [[SUToolbarView alloc] init];
+        self.toolbar.hidden = YES;
+        [self.toolbar.gridDisplayButton addTarget:self action:@selector(tapOnGridDisplayButton)];
+        [self addSubview:self.toolbar];
         
         // Layout
         [self layoutViewsDependingOnOrientation];
@@ -50,14 +53,6 @@ static const CGFloat kSUToolBarWidth = 320.0f;
 {
     [super layoutSubviews];
         
-    CGSize sz = [super bounds].size;
-        
-    CGSize toolbarSize = CGSizeMake(kSUToolBarWidth, kSUToolBarHeight);
-    
-    self.toolbar.frame = CGRectMake(sz.width / 2 - toolbarSize.width / 2,
-                                    sz.height - toolbarSize.height,
-                                    toolbarSize.width, toolbarSize.height);
-    
     self.topRuler.scale = self.gridUnderLayerView.scrollView.zoomScale;
     self.sideRuler.scale = self.gridUnderLayerView.scrollView.zoomScale;
     [self.topRuler setNeedsDisplay];
@@ -65,18 +60,9 @@ static const CGFloat kSUToolBarWidth = 320.0f;
     
     CGSize layoutSize = [[UIScreen mainScreen] bounds].size;
     if (UIInterfaceOrientationIsLandscape([UIApplication sharedApplication].statusBarOrientation)) {
-        self.gridUnderLayerView.frame = CGRectMake(0.0f, 0.0f, layoutSize.height, layoutSize.width - kSUStatusBarHeight);
+        self.gridUnderLayerView.frame = CGRectMake(0.0f, 0.0f, layoutSize.height, layoutSize.width);
     } else {
-        self.gridUnderLayerView.frame = CGRectMake(0.0f, 0.0f, layoutSize.width, layoutSize.height - kSUStatusBarHeight);
-    }
-}
-
-- (void)viewTapped
-{
-    if (self.toolbar.isHidden) {
-        self.toolbar.hidden = NO;
-    } else {
-        self.toolbar.hidden = YES;
+        self.gridUnderLayerView.frame = CGRectMake(0.0f, 0.0f, layoutSize.width, layoutSize.height);
     }
 }
 
@@ -84,15 +70,57 @@ static const CGFloat kSUToolBarWidth = 320.0f;
 {
     CGSize sz = [[UIScreen mainScreen] bounds].size;
     
+    CGSize toolbarSize = CGSizeMake(kSUToolBarWidth, kSUToolBarHeight);
+    
+    self.toolbar.frame = CGRectMake(sz.width / 2 - toolbarSize.width / 2,
+                                    sz.height - toolbarSize.height + kSUToolBarHeight,
+                                    toolbarSize.width, toolbarSize.height);
+    
     if (UIInterfaceOrientationIsLandscape([UIApplication sharedApplication].statusBarOrientation)) {
         self.topRuler.frame = CGRectMake(0.0f, 0.0f, sz.height, kSURulerSize);
         self.sideRuler.frame = CGRectMake(0.0f, 0.0f, kSURulerSize, sz.width);
     } else {
         self.topRuler.frame = CGRectMake(0.0f, 0.0f, sz.width, kSURulerSize);
         self.sideRuler.frame = CGRectMake(0.0f, 0.0f, kSURulerSize, sz.height);
-    }    
+    }
 }
 
+- (void)viewTapped
+{
+    CGSize sz = [super bounds].size;
+    
+    CGSize toolbarSize = CGSizeMake(kSUToolBarWidth, kSUToolBarHeight);
+    
+    if (self.toolbar.isHidden) {
+        self.toolbar.hidden = NO;
+        [UIView animateWithDuration:0.1f animations:^{
+            self.toolbar.frame = CGRectMake(sz.width / 2 - toolbarSize.width / 2,
+                                            sz.height - toolbarSize.height,
+                                            toolbarSize.width, toolbarSize.height);
+        }];
+    } else {
+        [UIView animateWithDuration:0.1f animations:^{
+            self.toolbar.frame = CGRectMake(sz.width / 2 - toolbarSize.width / 2,
+                                            sz.height - toolbarSize.height + kSUToolBarHeight,
+                                            toolbarSize.width, toolbarSize.height);
+        } completion:^(BOOL finished) {
+            self.toolbar.hidden = YES;
+        }];
+        
+    }
+}
 
+- (void)tapOnGridDisplayButton
+{
+    BOOL pressed = (self.toolbar.gridDisplayButton.state == SUCompositeButtonStateNormal) ? YES : NO;
+    
+    self.toolbar.gridDisplayButton.state = (pressed)? SUCompositeButtonStateActivated : SUCompositeButtonStateNormal;
+    
+    if (self.toolbar.gridDisplayButton.state == SUCompositeButtonStateNormal) {
+        self.gridUnderLayerView.gridView.hidden = YES;
+    } else {
+        self.gridUnderLayerView.gridView.hidden = NO;
+    }
+}
 
 @end
