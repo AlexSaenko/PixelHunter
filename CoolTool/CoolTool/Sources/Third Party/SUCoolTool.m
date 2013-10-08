@@ -22,7 +22,7 @@ static BOOL L0AccelerationIsShaking(UIAcceleration *last, UIAcceleration *curren
     (deltaY > threshold && deltaZ > threshold);
 }
 
-@interface SUCoolTool () <UIAccelerometerDelegate, SUGridViewControllerDelegate>
+@interface SUCoolTool () <UIAccelerometerDelegate, UINavigationControllerDelegate, UIImagePickerControllerDelegate, SUGridViewControllerDelegate>
 {
     BOOL histeresisExcited;
 }
@@ -31,7 +31,7 @@ static BOOL L0AccelerationIsShaking(UIAcceleration *last, UIAcceleration *curren
 @property (nonatomic, weak) UIAlertView *alertView;
 @property (nonatomic, strong) UIWindow *debugWindow;
 @property (nonatomic, strong) UIWindow *parentWindow;
-
+@property (nonatomic, strong) UIImagePickerController *imagePicker;
 
 @end
 
@@ -105,7 +105,7 @@ static id __sharedInstance;
                               delegate:self
                               cancelButtonTitle:NSLocalizedString(@"CANCEL", @"Cancel")
                               otherButtonTitles:NSLocalizedString(@"GRID", @"Grid"),
-                              NSLocalizedString(@"RULER", @"Ruler"),
+                              NSLocalizedString(@"GALLERY", @"Gallery"),
                               nil];
     
     
@@ -123,29 +123,41 @@ static id __sharedInstance;
             
         case 1: {
             // Create grid
-            [self createWindowForDebug];
+            [self createWindowForDebugWithImage:[SUScreenshotUtil convertViewToImage:
+                                                 [[[[[UIApplication sharedApplication] windows] objectAtIndex:0] rootViewController] view]]];
         }
+            break;
             
+            // Show Image Picker
         case 2: {
-            // Create ruler
+            [alertView dismissWithClickedButtonIndex:2 animated:NO];
+            [self showImagePicker];
         }
+            break;
             
         default:
             break;
     }
 }
 
-- (void)createWindowForDebug
+- (void)createWindowForDebugWithImage:(UIImage *)image
 {
     self.parentWindow = [[[UIApplication sharedApplication] windows] objectAtIndex:0];
     self.debugWindow = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
-    SUGridViewController *viewController = [[SUGridViewController alloc] initWithScreenshotImage: [SUScreenshotUtil convertViewToImage:self.parentWindow.rootViewController.view]];
+    SUGridViewController *viewController = [[SUGridViewController alloc] initWithScreenshotImage:image];
     viewController.delegate = self;
     self.debugWindow.rootViewController = viewController;
     self.parentWindow.hidden = YES;
     [self.debugWindow makeKeyAndVisible];
 }
 
+- (void)showImagePicker
+{
+    self.imagePicker = [[UIImagePickerController alloc] init];
+    self.imagePicker.delegate = self;
+    self.imagePicker.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
+    [[[[UIApplication sharedApplication] keyWindow] rootViewController] presentViewController:self.imagePicker animated:YES completion:nil];
+}
 
 - (void)removeWindowForDebug
 {
@@ -159,6 +171,14 @@ static id __sharedInstance;
     [self.debugWindow.rootViewController.view setNeedsLayout];
     [((SUGridViewController *)self.debugWindow.rootViewController).gridRootView layoutViewsDependingOnOrientation];
 }
+
+#pragma mark - UIImagePickerControllerDelegate
+
+- (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingImage:(UIImage *)image editingInfo:(NSDictionary *)editingInfo
+{
+    [self createWindowForDebugWithImage:image];
+}
+
 
 - (void)tapOnCloseButton
 {
