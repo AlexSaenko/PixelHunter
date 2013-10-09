@@ -21,6 +21,7 @@
 @property (nonatomic, strong) SUSmallGridView *smallGridView;
 @property (nonatomic, strong) UITapGestureRecognizer *tapGesture;
 
+
 - (id)initWithFrame:(CGRect)rect withScreenshotImage:(UIImage *)screenshotImage;
 - (void)layoutViewsDependingOnOrientation;
 

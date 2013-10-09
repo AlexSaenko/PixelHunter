@@ -19,6 +19,19 @@
                                                                    imageNamePressed:nil
                                                                  imageNameActivated:@"ON.jpg"];
         [self addSubview:self.gridDisplayButton];
+        
+        self.showPickerButton = [[SUCompositeButton alloc] initWithImageNameNormal:@"gallery.png"
+                                                                   imageNamePressed:nil
+                                                                 imageNameActivated:@"gallery.png"];
+        [self addSubview:self.showPickerButton];
+        
+        
+        self.slider = [[UISlider alloc] init];
+        self.slider.maximumValue = 1.0f;
+        self.slider.minimumValue = 0.1f;
+        self.slider.value = kSUStartAlpha;
+        self.slider.enabled = NO;
+        [self addSubview:self.slider];
     }
     
     return self;
@@ -29,6 +42,8 @@
     [super layoutSubviews];
     
     self.gridDisplayButton.frame = CGRectMake(kSUCloseButtonWidth + 20.0f, 0.0f, kSUCloseButtonWidth, kSUCloseButtonHeight);
+    self.showPickerButton.frame = CGRectMake((kSUCloseButtonWidth + 20.0f) * 2, 0.0f, kSUCloseButtonWidth, kSUCloseButtonHeight);
+    self.slider.frame = CGRectMake(kSUCloseButtonWidth / 2, kSUCloseButtonHeight, kSUToolBarWidth - kSUCloseButtonWidth, kSUToolBarHeight / 2);
 }
 
 @end

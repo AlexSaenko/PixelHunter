@@ -9,12 +9,6 @@
 #import "SUCoolTool.h"
 #import "SUGridViewController.h"
 #import "SUScreenshotUtil.h"
-#import "SUCompareViewController.h"
-
-typedef enum DebuggerType {
-    kSUGridType,
-    kSUMockupType
-} DebuggerType;
 
 static BOOL L0AccelerationIsShaking(UIAcceleration *last, UIAcceleration *current, double threshold) {
 	double
@@ -28,7 +22,7 @@ static BOOL L0AccelerationIsShaking(UIAcceleration *last, UIAcceleration *curren
     (deltaY > threshold && deltaZ > threshold);
 }
 
-@interface SUCoolTool () <UIAccelerometerDelegate, UINavigationControllerDelegate, UIImagePickerControllerDelegate, SUGridViewControllerDelegate, SUCompareViewControllerDelegate>
+@interface SUCoolTool () <UIAccelerometerDelegate, SUGridViewControllerDelegate>
 {
     BOOL histeresisExcited;
 }
@@ -37,7 +31,6 @@ static BOOL L0AccelerationIsShaking(UIAcceleration *last, UIAcceleration *curren
 @property (nonatomic, weak) UIAlertView *alertView;
 @property (nonatomic, strong) UIWindow *debugWindow;
 @property (nonatomic, strong) UIWindow *parentWindow;
-@property (nonatomic, strong) UIImagePickerController *imagePicker;
 
 @end
 
@@ -91,7 +84,7 @@ static id __sharedInstance;
     if (self.lastAcceleration) {
 		if (!histeresisExcited && L0AccelerationIsShaking(self.lastAcceleration, acceleration, 0.7)) {
 			histeresisExcited = YES;
-            if (self.alertView == nil && self.debugWindow == nil && self.imagePicker == nil) {
+            if (self.alertView == nil && self.debugWindow == nil) {
                 [self showAlert];
             }
 		} else if (histeresisExcited && !L0AccelerationIsShaking(self.lastAcceleration, acceleration, 0.2)) {
@@ -111,7 +104,6 @@ static id __sharedInstance;
                               delegate:self
                               cancelButtonTitle:NSLocalizedString(@"CANCEL", @"Cancel")
                               otherButtonTitles:NSLocalizedString(@"GRID", @"Grid"),
-                              NSLocalizedString(@"GALLERY", @"Gallery"),
                               nil];
     
     
@@ -133,13 +125,7 @@ static id __sharedInstance;
                                                  [[[[[UIApplication sharedApplication] windows] objectAtIndex:0] rootViewController] view]]];
         }
             break;
-            
-            // Show Image Picker
-        case 2: {
-            [alertView dismissWithClickedButtonIndex:2 animated:NO];
-            [self showImagePicker];
-        }
-            break;
+
             
         default:
             break;
@@ -157,14 +143,6 @@ static id __sharedInstance;
     [self.debugWindow makeKeyAndVisible];
 }
 
-- (void)showImagePicker
-{
-    self.imagePicker = [[UIImagePickerController alloc] init];
-    self.imagePicker.delegate = self;
-    self.imagePicker.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
-    [[[[[UIApplication sharedApplication] windows] objectAtIndex:0] rootViewController] presentViewController:self.imagePicker animated:YES completion:nil];
-}
-
 - (void)removeWindowForDebug
 {
     self.parentWindow.hidden = NO;
@@ -176,22 +154,6 @@ static id __sharedInstance;
 {
     [self.debugWindow.rootViewController.view setNeedsLayout];
     [((SUGridViewController *)self.debugWindow.rootViewController).gridRootView layoutViewsDependingOnOrientation];
-}
-
-#pragma mark - UIImagePickerControllerDelegate
-
-- (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingImage:(UIImage *)image editingInfo:(NSDictionary *)editingInfo
-{
-    [self.imagePicker dismissViewControllerAnimated:YES completion:nil];
-    self.imagePicker = nil;
-    self.parentWindow = [[UIApplication sharedApplication] keyWindow];
-    self.debugWindow = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
-    SUCompareViewController *viewController = [[SUCompareViewController alloc] initWithScreenshotImage:[SUScreenshotUtil convertViewToImage:
-                                                                                                        [[[[[UIApplication sharedApplication] windows] objectAtIndex:0] rootViewController] view]] withMockupImage:image];
-    viewController.delegate = self;
-    self.debugWindow.rootViewController = viewController;
-    self.parentWindow.hidden = YES;
-    [self.debugWindow makeKeyAndVisible];
 }
 
 - (void)tapOnCloseButton

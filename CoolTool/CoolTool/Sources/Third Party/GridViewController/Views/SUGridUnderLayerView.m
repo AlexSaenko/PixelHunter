@@ -7,6 +7,7 @@
 //
 
 #import "SUGridUnderLayerView.h"
+#import "SUConstants.h"
 
 @interface SUGridUnderLayerView ()
 
@@ -37,6 +38,11 @@
         self.screenshotImageView.contentMode = UIViewContentModeScaleAspectFit;
         [self.containerView addSubview:self.screenshotImageView];
         
+        // Init mockup image view
+        self.mockupImageView = [[UIImageView alloc] init];
+        self.mockupImageView.alpha = kSUStartAlpha;
+        [self.containerView addSubview:self.mockupImageView];
+        
         // Init grid view
         self.gridView = [[SUGridView alloc] init];
         self.gridView.contentMode = UIViewContentModeScaleAspectFit;
@@ -55,6 +61,7 @@
     self.containerView.frame = CGRectMake(0.0f, 0.0f, sz.width, sz.height);
     self.screenshotImageView.frame = CGRectMake(0.0f, 0.0f, sz.width, sz.height);
     self.gridView.frame = CGRectMake(0.0f, 0.0f, sz.width, sz.height);
+    self.mockupImageView.frame = CGRectMake(0.0f, 0.0f, sz.width, sz.height);
 }
 
 

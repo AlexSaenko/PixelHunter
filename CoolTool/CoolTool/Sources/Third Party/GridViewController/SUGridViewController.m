@@ -10,10 +10,10 @@
 #import "SUCoolTool.h"
 #import "SUConstants.h"
 
-@interface SUGridViewController () <SUGridViewControllerDelegate, UIScrollViewDelegate>
+@interface SUGridViewController () <SUGridViewControllerDelegate, UIScrollViewDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate>
 
 @property (nonatomic, strong) UIImage *screenshotImage;
-
+@property (nonatomic, strong) UIImagePickerController *imagePicker;
 @end
 
 @implementation SUGridViewController
@@ -46,6 +46,11 @@
     [self.gridRootView.toolbar.closeButton addTarget:self
                                               action:@selector(tapOnCloseButton)
                                     forControlEvents:UIControlEventTouchUpInside];
+    [self.gridRootView.toolbar.showPickerButton addTarget:self
+                                              action:@selector(showImagePicker)];
+    [self.gridRootView.toolbar.slider addTarget:self
+                                        action:@selector(changeMockupImageAlpha:)
+                              forControlEvents:UIControlEventValueChanged];
     
     self.gridRootView.gridUnderLayerView.scrollView.delegate = self;
     self.gridRootView.gridUnderLayerView.scrollView.contentSize = self.gridRootView.gridUnderLayerView.containerView.frame.size;
@@ -110,6 +115,29 @@
                                                   self.gridRootView.gridUnderLayerView.scrollView.contentSize.width , kSURulerSize);
     self.gridRootView.sideRuler.frame = CGRectMake(0.0f, -self.gridRootView.gridUnderLayerView.scrollView.contentOffset.y,
                                                    kSURulerSize, self.gridRootView.gridUnderLayerView.scrollView.contentSize.height);
+}
+
+- (void)changeMockupImageAlpha:(UISlider *)sender
+{
+    self.gridRootView.gridUnderLayerView.mockupImageView.alpha = sender.value;
+}
+
+- (void)showImagePicker
+{
+    self.imagePicker = [[UIImagePickerController alloc] init];
+    self.imagePicker.delegate = self;
+    self.imagePicker.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
+    [self presentViewController:self.imagePicker animated:YES completion:nil];
+}
+
+#pragma mark - UIImagePickerControllerDelegate
+
+- (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingImage:(UIImage *)image editingInfo:(NSDictionary *)editingInfo
+{
+    [self.gridRootView.gridUnderLayerView.scrollView setZoomScale:self.gridRootView.gridUnderLayerView.scrollView.minimumZoomScale];
+    [self.imagePicker dismissViewControllerAnimated:YES completion:nil];
+    self.gridRootView.gridUnderLayerView.mockupImageView.image = image;
+    self.gridRootView.toolbar.slider.enabled = YES;
 }
 
 #pragma mark - Delegate

@@ -12,9 +12,6 @@
 		CE18EDD717EB10B2008000A8 /* SUGridUnderLayerView.m in Sources */ = {isa = PBXBuildFile; fileRef = CE18EDD317EB10B2008000A8 /* SUGridUnderLayerView.m */; };
 		CE18EDD817EB10B2008000A8 /* SUGridView.m in Sources */ = {isa = PBXBuildFile; fileRef = CE18EDD517EB10B2008000A8 /* SUGridView.m */; };
 		CE20C4DB17F2ED5D0065A295 /* SUGridRootView.m in Sources */ = {isa = PBXBuildFile; fileRef = CE20C4DA17F2ED5D0065A295 /* SUGridRootView.m */; };
-		CE2CA6851804535100DF991D /* SUCompareViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CE2CA6841804535100DF991D /* SUCompareViewController.m */; };
-		CE2CA688180458A500DF991D /* SUCompareView.m in Sources */ = {isa = PBXBuildFile; fileRef = CE2CA687180458A500DF991D /* SUCompareView.m */; };
-		CE2CA68B18045B6900DF991D /* SUCompareToolbar.m in Sources */ = {isa = PBXBuildFile; fileRef = CE2CA68A18045B6900DF991D /* SUCompareToolbar.m */; };
 		CE2DB85717EC673200196E3D /* SUToolbarView.m in Sources */ = {isa = PBXBuildFile; fileRef = CE2DB85617EC673200196E3D /* SUToolbarView.m */; };
 		CE50BA6918055F5A0040D9F5 /* SUCoolTool.m in Sources */ = {isa = PBXBuildFile; fileRef = CE18EDDA17EB1151008000A8 /* SUCoolTool.m */; };
 		CE50BA6A18055F670040D9F5 /* SUGridViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CE18EDD017EB10B2008000A8 /* SUGridViewController.m */; };
@@ -22,6 +19,7 @@
 		CE61D1FF18056885008434A4 /* SUGridToolbar.m in Sources */ = {isa = PBXBuildFile; fileRef = CE61D1FE18056885008434A4 /* SUGridToolbar.m */; };
 		CE61D20218057F86008434A4 /* SUSmallGridView.m in Sources */ = {isa = PBXBuildFile; fileRef = CE61D20118057F86008434A4 /* SUSmallGridView.m */; };
 		CE61D2041805A8E9008434A4 /* iOS Simulator Screen shot Oct 9, 2013 6.08.02 PM.png in Resources */ = {isa = PBXBuildFile; fileRef = CE61D2031805A8E9008434A4 /* iOS Simulator Screen shot Oct 9, 2013 6.08.02 PM.png */; };
+		CE61D2061805C8A2008434A4 /* gallery.png in Resources */ = {isa = PBXBuildFile; fileRef = CE61D2051805C8A2008434A4 /* gallery.png */; };
 		CE7E3FF417E9F8410083F861 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE7E3FF317E9F8410083F861 /* UIKit.framework */; };
 		CE7E3FF617E9F8410083F861 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE7E3FF517E9F8410083F861 /* Foundation.framework */; };
 		CE7E3FF817E9F8410083F861 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE7E3FF717E9F8410083F861 /* CoreGraphics.framework */; };
@@ -71,12 +69,6 @@
 		CE18EDDA17EB1151008000A8 /* SUCoolTool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SUCoolTool.m; sourceTree = "<group>"; };
 		CE20C4D917F2ED5D0065A295 /* SUGridRootView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SUGridRootView.h; sourceTree = "<group>"; };
 		CE20C4DA17F2ED5D0065A295 /* SUGridRootView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SUGridRootView.m; sourceTree = "<group>"; };
-		CE2CA6831804535100DF991D /* SUCompareViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SUCompareViewController.h; sourceTree = "<group>"; };
-		CE2CA6841804535100DF991D /* SUCompareViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SUCompareViewController.m; sourceTree = "<group>"; };
-		CE2CA686180458A500DF991D /* SUCompareView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SUCompareView.h; sourceTree = "<group>"; };
-		CE2CA687180458A500DF991D /* SUCompareView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SUCompareView.m; sourceTree = "<group>"; };
-		CE2CA68918045B6900DF991D /* SUCompareToolbar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SUCompareToolbar.h; sourceTree = "<group>"; };
-		CE2CA68A18045B6900DF991D /* SUCompareToolbar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SUCompareToolbar.m; sourceTree = "<group>"; };
 		CE2DB85517EC673200196E3D /* SUToolbarView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SUToolbarView.h; path = GridViewController/Views/SUToolbarView.h; sourceTree = "<group>"; };
 		CE2DB85617EC673200196E3D /* SUToolbarView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SUToolbarView.m; path = GridViewController/Views/SUToolbarView.m; sourceTree = "<group>"; };
 		CE54445717F96948005B00AF /* SUDrawUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SUDrawUtil.h; sourceTree = "<group>"; };
@@ -86,6 +78,7 @@
 		CE61D20018057F86008434A4 /* SUSmallGridView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SUSmallGridView.h; sourceTree = "<group>"; };
 		CE61D20118057F86008434A4 /* SUSmallGridView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SUSmallGridView.m; sourceTree = "<group>"; };
 		CE61D2031805A8E9008434A4 /* iOS Simulator Screen shot Oct 9, 2013 6.08.02 PM.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "iOS Simulator Screen shot Oct 9, 2013 6.08.02 PM.png"; sourceTree = "<group>"; };
+		CE61D2051805C8A2008434A4 /* gallery.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = gallery.png; sourceTree = "<group>"; };
 		CE7E3FF017E9F8410083F861 /* CoolTool.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CoolTool.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CE7E3FF317E9F8410083F861 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		CE7E3FF517E9F8410083F861 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -146,7 +139,6 @@
 		CE18EDCD17EB10B2008000A8 /* Third Party */ = {
 			isa = PBXGroup;
 			children = (
-				CE2CA6811804531A00DF991D /* CompareViewController */,
 				CE18EDCE17EB10B2008000A8 /* GridViewController */,
 				CE2DB85517EC673200196E3D /* SUToolbarView.h */,
 				CE2DB85617EC673200196E3D /* SUToolbarView.m */,
@@ -183,27 +175,6 @@
 				CE61D1FE18056885008434A4 /* SUGridToolbar.m */,
 				CE61D20018057F86008434A4 /* SUSmallGridView.h */,
 				CE61D20118057F86008434A4 /* SUSmallGridView.m */,
-			);
-			path = Views;
-			sourceTree = "<group>";
-		};
-		CE2CA6811804531A00DF991D /* CompareViewController */ = {
-			isa = PBXGroup;
-			children = (
-				CE2CA6831804535100DF991D /* SUCompareViewController.h */,
-				CE2CA6841804535100DF991D /* SUCompareViewController.m */,
-				CE2CA6821804531A00DF991D /* Views */,
-			);
-			path = CompareViewController;
-			sourceTree = "<group>";
-		};
-		CE2CA6821804531A00DF991D /* Views */ = {
-			isa = PBXGroup;
-			children = (
-				CE2CA686180458A500DF991D /* SUCompareView.h */,
-				CE2CA687180458A500DF991D /* SUCompareView.m */,
-				CE2CA68918045B6900DF991D /* SUCompareToolbar.h */,
-				CE2CA68A18045B6900DF991D /* SUCompareToolbar.m */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -309,6 +280,7 @@
 		CE7E403F17E9FCE30083F861 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				CE61D2051805C8A2008434A4 /* gallery.png */,
 				CE61D2031805A8E9008434A4 /* iOS Simulator Screen shot Oct 9, 2013 6.08.02 PM.png */,
 				CE103A1B180308BD00873BFB /* imageeee.png */,
 				CE8DDD1F17FD8E9E00E75728 /* off.jpg */,
@@ -414,6 +386,7 @@
 				CE61D2041805A8E9008434A4 /* iOS Simulator Screen shot Oct 9, 2013 6.08.02 PM.png in Resources */,
 				CE103A1C180308BD00873BFB /* imageeee.png in Resources */,
 				CE7E405317E9FCE30083F861 /* InfoPlist.strings in Resources */,
+				CE61D2061805C8A2008434A4 /* gallery.png in Resources */,
 				CE7E405417E9FCE30083F861 /* MainStoryboard_iPad.storyboard in Resources */,
 				CE7E405517E9FCE30083F861 /* MainStoryboard_iPhone.storyboard in Resources */,
 				CE7E406217EA031F0083F861 /* Localizable.strings in Resources */,
@@ -463,14 +436,11 @@
 				CE7E405717E9FCE30083F861 /* SUAppDelegate.m in Sources */,
 				CE18EDCC17EAEE2C008000A8 /* SUScreenshotUtil.m in Sources */,
 				CE18EDD717EB10B2008000A8 /* SUGridUnderLayerView.m in Sources */,
-				CE2CA688180458A500DF991D /* SUCompareView.m in Sources */,
 				CE18EDD817EB10B2008000A8 /* SUGridView.m in Sources */,
 				CE2DB85717EC673200196E3D /* SUToolbarView.m in Sources */,
-				CE2CA6851804535100DF991D /* SUCompareViewController.m in Sources */,
 				CE20C4DB17F2ED5D0065A295 /* SUGridRootView.m in Sources */,
 				CECE538417F460CB00BDEF4B /* SUGridRulerView.m in Sources */,
 				CE54445917F96948005B00AF /* SUDrawUtil.m in Sources */,
-				CE2CA68B18045B6900DF991D /* SUCompareToolbar.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

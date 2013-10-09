@@ -14,6 +14,7 @@
 @property (nonatomic, strong) SUGridView *gridView;
 @property (nonatomic, strong) UIScrollView *scrollView;
 @property (nonatomic, strong) UIView *containerView;
+@property (nonatomic, strong) UIImageView *mockupImageView;
 
 - (id)initWithFrame:(CGRect)rect withScreenshotImage:(UIImage *)image;
 
