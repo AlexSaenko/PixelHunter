@@ -9,9 +9,6 @@
 #import "SUGridRootView.h"
 #import "SUConstants.h"
 
-static const CGFloat kSUToolBarHeight = 44.0f;
-static const CGFloat kSUToolBarWidth = 320.0f;
-
 @implementation SUGridRootView
 
 - (id)initWithFrame:(CGRect)rect withScreenshotImage:(UIImage *)screenshotImage
@@ -37,7 +34,7 @@ static const CGFloat kSUToolBarWidth = 320.0f;
         [self addSubview:self.sideRuler];
         
         // Init toolbar
-        self.toolbar = [[SUToolbarView alloc] init];
+        self.toolbar = [[SUGridToolbar alloc] init];
         self.toolbar.hidden = YES;
         [self.toolbar.gridDisplayButton addTarget:self action:@selector(tapOnGridDisplayButton)];
         [self addSubview:self.toolbar];

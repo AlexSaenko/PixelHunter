@@ -11,6 +11,5 @@
 @interface SUCoolTool : NSObject
 
 + (void)setup;
-- (void)createWindowForDebug;
 
 @end

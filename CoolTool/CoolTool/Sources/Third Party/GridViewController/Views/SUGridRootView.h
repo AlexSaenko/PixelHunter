@@ -8,13 +8,13 @@
 
 #import <UIKit/UIKit.h>
 #import "SUGridUnderLayerView.h"
-#import "SUToolbarView.h"
+#import "SUGridToolbar.h"
 #import "SUGridRulerView.h"
 
 @interface SUGridRootView : UIView
 
 @property (nonatomic, strong) SUGridUnderLayerView *gridUnderLayerView;
-@property (nonatomic, strong) SUToolbarView *toolbar;
+@property (nonatomic, strong) SUGridToolbar *toolbar;
 @property (nonatomic, strong) SUGridRulerView *topRuler;
 @property (nonatomic, strong) SUGridRulerView *sideRuler;
 @property (nonatomic, strong) UITapGestureRecognizer *tapGesture;

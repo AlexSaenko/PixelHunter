@@ -9,6 +9,12 @@
 #import "SUCoolTool.h"
 #import "SUGridViewController.h"
 #import "SUScreenshotUtil.h"
+#import "SUCompareViewController.h"
+
+typedef enum DebuggerType {
+    kSUGridType,
+    kSUMockupType
+} DebuggerType;
 
 static BOOL L0AccelerationIsShaking(UIAcceleration *last, UIAcceleration *current, double threshold) {
 	double
@@ -22,7 +28,7 @@ static BOOL L0AccelerationIsShaking(UIAcceleration *last, UIAcceleration *curren
     (deltaY > threshold && deltaZ > threshold);
 }
 
-@interface SUCoolTool () <UIAccelerometerDelegate, UINavigationControllerDelegate, UIImagePickerControllerDelegate, SUGridViewControllerDelegate>
+@interface SUCoolTool () <UIAccelerometerDelegate, UINavigationControllerDelegate, UIImagePickerControllerDelegate, SUGridViewControllerDelegate, SUCompareViewControllerDelegate>
 {
     BOOL histeresisExcited;
 }
@@ -85,7 +91,7 @@ static id __sharedInstance;
     if (self.lastAcceleration) {
 		if (!histeresisExcited && L0AccelerationIsShaking(self.lastAcceleration, acceleration, 0.7)) {
 			histeresisExcited = YES;
-            if (self.alertView == nil && self.debugWindow == nil) {
+            if (self.alertView == nil && self.debugWindow == nil && self.imagePicker == nil) {
                 [self showAlert];
             }
 		} else if (histeresisExcited && !L0AccelerationIsShaking(self.lastAcceleration, acceleration, 0.2)) {
@@ -142,7 +148,7 @@ static id __sharedInstance;
 
 - (void)createWindowForDebugWithImage:(UIImage *)image
 {
-    self.parentWindow = [[[UIApplication sharedApplication] windows] objectAtIndex:0];
+    self.parentWindow = [[UIApplication sharedApplication] keyWindow];
     self.debugWindow = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     SUGridViewController *viewController = [[SUGridViewController alloc] initWithScreenshotImage:image];
     viewController.delegate = self;
@@ -156,7 +162,7 @@ static id __sharedInstance;
     self.imagePicker = [[UIImagePickerController alloc] init];
     self.imagePicker.delegate = self;
     self.imagePicker.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
-    [[[[UIApplication sharedApplication] keyWindow] rootViewController] presentViewController:self.imagePicker animated:YES completion:nil];
+    [[[[[UIApplication sharedApplication] windows] objectAtIndex:0] rootViewController] presentViewController:self.imagePicker animated:YES completion:nil];
 }
 
 - (void)removeWindowForDebug
@@ -176,9 +182,16 @@ static id __sharedInstance;
 
 - (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingImage:(UIImage *)image editingInfo:(NSDictionary *)editingInfo
 {
-    [self createWindowForDebugWithImage:image];
+    [self.imagePicker dismissViewControllerAnimated:YES completion:nil];
+    self.parentWindow = [[UIApplication sharedApplication] keyWindow];
+    self.debugWindow = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
+    SUCompareViewController *viewController = [[SUCompareViewController alloc] initWithScreenshotImage:[SUScreenshotUtil convertViewToImage:
+                                                                                                        [[[[[UIApplication sharedApplication] windows] objectAtIndex:0] rootViewController] view]] withMockupImage:image];
+    viewController.delegate = self;
+    self.debugWindow.rootViewController = viewController;
+    self.parentWindow.hidden = YES;
+    [self.debugWindow makeKeyAndVisible];
 }
-
 
 - (void)tapOnCloseButton
 {
