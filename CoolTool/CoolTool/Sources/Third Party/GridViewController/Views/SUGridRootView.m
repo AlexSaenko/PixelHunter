@@ -27,6 +27,10 @@
         [self addGestureRecognizer:self.tapGesture];
         [self.tapGesture addTarget:self action:@selector(viewTapped)];
         
+        // Init small grid view
+        self.smallGridView = [[SUSmallGridView alloc] init];
+        [self addSubview:self.smallGridView];
+        
         // Init rulers
         self.topRuler = [[SUGridRulerView alloc] initWithFrame:CGRectZero horizontal:YES];
         self.sideRuler = [[SUGridRulerView alloc] initWithFrame:CGRectZero horizontal:NO];
@@ -56,6 +60,9 @@
     [self.sideRuler setNeedsDisplay];
     
     CGSize layoutSize = [[UIScreen mainScreen] bounds].size;
+    
+    self.smallGridView.frame = CGRectMake(0.0f, 0.0f, layoutSize.width, layoutSize.height);
+    
     if (UIInterfaceOrientationIsLandscape([UIApplication sharedApplication].statusBarOrientation)) {
         self.gridUnderLayerView.frame = CGRectMake(0.0f, 0.0f, layoutSize.height, layoutSize.width);
     } else {

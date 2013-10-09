@@ -32,16 +32,15 @@ static const CGFloat kSUFontSize = 11.0f;
 
 - (void)drawRect:(CGRect)rect
 {    
-    CGFloat cellSize = [self cellWidth:rect scale:self.scale];
+    CGFloat cellSize = [self cellWidthWithRect:rect withScale:self.scale];
     CGFloat cellDrawnSize = cellSize * self.scale;
-
     if (cellDrawnSize > 0.0f) {
         if (self.isHorizontal) {
             for (NSInteger i = 0; i <= rect.size.width / cellDrawnSize; i++) {
                 CGRect rect = CGRectMake(i * cellDrawnSize, 0.0f, cellDrawnSize, kSURulerSize);
                 NSString *numberString = [NSString stringWithFormat:@" %.0f", i * cellSize];
                 [self drawNumbersInRect:rect withNumberString:numberString];
-        }
+            }
         }
         if (!self.isHorizontal) {
             for (NSInteger i = 0; i <= rect.size.height / cellDrawnSize; i++) {
@@ -62,7 +61,7 @@ static const CGFloat kSUFontSize = 11.0f;
                    alignment:NSTextAlignmentLeft];
 }
 
-- (CGFloat)cellWidth:(CGRect)rect scale:(CGFloat)scale
+- (CGFloat)cellWidthWithRect:(CGRect)rect withScale:(CGFloat)scale
 {
     CGFloat result = 0.0f;
     if (self.isHorizontal) {

@@ -49,6 +49,7 @@
 - (void)layoutSubviews
 {
     [super layoutSubviews];
+    
     CGSize sz = [super bounds].size;
     self.scrollView.frame = CGRectMake(0.0f, 0.0f, sz.width, sz.height);
     self.containerView.frame = CGRectMake(0.0f, 0.0f, sz.width, sz.height);

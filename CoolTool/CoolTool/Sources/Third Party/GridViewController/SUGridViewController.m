@@ -75,6 +75,11 @@
 {
     self.gridRootView.gridUnderLayerView.containerView.frame = [self centeredFrameForScrollView:scrollView andView:self.gridRootView.gridUnderLayerView.containerView];
     [self changeRulerPositions];
+    if (self.gridRootView.gridUnderLayerView.scrollView.zoomScale == kSUMaximumZoomScale) {
+        self.gridRootView.smallGridView.hidden = NO;
+    } else {
+        self.gridRootView.smallGridView.hidden = YES;
+    }
 }
 
 - (CGRect)centeredFrameForScrollView:(UIScrollView *)scroll andView:(UIView *)view

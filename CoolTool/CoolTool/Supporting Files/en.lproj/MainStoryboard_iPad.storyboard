@@ -17,7 +17,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="768" height="1024"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="imageeee.png" translatesAutoresizingMaskIntoConstraints="NO" id="3cM-UL-7wf">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="iOS Simulator Screen shot Oct 9, 2013 6.08.02 PM.png" translatesAutoresizingMaskIntoConstraints="NO" id="3cM-UL-7wf">
                                 <rect key="frame" x="0.0" y="0.0" width="768" height="1024"/>
                             </imageView>
                         </subviews>
@@ -35,7 +35,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="imageeee.png" width="640" height="1136"/>
+        <image name="iOS Simulator Screen shot Oct 9, 2013 6.08.02 PM.png" width="1536" height="2048"/>
     </resources>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>

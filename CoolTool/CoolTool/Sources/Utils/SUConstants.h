@@ -7,6 +7,7 @@
 //
 
 static const CGFloat kSUStepSize = 50.0f;
+static const CGFloat kSUSmallStepSize = 40.0f;
 static const CGFloat kSUMaximumZoomScale = 40.0f;
 static const CGFloat kSUStatusBarHeight = 20.0f;
 static const CGFloat kSURulerSize = 20.0f;

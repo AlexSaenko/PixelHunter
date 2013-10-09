@@ -148,7 +148,7 @@ static id __sharedInstance;
 
 - (void)createWindowForDebugWithImage:(UIImage *)image
 {
-    self.parentWindow = [[UIApplication sharedApplication] keyWindow];
+    self.parentWindow = [[[UIApplication sharedApplication] windows] objectAtIndex:0];
     self.debugWindow = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     SUGridViewController *viewController = [[SUGridViewController alloc] initWithScreenshotImage:image];
     viewController.delegate = self;
@@ -183,6 +183,7 @@ static id __sharedInstance;
 - (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingImage:(UIImage *)image editingInfo:(NSDictionary *)editingInfo
 {
     [self.imagePicker dismissViewControllerAnimated:YES completion:nil];
+    self.imagePicker = nil;
     self.parentWindow = [[UIApplication sharedApplication] keyWindow];
     self.debugWindow = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     SUCompareViewController *viewController = [[SUCompareViewController alloc] initWithScreenshotImage:[SUScreenshotUtil convertViewToImage:

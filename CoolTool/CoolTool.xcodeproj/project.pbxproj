@@ -20,6 +20,8 @@
 		CE50BA6A18055F670040D9F5 /* SUGridViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CE18EDD017EB10B2008000A8 /* SUGridViewController.m */; };
 		CE54445917F96948005B00AF /* SUDrawUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = CE54445817F96948005B00AF /* SUDrawUtil.m */; };
 		CE61D1FF18056885008434A4 /* SUGridToolbar.m in Sources */ = {isa = PBXBuildFile; fileRef = CE61D1FE18056885008434A4 /* SUGridToolbar.m */; };
+		CE61D20218057F86008434A4 /* SUSmallGridView.m in Sources */ = {isa = PBXBuildFile; fileRef = CE61D20118057F86008434A4 /* SUSmallGridView.m */; };
+		CE61D2041805A8E9008434A4 /* iOS Simulator Screen shot Oct 9, 2013 6.08.02 PM.png in Resources */ = {isa = PBXBuildFile; fileRef = CE61D2031805A8E9008434A4 /* iOS Simulator Screen shot Oct 9, 2013 6.08.02 PM.png */; };
 		CE7E3FF417E9F8410083F861 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE7E3FF317E9F8410083F861 /* UIKit.framework */; };
 		CE7E3FF617E9F8410083F861 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE7E3FF517E9F8410083F861 /* Foundation.framework */; };
 		CE7E3FF817E9F8410083F861 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE7E3FF717E9F8410083F861 /* CoreGraphics.framework */; };
@@ -81,6 +83,9 @@
 		CE54445817F96948005B00AF /* SUDrawUtil.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SUDrawUtil.m; sourceTree = "<group>"; };
 		CE61D1FD18056885008434A4 /* SUGridToolbar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SUGridToolbar.h; sourceTree = "<group>"; };
 		CE61D1FE18056885008434A4 /* SUGridToolbar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SUGridToolbar.m; sourceTree = "<group>"; };
+		CE61D20018057F86008434A4 /* SUSmallGridView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SUSmallGridView.h; sourceTree = "<group>"; };
+		CE61D20118057F86008434A4 /* SUSmallGridView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SUSmallGridView.m; sourceTree = "<group>"; };
+		CE61D2031805A8E9008434A4 /* iOS Simulator Screen shot Oct 9, 2013 6.08.02 PM.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "iOS Simulator Screen shot Oct 9, 2013 6.08.02 PM.png"; sourceTree = "<group>"; };
 		CE7E3FF017E9F8410083F861 /* CoolTool.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CoolTool.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CE7E3FF317E9F8410083F861 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		CE7E3FF517E9F8410083F861 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -176,6 +181,8 @@
 				CECE538317F460CB00BDEF4B /* SUGridRulerView.m */,
 				CE61D1FD18056885008434A4 /* SUGridToolbar.h */,
 				CE61D1FE18056885008434A4 /* SUGridToolbar.m */,
+				CE61D20018057F86008434A4 /* SUSmallGridView.h */,
+				CE61D20118057F86008434A4 /* SUSmallGridView.m */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -302,6 +309,7 @@
 		CE7E403F17E9FCE30083F861 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				CE61D2031805A8E9008434A4 /* iOS Simulator Screen shot Oct 9, 2013 6.08.02 PM.png */,
 				CE103A1B180308BD00873BFB /* imageeee.png */,
 				CE8DDD1F17FD8E9E00E75728 /* off.jpg */,
 				CE8DDD2017FD8E9E00E75728 /* ON.jpg */,
@@ -403,6 +411,7 @@
 				CE7E405017E9FCE30083F861 /* Default-568h@2x.png in Resources */,
 				CE7E405117E9FCE30083F861 /* Default.png in Resources */,
 				CE7E405217E9FCE30083F861 /* Default@2x.png in Resources */,
+				CE61D2041805A8E9008434A4 /* iOS Simulator Screen shot Oct 9, 2013 6.08.02 PM.png in Resources */,
 				CE103A1C180308BD00873BFB /* imageeee.png in Resources */,
 				CE7E405317E9FCE30083F861 /* InfoPlist.strings in Resources */,
 				CE7E405417E9FCE30083F861 /* MainStoryboard_iPad.storyboard in Resources */,
@@ -448,6 +457,7 @@
 				CE61D1FF18056885008434A4 /* SUGridToolbar.m in Sources */,
 				CE50BA6918055F5A0040D9F5 /* SUCoolTool.m in Sources */,
 				CE8DDD2317FD9BD800E75728 /* SUCompositeButton.m in Sources */,
+				CE61D20218057F86008434A4 /* SUSmallGridView.m in Sources */,
 				CE7E404E17E9FCE30083F861 /* SUViewController.m in Sources */,
 				CE7E405617E9FCE30083F861 /* main.m in Sources */,
 				CE7E405717E9FCE30083F861 /* SUAppDelegate.m in Sources */,

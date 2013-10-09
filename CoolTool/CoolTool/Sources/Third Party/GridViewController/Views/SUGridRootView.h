@@ -10,6 +10,7 @@
 #import "SUGridUnderLayerView.h"
 #import "SUGridToolbar.h"
 #import "SUGridRulerView.h"
+#import "SUSmallGridView.h"
 
 @interface SUGridRootView : UIView
 
@@ -17,6 +18,7 @@
 @property (nonatomic, strong) SUGridToolbar *toolbar;
 @property (nonatomic, strong) SUGridRulerView *topRuler;
 @property (nonatomic, strong) SUGridRulerView *sideRuler;
+@property (nonatomic, strong) SUSmallGridView *smallGridView;
 @property (nonatomic, strong) UITapGestureRecognizer *tapGesture;
 
 - (id)initWithFrame:(CGRect)rect withScreenshotImage:(UIImage *)screenshotImage;
