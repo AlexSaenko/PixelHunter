@@ -53,7 +53,8 @@
 - (void)layoutSubviews
 {
     [super layoutSubviews];
-        
+    
+    // Layout rulers
     self.topRuler.scale = self.gridUnderLayerView.scrollView.zoomScale;
     self.sideRuler.scale = self.gridUnderLayerView.scrollView.zoomScale;
     [self.topRuler setNeedsDisplay];
@@ -64,6 +65,7 @@
     // Layout small grid view
     self.smallGridView.frame = CGRectMake(0.0f, 0.0f, layoutSize.width, layoutSize.height);
     
+    // Layout grid underlayer
     if (UIInterfaceOrientationIsLandscape([UIApplication sharedApplication].statusBarOrientation)) {
         self.gridUnderLayerView.frame = CGRectMake(0.0f, 0.0f, layoutSize.height, layoutSize.width);
     } else {

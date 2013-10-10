@@ -57,11 +57,21 @@
     [super layoutSubviews];
     
     CGSize sz = [super bounds].size;
+    
+    // Layout scroll view
     self.scrollView.frame = CGRectMake(0.0f, 0.0f, sz.width, sz.height);
+    
+    //Layout container view
     self.containerView.frame = CGRectMake(0.0f, 0.0f, sz.width, sz.height);
+    
+    // Layout screenshot image view
     self.screenshotImageView.frame = CGRectMake(0.0f, 0.0f, sz.width, sz.height);
-    self.gridView.frame = CGRectMake(0.0f, 0.0f, sz.width, sz.height);
+    
+    // Layout mockup image view
     self.mockupImageView.frame = CGRectMake(0.0f, 0.0f, sz.width, sz.height);
+    
+    // Layout grid view
+    self.gridView.frame = CGRectMake(0.0f, 0.0f, sz.width, sz.height);    
 }
 
 
