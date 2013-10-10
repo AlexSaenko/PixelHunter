@@ -13,6 +13,7 @@
 
 @property (nonatomic, strong) SUCompositeButton *gridDisplayButton;
 @property (nonatomic, strong) SUCompositeButton *showPickerButton;
+@property (nonatomic, strong) SUCompositeButton *sendMailButton;
 @property (nonatomic, strong) UISlider *slider;
 
 @end

@@ -27,6 +27,12 @@
                                                                  imageNameActivated:@"gallery.png"];
         [self addSubview:self.showPickerButton];
         
+        // Init send mail button
+        self.sendMailButton = [[SUCompositeButton alloc] initWithImageNameNormal:@"share.png"
+                                                                  imageNamePressed:nil
+                                                                imageNameActivated:@"share.png"];
+        [self addSubview:self.sendMailButton];
+        
         // Init slider
         self.slider = [[UISlider alloc] init];
         self.slider.maximumValue = 1.0f;
@@ -48,6 +54,9 @@
     
     // Layout show picker button
     self.showPickerButton.frame = CGRectMake((kSUCloseButtonWidth + 20.0f) * 2, 0.0f, kSUCloseButtonWidth, kSUCloseButtonHeight);
+    
+    // Layout send mail button
+    self.sendMailButton.frame = CGRectMake((kSUCloseButtonWidth + 20.0f) * 3, 0.0f, kSUCloseButtonWidth, kSUCloseButtonHeight);
     
     // Layout slider
     self.slider.frame = CGRectMake(kSUCloseButtonWidth / 2, kSUCloseButtonHeight, kSUToolBarWidth - kSUCloseButtonWidth, kSUToolBarHeight / 2);

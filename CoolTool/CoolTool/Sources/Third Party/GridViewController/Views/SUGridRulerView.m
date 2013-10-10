@@ -31,7 +31,7 @@ static const CGFloat kSUFontSize = 11.0f;
 }
 
 - (void)drawRect:(CGRect)rect
-{    
+{
     CGFloat cellSize = [self cellWidthWithRect:rect withScale:self.scale];
     CGFloat cellDrawnSize = cellSize * self.scale;
     if (cellDrawnSize > 0.0f) {

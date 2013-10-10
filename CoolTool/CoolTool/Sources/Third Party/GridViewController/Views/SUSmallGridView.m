@@ -33,21 +33,21 @@
 {
     CGContextRef context = UIGraphicsGetCurrentContext();
     
-    NSInteger numberOfVeticalLines = ceil(self.frame.size.width / cellSize);
+    NSInteger numberOfVeticalLines = ceil(self.frame.size.width / cellSize) + 1;
     NSInteger startLinePoint = 0;
     for (NSInteger i = 0; i < numberOfVeticalLines; i++) {
-        CGPoint startPoint = CGPointMake(startLinePoint, 0);
-        CGPoint endPoint = CGPointMake(startLinePoint, self.frame.size.height);
+        CGPoint startPoint = CGPointMake(startLinePoint + self.startVerticalPoint, 0);
+        CGPoint endPoint = CGPointMake(startLinePoint + self.startVerticalPoint, self.frame.size.height);
         draw1PxStroke(context, startPoint, endPoint, lineColor.CGColor);
         startLinePoint = startLinePoint + cellSize;
     }
     
     startLinePoint = 0;
-    NSInteger numberOfHorizontalLines = ceil(self.frame.size.height / cellSize);
+    NSInteger numberOfHorizontalLines = ceil(self.frame.size.height / cellSize) + 1;
     
     for (NSInteger i = 0; i < numberOfHorizontalLines; i++) {
-        CGPoint startPoint = CGPointMake(0, startLinePoint);
-        CGPoint endPoint = CGPointMake(self.frame.size.width, startLinePoint);
+        CGPoint startPoint = CGPointMake(0, startLinePoint + self.startHorizontalPoint);
+        CGPoint endPoint = CGPointMake(self.frame.size.width, startLinePoint + self.startHorizontalPoint);
         draw1PxStroke(context, startPoint, endPoint, lineColor.CGColor);
         startLinePoint = startLinePoint + cellSize;
     }

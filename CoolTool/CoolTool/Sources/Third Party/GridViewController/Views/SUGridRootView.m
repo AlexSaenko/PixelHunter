@@ -62,7 +62,6 @@
     
     CGSize layoutSize = [[UIScreen mainScreen] bounds].size;
     
-    // Layout small grid view
     self.smallGridView.frame = CGRectMake(0.0f, 0.0f, layoutSize.width, layoutSize.height);
     
     // Layout grid underlayer

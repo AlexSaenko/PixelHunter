@@ -9,11 +9,17 @@
 #import "SUGridViewController.h"
 #import "SUCoolTool.h"
 #import "SUConstants.h"
+#import <MessageUI/MessageUI.h>
+#import <MessageUI/MFMailComposeViewController.h>
+#import <AVFoundation/AVAudioPlayer.h>
+#import "SUScreenshotUtil.h"
 
-@interface SUGridViewController () <SUGridViewControllerDelegate, UIScrollViewDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate>
+@interface SUGridViewController () <SUGridViewControllerDelegate, UIScrollViewDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate, MFMailComposeViewControllerDelegate>
 
 @property (nonatomic, strong) UIImage *screenshotImage;
 @property (nonatomic, strong) UIImagePickerController *imagePicker;
+@property (nonatomic, strong) AVAudioPlayer *screenshotSound;
+
 @end
 
 @implementation SUGridViewController
@@ -23,6 +29,7 @@
 	self = [super init];
 	if (self) {
 		self.screenshotImage = screenshotImage;
+        [self createScreenshotSound];
 	}
     
 	return self;
@@ -47,7 +54,9 @@
                                               action:@selector(tapOnCloseButton)
                                     forControlEvents:UIControlEventTouchUpInside];
     [self.gridRootView.toolbar.showPickerButton addTarget:self
-                                              action:@selector(showImagePicker)];
+                                                   action:@selector(showImagePicker)];
+    [self.gridRootView.toolbar.sendMailButton addTarget:self
+                                                 action:@selector(sendScreenshotViaMail)];
     [self.gridRootView.toolbar.slider addTarget:self
                                         action:@selector(changeMockupImageAlpha:)
                               forControlEvents:UIControlEventValueChanged];
@@ -115,6 +124,10 @@
                                                   self.gridRootView.gridUnderLayerView.scrollView.contentSize.width , kSURulerSize);
     self.gridRootView.sideRuler.frame = CGRectMake(0.0f, -self.gridRootView.gridUnderLayerView.scrollView.contentOffset.y,
                                                    kSURulerSize, self.gridRootView.gridUnderLayerView.scrollView.contentSize.height);
+
+    self.gridRootView.smallGridView.startVerticalPoint = (NSInteger) self.gridRootView.topRuler.frame.origin.x % 40;
+    self.gridRootView.smallGridView.startHorizontalPoint = (NSInteger) self.gridRootView.sideRuler.frame.origin.y % 40;
+    [self.gridRootView.smallGridView setNeedsDisplay];
 }
 
 - (void)changeMockupImageAlpha:(UISlider *)sender
@@ -130,6 +143,77 @@
     [self presentViewController:self.imagePicker animated:YES completion:^{
         [self.gridRootView.gridUnderLayerView.scrollView setZoomScale:self.gridRootView.gridUnderLayerView.scrollView.minimumZoomScale];
     }];
+}
+
+#pragma mark E-mail message
+- (void)createScreenshotSound
+{
+    NSString *path = [[NSBundle mainBundle] pathForResource:@"photoShutter" ofType:@"mp3"];
+    self.screenshotSound = [[AVAudioPlayer alloc] initWithContentsOfURL:[NSURL fileURLWithPath:path] error:nil];
+}
+
+- (void)sendScreenshotViaMail
+{
+    if ([MFMailComposeViewController canSendMail]) {
+        MFMailComposeViewController *mailComposeViewController = [[MFMailComposeViewController alloc] init];
+        mailComposeViewController.mailComposeDelegate = self;
+        
+        [mailComposeViewController setSubject:NSLocalizedString(@"MAIL_SUBJECT", nil)];
+        [self.gridRootView.toolbar setHidden:YES];
+        [self.screenshotSound play];
+        [self showBlinkingViewWithCompletionBlock:^(void) {
+            UIImage *imageToSend = [SUScreenshotUtil convertViewToImage:self.view];
+            NSData *imageData = UIImageJPEGRepresentation(imageToSend, 1.0f);
+            [mailComposeViewController addAttachmentData:imageData mimeType:@"image/png" fileName:@"Bug-image.png"];
+            NSString *emailBody = NSLocalizedString(@"MAIL_BODY", nil);
+            [mailComposeViewController setMessageBody:emailBody isHTML:NO];
+            
+            [self presentViewController:mailComposeViewController animated:YES completion:^{
+                [self.gridRootView.toolbar setHidden:NO];
+            }];
+        }];
+    }
+    else {
+        [self showErrorAlertView];
+    }
+}
+
+- (void)showBlinkingViewWithCompletionBlock:(void (^)())completionBlock
+{
+    UIViewController *viewController;
+    UIView *view = [[UIView alloc] initWithFrame:CGRectMake(0.0f, 0.0f, self.gridRootView.frame.size.width, self.gridRootView.frame.size.height)];
+    [UIView animateWithDuration:1.0f animations:^{
+        [self.gridRootView addSubview:view];
+        view.backgroundColor = [UIColor whiteColor];
+        view.alpha = 0.0f;
+    } completion:^(BOOL finished) {
+        [view removeFromSuperview];
+        completionBlock(viewController);
+    }];
+}
+
+- (void)showErrorAlertView
+{
+    UIAlertView *alertView = [[UIAlertView alloc]
+                              initWithTitle:NSLocalizedString(@"ERROR_ALERT_VIEW_TITLE", nil)
+                              message:NSLocalizedString(@"ERROR_ALERT_VIEW_MESSAGE", nil)
+                              delegate:self
+                              cancelButtonTitle:@"OK"
+                              otherButtonTitles:nil];
+    [alertView show];
+}
+
+- (void)mailComposeController:(MFMailComposeViewController*)controller didFinishWithResult:(MFMailComposeResult)result error:(NSError*)error
+{
+    switch(result)
+    {
+        case MFMailComposeResultFailed:
+            [self showErrorAlertView];
+            break;
+        default:
+            break;
+    }
+    [controller dismissViewControllerAnimated:YES completion:nil];
 }
 
 #pragma mark - UIImagePickerControllerDelegate

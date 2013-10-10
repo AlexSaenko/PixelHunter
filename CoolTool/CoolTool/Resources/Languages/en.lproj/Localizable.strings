@@ -3,3 +3,5 @@
 "RULER" = "Ruler";
 "CANCEL" = "Cancel";
 "GALLERY" = "Gallery";
+"MAIL_SUBJECT" = "I find bug in design here";
+"MAIL_BODY" = "Bug in this place on picture in attachment";

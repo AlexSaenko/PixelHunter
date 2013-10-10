@@ -10,4 +10,6 @@
 
 @interface SUSmallGridView : UIView
 
+@property (nonatomic, assign) NSInteger startVerticalPoint;
+@property (nonatomic, assign) NSInteger startHorizontalPoint;
 @end
