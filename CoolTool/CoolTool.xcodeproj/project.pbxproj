@@ -8,23 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		CE103A1C180308BD00873BFB /* imageeee.png in Resources */ = {isa = PBXBuildFile; fileRef = CE103A1B180308BD00873BFB /* imageeee.png */; };
-		CE18EDCC17EAEE2C008000A8 /* SUScreenshotUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = CE18EDCB17EAEE2C008000A8 /* SUScreenshotUtil.m */; };
-		CE18EDD717EB10B2008000A8 /* SUGridUnderLayerView.m in Sources */ = {isa = PBXBuildFile; fileRef = CE18EDD317EB10B2008000A8 /* SUGridUnderLayerView.m */; };
-		CE18EDD817EB10B2008000A8 /* SUGridView.m in Sources */ = {isa = PBXBuildFile; fileRef = CE18EDD517EB10B2008000A8 /* SUGridView.m */; };
-		CE20C4DB17F2ED5D0065A295 /* SUGridRootView.m in Sources */ = {isa = PBXBuildFile; fileRef = CE20C4DA17F2ED5D0065A295 /* SUGridRootView.m */; };
-		CE2DB85717EC673200196E3D /* SUToolbarView.m in Sources */ = {isa = PBXBuildFile; fileRef = CE2DB85617EC673200196E3D /* SUToolbarView.m */; };
 		CE376F4F1806E2EB00F2F64E /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE376F4E1806E2EB00F2F64E /* MessageUI.framework */; };
 		CE376F511806E36800F2F64E /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE376F501806E36800F2F64E /* AVFoundation.framework */; };
-		CE376F571806E47200F2F64E /* gallery.png in Resources */ = {isa = PBXBuildFile; fileRef = CE376F531806E47200F2F64E /* gallery.png */; };
-		CE376F581806E47200F2F64E /* off.jpg in Resources */ = {isa = PBXBuildFile; fileRef = CE376F541806E47200F2F64E /* off.jpg */; };
-		CE376F591806E47200F2F64E /* ON.jpg in Resources */ = {isa = PBXBuildFile; fileRef = CE376F551806E47200F2F64E /* ON.jpg */; };
-		CE376F5A1806E47200F2F64E /* photoShutter.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = CE376F561806E47200F2F64E /* photoShutter.mp3 */; };
-		CE376F5C1806E6B400F2F64E /* share.png in Resources */ = {isa = PBXBuildFile; fileRef = CE376F5B1806E6B400F2F64E /* share.png */; };
-		CE50BA6918055F5A0040D9F5 /* SUCoolTool.m in Sources */ = {isa = PBXBuildFile; fileRef = CE18EDDA17EB1151008000A8 /* SUCoolTool.m */; };
-		CE50BA6A18055F670040D9F5 /* SUGridViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CE18EDD017EB10B2008000A8 /* SUGridViewController.m */; };
-		CE54445917F96948005B00AF /* SUDrawUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = CE54445817F96948005B00AF /* SUDrawUtil.m */; };
-		CE61D1FF18056885008434A4 /* SUGridToolbar.m in Sources */ = {isa = PBXBuildFile; fileRef = CE61D1FE18056885008434A4 /* SUGridToolbar.m */; };
-		CE61D20218057F86008434A4 /* SUSmallGridView.m in Sources */ = {isa = PBXBuildFile; fileRef = CE61D20118057F86008434A4 /* SUSmallGridView.m */; };
 		CE61D2041805A8E9008434A4 /* iOS Simulator Screen shot Oct 9, 2013 6.08.02 PM.png in Resources */ = {isa = PBXBuildFile; fileRef = CE61D2031805A8E9008434A4 /* iOS Simulator Screen shot Oct 9, 2013 6.08.02 PM.png */; };
 		CE7E3FF417E9F8410083F861 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE7E3FF317E9F8410083F861 /* UIKit.framework */; };
 		CE7E3FF617E9F8410083F861 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE7E3FF517E9F8410083F861 /* Foundation.framework */; };
@@ -43,10 +28,24 @@
 		CE7E405517E9FCE30083F861 /* MainStoryboard_iPhone.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CE7E404917E9FCE30083F861 /* MainStoryboard_iPhone.storyboard */; };
 		CE7E405617E9FCE30083F861 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = CE7E404B17E9FCE30083F861 /* main.m */; };
 		CE7E405717E9FCE30083F861 /* SUAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = CE7E404D17E9FCE30083F861 /* SUAppDelegate.m */; };
-		CE7E406217EA031F0083F861 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = CE7E406417EA031F0083F861 /* Localizable.strings */; };
-		CE8DDD1E17FD7FF900E75728 /* SUCompositeButton.m in Sources */ = {isa = PBXBuildFile; fileRef = CE8DDD1D17FD7FF800E75728 /* SUCompositeButton.m */; };
-		CE8DDD2317FD9BD800E75728 /* SUCompositeButton.m in Sources */ = {isa = PBXBuildFile; fileRef = CE8DDD1D17FD7FF800E75728 /* SUCompositeButton.m */; };
-		CECE538417F460CB00BDEF4B /* SUGridRulerView.m in Sources */ = {isa = PBXBuildFile; fileRef = CECE538317F460CB00BDEF4B /* SUGridRulerView.m */; };
+		CECC239F1807ED6D0090E3E0 /* SUGridViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CECC237D1807ED6D0090E3E0 /* SUGridViewController.m */; };
+		CECC23A01807ED6D0090E3E0 /* SUCompositeButton.m in Sources */ = {isa = PBXBuildFile; fileRef = CECC23801807ED6D0090E3E0 /* SUCompositeButton.m */; };
+		CECC23A11807ED6D0090E3E0 /* SUGridRootView.m in Sources */ = {isa = PBXBuildFile; fileRef = CECC23821807ED6D0090E3E0 /* SUGridRootView.m */; };
+		CECC23A21807ED6D0090E3E0 /* SUGridRulerView.m in Sources */ = {isa = PBXBuildFile; fileRef = CECC23841807ED6D0090E3E0 /* SUGridRulerView.m */; };
+		CECC23A31807ED6D0090E3E0 /* SUGridToolbar.m in Sources */ = {isa = PBXBuildFile; fileRef = CECC23861807ED6D0090E3E0 /* SUGridToolbar.m */; };
+		CECC23A41807ED6D0090E3E0 /* SUGridUnderLayerView.m in Sources */ = {isa = PBXBuildFile; fileRef = CECC23881807ED6D0090E3E0 /* SUGridUnderLayerView.m */; };
+		CECC23A51807ED6D0090E3E0 /* SUGridView.m in Sources */ = {isa = PBXBuildFile; fileRef = CECC238A1807ED6D0090E3E0 /* SUGridView.m */; };
+		CECC23A61807ED6D0090E3E0 /* SUSmallGridView.m in Sources */ = {isa = PBXBuildFile; fileRef = CECC238C1807ED6D0090E3E0 /* SUSmallGridView.m */; };
+		CECC23A71807ED6D0090E3E0 /* SUToolbarView.m in Sources */ = {isa = PBXBuildFile; fileRef = CECC238E1807ED6D0090E3E0 /* SUToolbarView.m */; };
+		CECC23A81807ED6D0090E3E0 /* CoolTool.strings in Resources */ = {isa = PBXBuildFile; fileRef = CECC23901807ED6D0090E3E0 /* CoolTool.strings */; };
+		CECC23A91807ED6D0090E3E0 /* gallery.png in Resources */ = {isa = PBXBuildFile; fileRef = CECC23921807ED6D0090E3E0 /* gallery.png */; };
+		CECC23AA1807ED6D0090E3E0 /* off.jpg in Resources */ = {isa = PBXBuildFile; fileRef = CECC23931807ED6D0090E3E0 /* off.jpg */; };
+		CECC23AB1807ED6D0090E3E0 /* ON.jpg in Resources */ = {isa = PBXBuildFile; fileRef = CECC23941807ED6D0090E3E0 /* ON.jpg */; };
+		CECC23AC1807ED6D0090E3E0 /* photoShutter.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = CECC23951807ED6D0090E3E0 /* photoShutter.mp3 */; };
+		CECC23AD1807ED6D0090E3E0 /* share.png in Resources */ = {isa = PBXBuildFile; fileRef = CECC23961807ED6D0090E3E0 /* share.png */; };
+		CECC23AE1807ED6D0090E3E0 /* SUCoolTool.m in Sources */ = {isa = PBXBuildFile; fileRef = CECC23981807ED6D0090E3E0 /* SUCoolTool.m */; };
+		CECC23AF1807ED6D0090E3E0 /* SUDrawUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = CECC239C1807ED6D0090E3E0 /* SUDrawUtil.m */; };
+		CECC23B01807ED6D0090E3E0 /* SUScreenshotUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = CECC239E1807ED6D0090E3E0 /* SUScreenshotUtil.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -61,33 +60,8 @@
 
 /* Begin PBXFileReference section */
 		CE103A1B180308BD00873BFB /* imageeee.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = imageeee.png; sourceTree = "<group>"; };
-		CE18EDCA17EAEE2C008000A8 /* SUScreenshotUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SUScreenshotUtil.h; sourceTree = "<group>"; };
-		CE18EDCB17EAEE2C008000A8 /* SUScreenshotUtil.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SUScreenshotUtil.m; sourceTree = "<group>"; };
-		CE18EDCF17EB10B2008000A8 /* SUGridViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SUGridViewController.h; sourceTree = "<group>"; };
-		CE18EDD017EB10B2008000A8 /* SUGridViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SUGridViewController.m; sourceTree = "<group>"; };
-		CE18EDD217EB10B2008000A8 /* SUGridUnderLayerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SUGridUnderLayerView.h; sourceTree = "<group>"; };
-		CE18EDD317EB10B2008000A8 /* SUGridUnderLayerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SUGridUnderLayerView.m; sourceTree = "<group>"; };
-		CE18EDD417EB10B2008000A8 /* SUGridView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SUGridView.h; sourceTree = "<group>"; };
-		CE18EDD517EB10B2008000A8 /* SUGridView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SUGridView.m; sourceTree = "<group>"; };
-		CE18EDD917EB1151008000A8 /* SUCoolTool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SUCoolTool.h; sourceTree = "<group>"; };
-		CE18EDDA17EB1151008000A8 /* SUCoolTool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SUCoolTool.m; sourceTree = "<group>"; };
-		CE20C4D917F2ED5D0065A295 /* SUGridRootView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SUGridRootView.h; sourceTree = "<group>"; };
-		CE20C4DA17F2ED5D0065A295 /* SUGridRootView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SUGridRootView.m; sourceTree = "<group>"; };
-		CE2DB85517EC673200196E3D /* SUToolbarView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SUToolbarView.h; path = GridViewController/Views/SUToolbarView.h; sourceTree = "<group>"; };
-		CE2DB85617EC673200196E3D /* SUToolbarView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SUToolbarView.m; path = GridViewController/Views/SUToolbarView.m; sourceTree = "<group>"; };
 		CE376F4E1806E2EB00F2F64E /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
 		CE376F501806E36800F2F64E /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
-		CE376F531806E47200F2F64E /* gallery.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = gallery.png; sourceTree = "<group>"; };
-		CE376F541806E47200F2F64E /* off.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = off.jpg; sourceTree = "<group>"; };
-		CE376F551806E47200F2F64E /* ON.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = ON.jpg; sourceTree = "<group>"; };
-		CE376F561806E47200F2F64E /* photoShutter.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = photoShutter.mp3; sourceTree = "<group>"; };
-		CE376F5B1806E6B400F2F64E /* share.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = share.png; sourceTree = "<group>"; };
-		CE54445717F96948005B00AF /* SUDrawUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SUDrawUtil.h; sourceTree = "<group>"; };
-		CE54445817F96948005B00AF /* SUDrawUtil.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SUDrawUtil.m; sourceTree = "<group>"; };
-		CE61D1FD18056885008434A4 /* SUGridToolbar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SUGridToolbar.h; sourceTree = "<group>"; };
-		CE61D1FE18056885008434A4 /* SUGridToolbar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SUGridToolbar.m; sourceTree = "<group>"; };
-		CE61D20018057F86008434A4 /* SUSmallGridView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SUSmallGridView.h; sourceTree = "<group>"; };
-		CE61D20118057F86008434A4 /* SUSmallGridView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SUSmallGridView.m; sourceTree = "<group>"; };
 		CE61D2031805A8E9008434A4 /* iOS Simulator Screen shot Oct 9, 2013 6.08.02 PM.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "iOS Simulator Screen shot Oct 9, 2013 6.08.02 PM.png"; sourceTree = "<group>"; };
 		CE7E3FF017E9F8410083F861 /* CoolTool.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CoolTool.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CE7E3FF317E9F8410083F861 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
@@ -112,12 +86,37 @@
 		CE7E404B17E9FCE30083F861 /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		CE7E404C17E9FCE30083F861 /* SUAppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SUAppDelegate.h; sourceTree = "<group>"; };
 		CE7E404D17E9FCE30083F861 /* SUAppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SUAppDelegate.m; sourceTree = "<group>"; };
-		CE7E406317EA031F0083F861 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
-		CE8DDD1C17FD7FF800E75728 /* SUCompositeButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SUCompositeButton.h; sourceTree = "<group>"; };
-		CE8DDD1D17FD7FF800E75728 /* SUCompositeButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SUCompositeButton.m; sourceTree = "<group>"; };
-		CECE538217F460CA00BDEF4B /* SUGridRulerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SUGridRulerView.h; sourceTree = "<group>"; };
-		CECE538317F460CB00BDEF4B /* SUGridRulerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SUGridRulerView.m; sourceTree = "<group>"; };
-		CECE538517F57AFF00BDEF4B /* SUConstants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SUConstants.h; sourceTree = "<group>"; };
+		CECC237C1807ED6D0090E3E0 /* SUGridViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SUGridViewController.h; sourceTree = "<group>"; };
+		CECC237D1807ED6D0090E3E0 /* SUGridViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SUGridViewController.m; sourceTree = "<group>"; };
+		CECC237F1807ED6D0090E3E0 /* SUCompositeButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SUCompositeButton.h; sourceTree = "<group>"; };
+		CECC23801807ED6D0090E3E0 /* SUCompositeButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SUCompositeButton.m; sourceTree = "<group>"; };
+		CECC23811807ED6D0090E3E0 /* SUGridRootView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SUGridRootView.h; sourceTree = "<group>"; };
+		CECC23821807ED6D0090E3E0 /* SUGridRootView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SUGridRootView.m; sourceTree = "<group>"; };
+		CECC23831807ED6D0090E3E0 /* SUGridRulerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SUGridRulerView.h; sourceTree = "<group>"; };
+		CECC23841807ED6D0090E3E0 /* SUGridRulerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SUGridRulerView.m; sourceTree = "<group>"; };
+		CECC23851807ED6D0090E3E0 /* SUGridToolbar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SUGridToolbar.h; sourceTree = "<group>"; };
+		CECC23861807ED6D0090E3E0 /* SUGridToolbar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SUGridToolbar.m; sourceTree = "<group>"; };
+		CECC23871807ED6D0090E3E0 /* SUGridUnderLayerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SUGridUnderLayerView.h; sourceTree = "<group>"; };
+		CECC23881807ED6D0090E3E0 /* SUGridUnderLayerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SUGridUnderLayerView.m; sourceTree = "<group>"; };
+		CECC23891807ED6D0090E3E0 /* SUGridView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SUGridView.h; sourceTree = "<group>"; };
+		CECC238A1807ED6D0090E3E0 /* SUGridView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SUGridView.m; sourceTree = "<group>"; };
+		CECC238B1807ED6D0090E3E0 /* SUSmallGridView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SUSmallGridView.h; sourceTree = "<group>"; };
+		CECC238C1807ED6D0090E3E0 /* SUSmallGridView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SUSmallGridView.m; sourceTree = "<group>"; };
+		CECC238D1807ED6D0090E3E0 /* SUToolbarView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SUToolbarView.h; sourceTree = "<group>"; };
+		CECC238E1807ED6D0090E3E0 /* SUToolbarView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SUToolbarView.m; sourceTree = "<group>"; };
+		CECC23911807ED6D0090E3E0 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/CoolTool.strings; sourceTree = "<group>"; };
+		CECC23921807ED6D0090E3E0 /* gallery.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = gallery.png; sourceTree = "<group>"; };
+		CECC23931807ED6D0090E3E0 /* off.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = off.jpg; sourceTree = "<group>"; };
+		CECC23941807ED6D0090E3E0 /* ON.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = ON.jpg; sourceTree = "<group>"; };
+		CECC23951807ED6D0090E3E0 /* photoShutter.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = photoShutter.mp3; sourceTree = "<group>"; };
+		CECC23961807ED6D0090E3E0 /* share.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = share.png; sourceTree = "<group>"; };
+		CECC23971807ED6D0090E3E0 /* SUCoolTool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SUCoolTool.h; sourceTree = "<group>"; };
+		CECC23981807ED6D0090E3E0 /* SUCoolTool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SUCoolTool.m; sourceTree = "<group>"; };
+		CECC239A1807ED6D0090E3E0 /* SUConstants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SUConstants.h; sourceTree = "<group>"; };
+		CECC239B1807ED6D0090E3E0 /* SUDrawUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SUDrawUtil.h; sourceTree = "<group>"; };
+		CECC239C1807ED6D0090E3E0 /* SUDrawUtil.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SUDrawUtil.m; sourceTree = "<group>"; };
+		CECC239D1807ED6D0090E3E0 /* SUScreenshotUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SUScreenshotUtil.h; sourceTree = "<group>"; };
+		CECC239E1807ED6D0090E3E0 /* SUScreenshotUtil.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SUScreenshotUtil.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -146,62 +145,6 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		CE18EDCD17EB10B2008000A8 /* Third Party */ = {
-			isa = PBXGroup;
-			children = (
-				CE376F521806E47200F2F64E /* DataResources */,
-				CE18EDCE17EB10B2008000A8 /* GridViewController */,
-				CE2DB85517EC673200196E3D /* SUToolbarView.h */,
-				CE2DB85617EC673200196E3D /* SUToolbarView.m */,
-				CE18EDD917EB1151008000A8 /* SUCoolTool.h */,
-				CE18EDDA17EB1151008000A8 /* SUCoolTool.m */,
-			);
-			path = "Third Party";
-			sourceTree = "<group>";
-		};
-		CE18EDCE17EB10B2008000A8 /* GridViewController */ = {
-			isa = PBXGroup;
-			children = (
-				CE18EDCF17EB10B2008000A8 /* SUGridViewController.h */,
-				CE18EDD017EB10B2008000A8 /* SUGridViewController.m */,
-				CE18EDD117EB10B2008000A8 /* Views */,
-			);
-			path = GridViewController;
-			sourceTree = "<group>";
-		};
-		CE18EDD117EB10B2008000A8 /* Views */ = {
-			isa = PBXGroup;
-			children = (
-				CE8DDD1C17FD7FF800E75728 /* SUCompositeButton.h */,
-				CE8DDD1D17FD7FF800E75728 /* SUCompositeButton.m */,
-				CE18EDD217EB10B2008000A8 /* SUGridUnderLayerView.h */,
-				CE18EDD317EB10B2008000A8 /* SUGridUnderLayerView.m */,
-				CE18EDD417EB10B2008000A8 /* SUGridView.h */,
-				CE18EDD517EB10B2008000A8 /* SUGridView.m */,
-				CE20C4D917F2ED5D0065A295 /* SUGridRootView.h */,
-				CE20C4DA17F2ED5D0065A295 /* SUGridRootView.m */,
-				CECE538217F460CA00BDEF4B /* SUGridRulerView.h */,
-				CECE538317F460CB00BDEF4B /* SUGridRulerView.m */,
-				CE61D1FD18056885008434A4 /* SUGridToolbar.h */,
-				CE61D1FE18056885008434A4 /* SUGridToolbar.m */,
-				CE61D20018057F86008434A4 /* SUSmallGridView.h */,
-				CE61D20118057F86008434A4 /* SUSmallGridView.m */,
-			);
-			path = Views;
-			sourceTree = "<group>";
-		};
-		CE376F521806E47200F2F64E /* DataResources */ = {
-			isa = PBXGroup;
-			children = (
-				CE376F5B1806E6B400F2F64E /* share.png */,
-				CE376F531806E47200F2F64E /* gallery.png */,
-				CE376F541806E47200F2F64E /* off.jpg */,
-				CE376F551806E47200F2F64E /* ON.jpg */,
-				CE376F561806E47200F2F64E /* photoShutter.mp3 */,
-			);
-			path = DataResources;
-			sourceTree = "<group>";
-		};
 		CE7E3FE717E9F8410083F861 = {
 			isa = PBXGroup;
 			children = (
@@ -237,7 +180,6 @@
 		CE7E3FF917E9F8410083F861 /* CoolTool */ = {
 			isa = PBXGroup;
 			children = (
-				CE7E403917E9FCE30083F861 /* Resources */,
 				CE7E403A17E9FCE30083F861 /* Sources */,
 				CE7E403F17E9FCE30083F861 /* Supporting Files */,
 			);
@@ -263,34 +205,13 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
-		CE7E403917E9FCE30083F861 /* Resources */ = {
-			isa = PBXGroup;
-			children = (
-				CE7E405F17EA02A00083F861 /* Languages */,
-			);
-			path = Resources;
-			sourceTree = "<group>";
-		};
 		CE7E403A17E9FCE30083F861 /* Sources */ = {
 			isa = PBXGroup;
 			children = (
-				CE18EDCD17EB10B2008000A8 /* Third Party */,
-				CE7E403B17E9FCE30083F861 /* Utils */,
+				CECC23791807ED6D0090E3E0 /* Third Party */,
 				CE7E403C17E9FCE30083F861 /* ViewControllers */,
 			);
 			path = Sources;
-			sourceTree = "<group>";
-		};
-		CE7E403B17E9FCE30083F861 /* Utils */ = {
-			isa = PBXGroup;
-			children = (
-				CE18EDCA17EAEE2C008000A8 /* SUScreenshotUtil.h */,
-				CE18EDCB17EAEE2C008000A8 /* SUScreenshotUtil.m */,
-				CECE538517F57AFF00BDEF4B /* SUConstants.h */,
-				CE54445717F96948005B00AF /* SUDrawUtil.h */,
-				CE54445817F96948005B00AF /* SUDrawUtil.m */,
-			);
-			path = Utils;
 			sourceTree = "<group>";
 		};
 		CE7E403C17E9FCE30083F861 /* ViewControllers */ = {
@@ -322,12 +243,82 @@
 			path = "Supporting Files";
 			sourceTree = "<group>";
 		};
-		CE7E405F17EA02A00083F861 /* Languages */ = {
+		CECC23791807ED6D0090E3E0 /* Third Party */ = {
 			isa = PBXGroup;
 			children = (
-				CE7E406417EA031F0083F861 /* Localizable.strings */,
+				CECC237A1807ED6D0090E3E0 /* CoolTool */,
 			);
-			path = Languages;
+			path = "Third Party";
+			sourceTree = "<group>";
+		};
+		CECC237A1807ED6D0090E3E0 /* CoolTool */ = {
+			isa = PBXGroup;
+			children = (
+				CECC237B1807ED6D0090E3E0 /* GridViewController */,
+				CECC238F1807ED6D0090E3E0 /* Resources */,
+				CECC23971807ED6D0090E3E0 /* SUCoolTool.h */,
+				CECC23981807ED6D0090E3E0 /* SUCoolTool.m */,
+				CECC23991807ED6D0090E3E0 /* Utils */,
+			);
+			path = CoolTool;
+			sourceTree = "<group>";
+		};
+		CECC237B1807ED6D0090E3E0 /* GridViewController */ = {
+			isa = PBXGroup;
+			children = (
+				CECC237C1807ED6D0090E3E0 /* SUGridViewController.h */,
+				CECC237D1807ED6D0090E3E0 /* SUGridViewController.m */,
+				CECC237E1807ED6D0090E3E0 /* Views */,
+			);
+			path = GridViewController;
+			sourceTree = "<group>";
+		};
+		CECC237E1807ED6D0090E3E0 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				CECC237F1807ED6D0090E3E0 /* SUCompositeButton.h */,
+				CECC23801807ED6D0090E3E0 /* SUCompositeButton.m */,
+				CECC23811807ED6D0090E3E0 /* SUGridRootView.h */,
+				CECC23821807ED6D0090E3E0 /* SUGridRootView.m */,
+				CECC23831807ED6D0090E3E0 /* SUGridRulerView.h */,
+				CECC23841807ED6D0090E3E0 /* SUGridRulerView.m */,
+				CECC23851807ED6D0090E3E0 /* SUGridToolbar.h */,
+				CECC23861807ED6D0090E3E0 /* SUGridToolbar.m */,
+				CECC23871807ED6D0090E3E0 /* SUGridUnderLayerView.h */,
+				CECC23881807ED6D0090E3E0 /* SUGridUnderLayerView.m */,
+				CECC23891807ED6D0090E3E0 /* SUGridView.h */,
+				CECC238A1807ED6D0090E3E0 /* SUGridView.m */,
+				CECC238B1807ED6D0090E3E0 /* SUSmallGridView.h */,
+				CECC238C1807ED6D0090E3E0 /* SUSmallGridView.m */,
+				CECC238D1807ED6D0090E3E0 /* SUToolbarView.h */,
+				CECC238E1807ED6D0090E3E0 /* SUToolbarView.m */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		CECC238F1807ED6D0090E3E0 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				CECC23901807ED6D0090E3E0 /* CoolTool.strings */,
+				CECC23921807ED6D0090E3E0 /* gallery.png */,
+				CECC23931807ED6D0090E3E0 /* off.jpg */,
+				CECC23941807ED6D0090E3E0 /* ON.jpg */,
+				CECC23951807ED6D0090E3E0 /* photoShutter.mp3 */,
+				CECC23961807ED6D0090E3E0 /* share.png */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		CECC23991807ED6D0090E3E0 /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				CECC239A1807ED6D0090E3E0 /* SUConstants.h */,
+				CECC239B1807ED6D0090E3E0 /* SUDrawUtil.h */,
+				CECC239C1807ED6D0090E3E0 /* SUDrawUtil.m */,
+				CECC239D1807ED6D0090E3E0 /* SUScreenshotUtil.h */,
+				CECC239E1807ED6D0090E3E0 /* SUScreenshotUtil.m */,
+			);
+			path = Utils;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -403,19 +394,19 @@
 			buildActionMask = 2147483647;
 			files = (
 				CE7E405017E9FCE30083F861 /* Default-568h@2x.png in Resources */,
-				CE376F581806E47200F2F64E /* off.jpg in Resources */,
-				CE376F5A1806E47200F2F64E /* photoShutter.mp3 in Resources */,
+				CECC23AA1807ED6D0090E3E0 /* off.jpg in Resources */,
+				CECC23AC1807ED6D0090E3E0 /* photoShutter.mp3 in Resources */,
+				CECC23AD1807ED6D0090E3E0 /* share.png in Resources */,
 				CE7E405117E9FCE30083F861 /* Default.png in Resources */,
-				CE376F571806E47200F2F64E /* gallery.png in Resources */,
+				CECC23A91807ED6D0090E3E0 /* gallery.png in Resources */,
 				CE7E405217E9FCE30083F861 /* Default@2x.png in Resources */,
 				CE61D2041805A8E9008434A4 /* iOS Simulator Screen shot Oct 9, 2013 6.08.02 PM.png in Resources */,
+				CECC23A81807ED6D0090E3E0 /* CoolTool.strings in Resources */,
 				CE103A1C180308BD00873BFB /* imageeee.png in Resources */,
 				CE7E405317E9FCE30083F861 /* InfoPlist.strings in Resources */,
 				CE7E405417E9FCE30083F861 /* MainStoryboard_iPad.storyboard in Resources */,
+				CECC23AB1807ED6D0090E3E0 /* ON.jpg in Resources */,
 				CE7E405517E9FCE30083F861 /* MainStoryboard_iPhone.storyboard in Resources */,
-				CE376F5C1806E6B400F2F64E /* share.png in Resources */,
-				CE376F591806E47200F2F64E /* ON.jpg in Resources */,
-				CE7E406217EA031F0083F861 /* Localizable.strings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -450,21 +441,21 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				CE50BA6A18055F670040D9F5 /* SUGridViewController.m in Sources */,
-				CE61D1FF18056885008434A4 /* SUGridToolbar.m in Sources */,
-				CE50BA6918055F5A0040D9F5 /* SUCoolTool.m in Sources */,
-				CE8DDD2317FD9BD800E75728 /* SUCompositeButton.m in Sources */,
-				CE61D20218057F86008434A4 /* SUSmallGridView.m in Sources */,
 				CE7E404E17E9FCE30083F861 /* SUViewController.m in Sources */,
+				CECC23A41807ED6D0090E3E0 /* SUGridUnderLayerView.m in Sources */,
 				CE7E405617E9FCE30083F861 /* main.m in Sources */,
+				CECC23B01807ED6D0090E3E0 /* SUScreenshotUtil.m in Sources */,
+				CECC23A21807ED6D0090E3E0 /* SUGridRulerView.m in Sources */,
+				CECC23A31807ED6D0090E3E0 /* SUGridToolbar.m in Sources */,
+				CECC23A61807ED6D0090E3E0 /* SUSmallGridView.m in Sources */,
+				CECC23A01807ED6D0090E3E0 /* SUCompositeButton.m in Sources */,
+				CECC23AF1807ED6D0090E3E0 /* SUDrawUtil.m in Sources */,
+				CECC23A51807ED6D0090E3E0 /* SUGridView.m in Sources */,
+				CECC23A71807ED6D0090E3E0 /* SUToolbarView.m in Sources */,
+				CECC239F1807ED6D0090E3E0 /* SUGridViewController.m in Sources */,
+				CECC23A11807ED6D0090E3E0 /* SUGridRootView.m in Sources */,
 				CE7E405717E9FCE30083F861 /* SUAppDelegate.m in Sources */,
-				CE18EDCC17EAEE2C008000A8 /* SUScreenshotUtil.m in Sources */,
-				CE18EDD717EB10B2008000A8 /* SUGridUnderLayerView.m in Sources */,
-				CE18EDD817EB10B2008000A8 /* SUGridView.m in Sources */,
-				CE2DB85717EC673200196E3D /* SUToolbarView.m in Sources */,
-				CE20C4DB17F2ED5D0065A295 /* SUGridRootView.m in Sources */,
-				CECE538417F460CB00BDEF4B /* SUGridRulerView.m in Sources */,
-				CE54445917F96948005B00AF /* SUDrawUtil.m in Sources */,
+				CECC23AE1807ED6D0090E3E0 /* SUCoolTool.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -473,7 +464,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				CE7E402817E9F8420083F861 /* CoolToolTests.m in Sources */,
-				CE8DDD1E17FD7FF900E75728 /* SUCompositeButton.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -520,12 +510,12 @@
 			name = MainStoryboard_iPhone.storyboard;
 			sourceTree = "<group>";
 		};
-		CE7E406417EA031F0083F861 /* Localizable.strings */ = {
+		CECC23901807ED6D0090E3E0 /* CoolTool.strings */ = {
 			isa = PBXVariantGroup;
 			children = (
-				CE7E406317EA031F0083F861 /* en */,
+				CECC23911807ED6D0090E3E0 /* en */,
 			);
-			name = Localizable.strings;
+			name = CoolTool.strings;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */

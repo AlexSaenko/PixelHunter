@@ -158,14 +158,14 @@
         MFMailComposeViewController *mailComposeViewController = [[MFMailComposeViewController alloc] init];
         mailComposeViewController.mailComposeDelegate = self;
         
-        [mailComposeViewController setSubject:NSLocalizedString(@"MAIL_SUBJECT", nil)];
+        [mailComposeViewController setSubject:NSLocalizedStringFromTable(@"MAIL_SUBJECT", @"CoolTool", nil)];
         [self.gridRootView.toolbar setHidden:YES];
         [self.screenshotSound play];
         [self showBlinkingViewWithCompletionBlock:^(void) {
             UIImage *imageToSend = [SUScreenshotUtil convertViewToImage:self.view];
             NSData *imageData = UIImageJPEGRepresentation(imageToSend, 1.0f);
             [mailComposeViewController addAttachmentData:imageData mimeType:@"image/png" fileName:@"Bug-image.png"];
-            NSString *emailBody = NSLocalizedString(@"MAIL_BODY", nil);
+            NSString *emailBody = NSLocalizedStringFromTable(@"MAIL_BODY", @"CoolTool", nil);
             [mailComposeViewController setMessageBody:emailBody isHTML:NO];
             
             [self presentViewController:mailComposeViewController animated:YES completion:^{
@@ -195,8 +195,8 @@
 - (void)showErrorAlertView
 {
     UIAlertView *alertView = [[UIAlertView alloc]
-                              initWithTitle:NSLocalizedString(@"ERROR_ALERT_VIEW_TITLE", nil)
-                              message:NSLocalizedString(@"ERROR_ALERT_VIEW_MESSAGE", nil)
+                              initWithTitle:NSLocalizedStringFromTable(@"ERROR_ALERT_VIEW_TITLE", @"CoolTool", nil)
+                              message:NSLocalizedStringFromTable(@"ERROR_ALERT_VIEW_MESSAGE", @"CoolTool", nil)
                               delegate:self
                               cancelButtonTitle:@"OK"
                               otherButtonTitles:nil];
