@@ -11,5 +11,6 @@
 @interface SUCoolTool : NSObject
 
 + (void)setup;
+- (void)createWindowForDebugWithImage:(UIImage *)image;
 
 @end

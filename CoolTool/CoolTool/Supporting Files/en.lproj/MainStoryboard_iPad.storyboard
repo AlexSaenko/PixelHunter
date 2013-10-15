@@ -29,6 +29,9 @@
                             <constraint firstItem="3cM-UL-7wf" firstAttribute="leading" secondItem="5" secondAttribute="leading" id="r8c-Bf-2M5"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="testImageView" destination="3cM-UL-7wf" id="YNM-eB-7Zv"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3" sceneMemberID="firstResponder"/>
             </objects>

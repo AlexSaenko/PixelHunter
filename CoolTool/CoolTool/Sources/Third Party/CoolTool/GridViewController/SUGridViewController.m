@@ -13,6 +13,7 @@
 #import <MessageUI/MFMailComposeViewController.h>
 #import <AVFoundation/AVAudioPlayer.h>
 #import "SUScreenshotUtil.h"
+#import "SUErrorMarkingViewController.h"
 
 @interface SUGridViewController () <SUGridViewControllerDelegate, UIScrollViewDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate, MFMailComposeViewControllerDelegate>
 
@@ -154,28 +155,34 @@
 
 - (void)sendScreenshotViaMail
 {
-    if ([MFMailComposeViewController canSendMail]) {
-        MFMailComposeViewController *mailComposeViewController = [[MFMailComposeViewController alloc] init];
-        mailComposeViewController.mailComposeDelegate = self;
-        
-        [mailComposeViewController setSubject:NSLocalizedStringFromTable(@"MAIL_SUBJECT", @"CoolTool", nil)];
-        [self.gridRootView.toolbar setHidden:YES];
-        [self.screenshotSound play];
-        [self showBlinkingViewWithCompletionBlock:^(void) {
-            UIImage *imageToSend = [SUScreenshotUtil convertViewToImage:self.view];
-            NSData *imageData = UIImageJPEGRepresentation(imageToSend, 1.0f);
-            [mailComposeViewController addAttachmentData:imageData mimeType:@"image/png" fileName:@"Bug-image.png"];
-            NSString *emailBody = NSLocalizedStringFromTable(@"MAIL_BODY", @"CoolTool", nil);
-            [mailComposeViewController setMessageBody:emailBody isHTML:NO];
-            
-            [self presentViewController:mailComposeViewController animated:YES completion:^{
-                [self.gridRootView.toolbar setHidden:NO];
-            }];
-        }];
-    }
-    else {
-        [self showErrorAlertView];
-    }
+    [self.gridRootView.toolbar setHidden:YES];
+    SUErrorMarkingViewController *errorMarkingViewController = [[SUErrorMarkingViewController alloc] initWithScreenshotImage:[SUScreenshotUtil convertViewToImage:self.view]];
+    [self presentViewController:errorMarkingViewController animated:YES completion:^{
+        [self.gridRootView.toolbar setHidden:NO];
+    }];
+//    if ([MFMailComposeViewController canSendMail]) {
+//        MFMailComposeViewController *mailComposeViewController = [[MFMailComposeViewController alloc] init];
+//        mailComposeViewController.mailComposeDelegate = self;
+//        
+//        [mailComposeViewController setSubject:NSLocalizedStringFromTable(@"MAIL_SUBJECT", @"CoolTool", nil)];
+//        [self.gridRootView.toolbar setHidden:YES];
+//        [self.screenshotSound play];
+//        [self showBlinkingViewWithCompletionBlock:^(void) {
+//            UIImage *imageToSend = [SUScreenshotUtil convertViewToImage:self.view];
+//            NSData *imageData = UIImageJPEGRepresentation(imageToSend, 1.0f);
+//            [mailComposeViewController addAttachmentData:imageData mimeType:@"image/png" fileName:@"Bug-image.png"];
+//            NSString *emailBody = NSLocalizedStringFromTable(@"MAIL_BODY", @"CoolTool", nil);
+//            [mailComposeViewController setMessageBody:emailBody isHTML:NO];
+//            
+//            [self presentViewController:mailComposeViewController animated:YES completion:^{
+//                [self.gridRootView.toolbar setHidden:NO];
+//                [self.gridRootView.gridUnderLayerView.scrollView setZoomScale:self.gridRootView.gridUnderLayerView.scrollView.minimumZoomScale];
+//            }];
+//        }];
+//    }
+//    else {
+//        [self showErrorAlertView];
+//    }
 }
 
 - (void)showBlinkingViewWithCompletionBlock:(void (^)())completionBlock

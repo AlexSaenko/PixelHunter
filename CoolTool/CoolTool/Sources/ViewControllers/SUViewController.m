@@ -10,6 +10,7 @@
 #import "SUCoolTool.h"
 
 @interface SUViewController () <UIAlertViewDelegate>
+@property (weak, nonatomic) IBOutlet UIImageView *testImageView;
 
 @end
 
@@ -19,8 +20,8 @@
 {
     [super viewDidAppear:animated];
 
-//    SUCoolTool *coolTool = [[SUCoolTool alloc] init];
-//    [coolTool createWindowForDebug];
+    SUCoolTool *coolTool = [[SUCoolTool alloc] init];
+    [coolTool createWindowForDebugWithImage:self.testImageView.image];
 }
 
 @end
