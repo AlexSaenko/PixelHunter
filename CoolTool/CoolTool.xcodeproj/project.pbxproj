@@ -32,6 +32,8 @@
 		CE7E405517E9FCE30083F861 /* MainStoryboard_iPhone.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CE7E404917E9FCE30083F861 /* MainStoryboard_iPhone.storyboard */; };
 		CE7E405617E9FCE30083F861 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = CE7E404B17E9FCE30083F861 /* main.m */; };
 		CE7E405717E9FCE30083F861 /* SUAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = CE7E404D17E9FCE30083F861 /* SUAppDelegate.m */; };
+		CE90595D180D7A12008C5C1E /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE90595C180D7A12008C5C1E /* QuartzCore.framework */; };
+		CE905960180D8A7D008C5C1E /* SUShareController.m in Sources */ = {isa = PBXBuildFile; fileRef = CE90595F180D8A7D008C5C1E /* SUShareController.m */; };
 		CECC239F1807ED6D0090E3E0 /* SUGridViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CECC237D1807ED6D0090E3E0 /* SUGridViewController.m */; };
 		CECC23A01807ED6D0090E3E0 /* SUCompositeButton.m in Sources */ = {isa = PBXBuildFile; fileRef = CECC23801807ED6D0090E3E0 /* SUCompositeButton.m */; };
 		CECC23A11807ED6D0090E3E0 /* SUGridRootView.m in Sources */ = {isa = PBXBuildFile; fileRef = CECC23821807ED6D0090E3E0 /* SUGridRootView.m */; };
@@ -98,6 +100,9 @@
 		CE7E404B17E9FCE30083F861 /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		CE7E404C17E9FCE30083F861 /* SUAppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SUAppDelegate.h; sourceTree = "<group>"; };
 		CE7E404D17E9FCE30083F861 /* SUAppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SUAppDelegate.m; sourceTree = "<group>"; };
+		CE90595C180D7A12008C5C1E /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		CE90595E180D8A7D008C5C1E /* SUShareController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SUShareController.h; sourceTree = "<group>"; };
+		CE90595F180D8A7D008C5C1E /* SUShareController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SUShareController.m; sourceTree = "<group>"; };
 		CECC237C1807ED6D0090E3E0 /* SUGridViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SUGridViewController.h; sourceTree = "<group>"; };
 		CECC237D1807ED6D0090E3E0 /* SUGridViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SUGridViewController.m; sourceTree = "<group>"; };
 		CECC237F1807ED6D0090E3E0 /* SUCompositeButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SUCompositeButton.h; sourceTree = "<group>"; };
@@ -136,6 +141,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CE90595D180D7A12008C5C1E /* QuartzCore.framework in Frameworks */,
 				CE376F511806E36800F2F64E /* AVFoundation.framework in Frameworks */,
 				CE376F4F1806E2EB00F2F64E /* MessageUI.framework in Frameworks */,
 				CE7E3FF417E9F8410083F861 /* UIKit.framework in Frameworks */,
@@ -163,6 +169,8 @@
 				CE7B30E8180BFE9F0027742E /* Views */,
 				CE7B30E5180BFD120027742E /* SUErrorMarkingViewController.h */,
 				CE7B30E6180BFD120027742E /* SUErrorMarkingViewController.m */,
+				CE90595E180D8A7D008C5C1E /* SUShareController.h */,
+				CE90595F180D8A7D008C5C1E /* SUShareController.m */,
 			);
 			path = ErrorMarkingViewController;
 			sourceTree = "<group>";
@@ -202,6 +210,7 @@
 		CE7E3FF217E9F8410083F861 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				CE90595C180D7A12008C5C1E /* QuartzCore.framework */,
 				CE376F501806E36800F2F64E /* AVFoundation.framework */,
 				CE376F4E1806E2EB00F2F64E /* MessageUI.framework */,
 				CE7E3FF317E9F8410083F861 /* UIKit.framework */,
@@ -482,6 +491,7 @@
 				CE7E405617E9FCE30083F861 /* main.m in Sources */,
 				CE7B30E7180BFD120027742E /* SUErrorMarkingViewController.m in Sources */,
 				CE7B30EE180C03B10027742E /* SUErrorMarkingToolbar.m in Sources */,
+				CE905960180D8A7D008C5C1E /* SUShareController.m in Sources */,
 				CECC23B01807ED6D0090E3E0 /* SUScreenshotUtil.m in Sources */,
 				CECC23A21807ED6D0090E3E0 /* SUGridRulerView.m in Sources */,
 				CECC23A31807ED6D0090E3E0 /* SUGridToolbar.m in Sources */,

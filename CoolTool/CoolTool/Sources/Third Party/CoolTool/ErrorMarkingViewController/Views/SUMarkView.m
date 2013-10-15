@@ -7,6 +7,7 @@
 //
 
 #import "SUMarkView.h"
+#import <QuartzCore/QuartzCore.h>
 
 @interface SUMarkView ()
 
@@ -27,13 +28,21 @@
         self.borderWidth = 1.0f;
         self.layer.borderWidth = self.borderWidth;
         self.layer.cornerRadius = 10.0f;
+//        [self.layer addAnimation:[self wiggleRotationAnimation] forKey:@"animationWiggle"];
         self.isActive = YES;
         
+        // Init tap gesture
         self.tapGesture = [[UITapGestureRecognizer alloc] init];
         [self addGestureRecognizer:self.tapGesture];
+        
+        // Init pan gesture
         self.panGesture = [[UIPanGestureRecognizer alloc] init];
         [self addGestureRecognizer:self.panGesture];
         [self.panGesture addTarget:self action:@selector(handlePan:)];
+        
+        // Init long press gesture
+        self.longPressGesture = [[UILongPressGestureRecognizer alloc] init];
+        [self addGestureRecognizer:self.longPressGesture];  
     }
     return self;
 }

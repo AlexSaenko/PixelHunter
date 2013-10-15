@@ -12,5 +12,6 @@
 @interface SUErrorMarkingToolbar : SUToolbarView
 
 @property (nonatomic, strong) SUCompositeButton *addMarkingViewButton;
+@property (nonatomic, strong) SUCompositeButton *sendMailButton;
 
 @end

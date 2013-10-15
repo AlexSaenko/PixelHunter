@@ -18,6 +18,7 @@
 
 @property (nonatomic, strong) UITapGestureRecognizer *tapGesture;
 @property (nonatomic, strong) UIPanGestureRecognizer *panGesture;
+@property (nonatomic, strong) UILongPressGestureRecognizer *longPressGesture;
 @property (nonatomic, assign) BOOL isActive;
 @property (nonatomic, assign) id <SUMarkViewDelegate> delegate;
 

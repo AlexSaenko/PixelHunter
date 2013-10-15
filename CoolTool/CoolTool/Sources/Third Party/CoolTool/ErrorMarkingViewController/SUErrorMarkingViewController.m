@@ -10,16 +10,20 @@
 #import "SUErrorMarkingView.h"
 #import "SUMarkView.h"
 #import <QuartzCore/QuartzCore.h>
+#import "SUShareController.h"
 
-static const CGRect kSUMarkViewFrame = {{50.0f, 50.0f}, {150.0f, 150.0f}};
-static const CGFloat kSUMinValidScale = 0.8f;
-static const CGFloat kSUMaxValidScale = 2.0f;
-static const CGFloat kSUScaleRestraintStartValue = 1.5f;
+static CGRect const kSUMarkViewFrame = {{50.0f, 50.0f}, {150.0f, 150.0f}};
+static CGRect const kSUMarkViewCloseButtonFrame = {{10.0f, 10.0f}, {30.0f, 30.0f}};
+static CGFloat const kSUMinValidScale = 0.8f;
+static CGFloat const kSUMaxValidScale = 2.0f;
+static CGFloat const kSUScaleRestraintStartValue = 1.5f;
+static NSString * const kSUShakingAnimationKey = @"shakingAnimation";
 
 @interface SUErrorMarkingViewController () <UIGestureRecognizerDelegate, SUMarkViewDelegate>
 
 @property (nonatomic, strong) UIImage *screenshotImage;
 @property (nonatomic, strong) SUErrorMarkingView *errorMarkingView;
+@property (nonatomic, strong) SUShareController *shareController;
 
 @end
 
@@ -29,6 +33,7 @@ static const CGFloat kSUScaleRestraintStartValue = 1.5f;
 {
     self = [super init];
 	if (self) {
+        // Init screenshot image
 		self.screenshotImage = screenshotImage;
 	}
     
@@ -47,13 +52,20 @@ static const CGFloat kSUScaleRestraintStartValue = 1.5f;
 {
     [super viewDidLoad];
     
+    self.shareController = [[SUShareController alloc] initWithToolbar:self.errorMarkingView.toolbar onViewController:self];
+    
     [self.errorMarkingView.toolbar.addMarkingViewButton addTarget:self
-                                                   action:@selector(addMarkingView)];
+                                                           action:@selector(addMarkingView)];
+    [self.errorMarkingView.toolbar.closeButton addTarget:self
+                                                  action:@selector(showPreviousViewController)
+                                        forControlEvents:UIControlEventTouchUpInside];
     [self.errorMarkingView.pinchGesture addTarget:self action:@selector(handlePinch:)];
+    [self.errorMarkingView.tapGesture addTarget:self action:@selector(stopShakingAnimation)];
 }
 
 - (void)addMarkingView
 {
+    [self stopShakingAnimation];
     for (SUMarkView *subView in [self.errorMarkingView subviews])
     {
         if ([subView isKindOfClass:[SUMarkView class]]) {
@@ -63,8 +75,66 @@ static const CGFloat kSUScaleRestraintStartValue = 1.5f;
     SUMarkView *markView = [[SUMarkView alloc] initWithFrame:kSUMarkViewFrame withView:self.errorMarkingView];
     markView.delegate = self;
     [markView.tapGesture addTarget:self action:@selector(handleTap:)];
+    [markView.longPressGesture addTarget:self action:@selector(handleLongPress:)];
     [self.errorMarkingView addSubview:markView];
 }
+
+- (void)showPreviousViewController
+{
+    [self dismissViewControllerAnimated:YES completion:nil];
+}
+
+#pragma mark Handle long tap gesture
+
+- (void)handleLongPress:(UILongPressGestureRecognizer *)recognizer
+{
+    [self makeViewActiveWithRecognizer:recognizer];
+    
+    for (SUMarkView *subview in [self.errorMarkingView subviews])
+    {
+        if ([subview isKindOfClass:[SUMarkView class]]) {
+            [subview.layer addAnimation:[self shakingViewAnimation] forKey:kSUShakingAnimationKey];
+            // Init button
+            UIButton *button = [UIButton buttonWithType:UIButtonTypeCustom];
+            button.backgroundColor = [UIColor blackColor];
+            button.frame = kSUMarkViewCloseButtonFrame;
+            [button addTarget:self action:@selector(removeMarkView:) forControlEvents:UIControlEventTouchUpInside];
+            [subview addSubview:button];
+        }
+    }
+}
+
+- (CAAnimation *)shakingViewAnimation
+{
+    CAKeyframeAnimation *animation = [CAKeyframeAnimation animationWithKeyPath:@"transform.rotation"];
+    animation.values = [NSArray arrayWithObjects:[NSNumber numberWithFloat:-0.05f],
+                        [NSNumber numberWithFloat:0.05f],
+                        nil];
+    animation.duration = 0.1f;
+    animation.autoreverses = YES;
+    animation.repeatCount = HUGE_VALF;
+    return animation;
+}
+
+- (void)removeMarkView:(id)sender
+{
+    [((UIButton *)sender).superview removeFromSuperview];
+}
+
+- (void)stopShakingAnimation
+{
+    for (SUMarkView *subview in [self.errorMarkingView subviews])
+    {
+        if ([subview isKindOfClass:[SUMarkView class]]) {
+            [subview.layer removeAnimationForKey:kSUShakingAnimationKey];
+            for (UIButton *button in [subview subviews]) {
+                [button removeFromSuperview];
+            }
+        }
+    }
+}
+
+#pragma mark Handle tap and pan gestures
 
 - (void)handleTap:(UITapGestureRecognizer *)recognizer
 {
@@ -89,6 +159,8 @@ static const CGFloat kSUScaleRestraintStartValue = 1.5f;
     }
 
 }
+
+#pragma mark Handle pinch gesture
 
 - (void)handlePinch:(UIPinchGestureRecognizer *)recognizer
 {
@@ -147,6 +219,8 @@ static const CGFloat kSUScaleRestraintStartValue = 1.5f;
     
     return resultScale;
 }
+
+#pragma mark Different delegate methods
 
 - (BOOL)gestureRecognizer:(UIGestureRecognizer *)gestureRecognizer shouldRecognizeSimultaneouslyWithGestureRecognizer:(UIGestureRecognizer *)otherGestureRecognizer
 {
