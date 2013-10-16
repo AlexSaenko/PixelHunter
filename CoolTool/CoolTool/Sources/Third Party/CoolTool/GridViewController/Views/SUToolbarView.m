@@ -19,7 +19,7 @@
         self.userInteractionEnabled = YES;
         
         self.closeButton = [UIButton buttonWithType:UIButtonTypeCustom];
-        [self.closeButton setBackgroundColor:[UIColor yellowColor]];
+        [self.closeButton setBackgroundImage:[UIImage imageNamed:@"closeIcon.jpeg"] forState:UIControlStateNormal];
         [self addSubview:self.closeButton];
     }
     

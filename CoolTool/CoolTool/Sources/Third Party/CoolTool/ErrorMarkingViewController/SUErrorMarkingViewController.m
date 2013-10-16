@@ -11,6 +11,7 @@
 #import "SUMarkView.h"
 #import <QuartzCore/QuartzCore.h>
 #import "SUShareController.h"
+#import "SUConstants.h"
 
 static CGRect const kSUMarkViewFrame = {{50.0f, 50.0f}, {150.0f, 150.0f}};
 static CGRect const kSUMarkViewCloseButtonFrame = {{10.0f, 10.0f}, {30.0f, 30.0f}};
@@ -52,20 +53,33 @@ static NSString * const kSUShakingAnimationKey = @"shakingAnimation";
 {
     [super viewDidLoad];
     
-    self.shareController = [[SUShareController alloc] initWithToolbar:self.errorMarkingView.toolbar onViewController:self];
+    self.shareController = [[SUShareController alloc] initWithToolbar:self.errorMarkingView.errorMarkingToolbar onViewController:self];
     
-    [self.errorMarkingView.toolbar.addMarkingViewButton addTarget:self
-                                                           action:@selector(addMarkingView)];
-    [self.errorMarkingView.toolbar.closeButton addTarget:self
+    // Error marking toolbar actions
+    [self.errorMarkingView.errorMarkingToolbar.addMarkingViewButton addTarget:self
+                                                           action:@selector(addMarkView)];
+    [self.errorMarkingView.errorMarkingToolbar.closeButton addTarget:self
                                                   action:@selector(showPreviousViewController)
                                         forControlEvents:UIControlEventTouchUpInside];
+    
+    // Error marking view gestures
     [self.errorMarkingView.pinchGesture addTarget:self action:@selector(handlePinch:)];
     [self.errorMarkingView.tapGesture addTarget:self action:@selector(stopShakingAnimation)];
+    
+    // Mark view toolbar
+    [self.errorMarkingView.markViewToolbar.cornerTypeButton addTarget:self
+                                                               action:@selector(changeCornerType)];
+    [self.errorMarkingView.markViewToolbar.widthSlider addTarget:self
+                                         action:@selector(changeBorderWidth:)
+                               forControlEvents:UIControlEventValueChanged];
+    
 }
 
-- (void)addMarkingView
+- (void)addMarkView
 {
     [self stopShakingAnimation];
+    [self makeMarkViewToolbarButtonsActive:YES];
+    
     for (SUMarkView *subView in [self.errorMarkingView subviews])
     {
         if ([subView isKindOfClass:[SUMarkView class]]) {
@@ -76,12 +90,51 @@ static NSString * const kSUShakingAnimationKey = @"shakingAnimation";
     markView.delegate = self;
     [markView.tapGesture addTarget:self action:@selector(handleTap:)];
     [markView.longPressGesture addTarget:self action:@selector(handleLongPress:)];
+    self.errorMarkingView.markViewToolbar.widthSlider.value = markView.layer.borderWidth;
     [self.errorMarkingView addSubview:markView];
 }
 
 - (void)showPreviousViewController
 {
     [self dismissViewControllerAnimated:YES completion:nil];
+}
+
+#pragma mark Mark View toolbar
+- (void)changeCornerType
+{
+    for (SUMarkView *subview in [self.errorMarkingView subviews])
+    {
+        if ([subview isKindOfClass:[SUMarkView class]]) {
+            if (subview.isActive) {
+                if (subview.layer.cornerRadius == kSUCornerRadius) {
+                    subview.layer.cornerRadius = 0;
+                } else {
+                    subview.layer.cornerRadius = kSUCornerRadius;
+                }
+            }
+        }
+    }
+}
+
+- (void)changeBorderWidth:(UISlider *)sender
+{
+    NSInteger discreteValue = roundl([sender value]);
+    [sender setValue:(CGFloat)discreteValue];
+    
+    for (SUMarkView *subview in [self.errorMarkingView subviews])
+    {
+        if ([subview isKindOfClass:[SUMarkView class]]) {
+            if (subview.isActive) {
+                subview.borderWidth = discreteValue;
+                subview.layer.borderWidth = subview.borderWidth * 2;
+            }
+        }
+    }
+}
+
+- (void)makeMarkViewToolbarButtonsActive:(BOOL)isActive
+{
+    self.errorMarkingView.errorMarkingToolbar.showMarkingViewToolbarButton.enabled = isActive;
 }
 
 #pragma mark Handle long tap gesture
@@ -119,6 +172,13 @@ static NSString * const kSUShakingAnimationKey = @"shakingAnimation";
 - (void)removeMarkView:(id)sender
 {
     [((UIButton *)sender).superview removeFromSuperview];
+    [self makeMarkViewToolbarButtonsActive:NO];
+    for (SUMarkView *subview in [self.errorMarkingView subviews])
+    {
+        if ([subview isKindOfClass:[SUMarkView class]]) {
+            [self makeMarkViewToolbarButtonsActive:YES];
+        }
+    }
 }
 
 - (void)stopShakingAnimation
@@ -154,10 +214,11 @@ static NSString * const kSUShakingAnimationKey = @"shakingAnimation";
             subview.isActive = NO;
         }
     }
+    
+    self.errorMarkingView.markViewToolbar.widthSlider.value = ((SUMarkView *)recognizer.view).borderWidth;
     if (!((SUMarkView *)recognizer.view).isActive) {
         ((SUMarkView *)recognizer.view).isActive = YES;
     }
-
 }
 
 #pragma mark Handle pinch gesture

@@ -8,6 +8,12 @@
 
 /* Begin PBXBuildFile section */
 		CE103A1C180308BD00873BFB /* imageeee.png in Resources */ = {isa = PBXBuildFile; fileRef = CE103A1B180308BD00873BFB /* imageeee.png */; };
+		CE2C9296180EA3EF0011E358 /* closeIcon.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = CE2C9295180EA3EF0011E358 /* closeIcon.jpeg */; };
+		CE2C929A180EA4F40011E358 /* backIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = CE2C9299180EA4F40011E358 /* backIcon.png */; };
+		CE2C929E180EA58F0011E358 /* addIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = CE2C929D180EA58F0011E358 /* addIcon.png */; };
+		CE2C92A0180EA6750011E358 /* cornerIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = CE2C929F180EA6750011E358 /* cornerIcon.png */; };
+		CE2C92A2180EB1A80011E358 /* sliderIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = CE2C92A1180EB1A80011E358 /* sliderIcon.png */; };
+		CE2C92A4180EF46C0011E358 /* editIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = CE2C92A3180EF46C0011E358 /* editIcon.png */; };
 		CE376F4F1806E2EB00F2F64E /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE376F4E1806E2EB00F2F64E /* MessageUI.framework */; };
 		CE376F511806E36800F2F64E /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE376F501806E36800F2F64E /* AVFoundation.framework */; };
 		CE61D2041805A8E9008434A4 /* iOS Simulator Screen shot Oct 9, 2013 6.08.02 PM.png in Resources */ = {isa = PBXBuildFile; fileRef = CE61D2031805A8E9008434A4 /* iOS Simulator Screen shot Oct 9, 2013 6.08.02 PM.png */; };
@@ -34,6 +40,7 @@
 		CE7E405717E9FCE30083F861 /* SUAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = CE7E404D17E9FCE30083F861 /* SUAppDelegate.m */; };
 		CE90595D180D7A12008C5C1E /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE90595C180D7A12008C5C1E /* QuartzCore.framework */; };
 		CE905960180D8A7D008C5C1E /* SUShareController.m in Sources */ = {isa = PBXBuildFile; fileRef = CE90595F180D8A7D008C5C1E /* SUShareController.m */; };
+		CE905963180D984C008C5C1E /* SUMarkViewToolbar.m in Sources */ = {isa = PBXBuildFile; fileRef = CE905962180D984C008C5C1E /* SUMarkViewToolbar.m */; };
 		CECC239F1807ED6D0090E3E0 /* SUGridViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CECC237D1807ED6D0090E3E0 /* SUGridViewController.m */; };
 		CECC23A01807ED6D0090E3E0 /* SUCompositeButton.m in Sources */ = {isa = PBXBuildFile; fileRef = CECC23801807ED6D0090E3E0 /* SUCompositeButton.m */; };
 		CECC23A11807ED6D0090E3E0 /* SUGridRootView.m in Sources */ = {isa = PBXBuildFile; fileRef = CECC23821807ED6D0090E3E0 /* SUGridRootView.m */; };
@@ -66,6 +73,12 @@
 
 /* Begin PBXFileReference section */
 		CE103A1B180308BD00873BFB /* imageeee.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = imageeee.png; sourceTree = "<group>"; };
+		CE2C9295180EA3EF0011E358 /* closeIcon.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = closeIcon.jpeg; sourceTree = "<group>"; };
+		CE2C9299180EA4F40011E358 /* backIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = backIcon.png; sourceTree = "<group>"; };
+		CE2C929D180EA58F0011E358 /* addIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = addIcon.png; sourceTree = "<group>"; };
+		CE2C929F180EA6750011E358 /* cornerIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = cornerIcon.png; sourceTree = "<group>"; };
+		CE2C92A1180EB1A80011E358 /* sliderIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = sliderIcon.png; sourceTree = "<group>"; };
+		CE2C92A3180EF46C0011E358 /* editIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = editIcon.png; sourceTree = "<group>"; };
 		CE376F4E1806E2EB00F2F64E /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
 		CE376F501806E36800F2F64E /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		CE61D2031805A8E9008434A4 /* iOS Simulator Screen shot Oct 9, 2013 6.08.02 PM.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "iOS Simulator Screen shot Oct 9, 2013 6.08.02 PM.png"; sourceTree = "<group>"; };
@@ -103,6 +116,8 @@
 		CE90595C180D7A12008C5C1E /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		CE90595E180D8A7D008C5C1E /* SUShareController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SUShareController.h; sourceTree = "<group>"; };
 		CE90595F180D8A7D008C5C1E /* SUShareController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SUShareController.m; sourceTree = "<group>"; };
+		CE905961180D984C008C5C1E /* SUMarkViewToolbar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SUMarkViewToolbar.h; sourceTree = "<group>"; };
+		CE905962180D984C008C5C1E /* SUMarkViewToolbar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SUMarkViewToolbar.m; sourceTree = "<group>"; };
 		CECC237C1807ED6D0090E3E0 /* SUGridViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SUGridViewController.h; sourceTree = "<group>"; };
 		CECC237D1807ED6D0090E3E0 /* SUGridViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SUGridViewController.m; sourceTree = "<group>"; };
 		CECC237F1807ED6D0090E3E0 /* SUCompositeButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SUCompositeButton.h; sourceTree = "<group>"; };
@@ -184,6 +199,8 @@
 				CE7B30ED180C03B10027742E /* SUErrorMarkingToolbar.m */,
 				CE7B30EF180C0A570027742E /* SUMarkView.h */,
 				CE7B30F0180C0A570027742E /* SUMarkView.m */,
+				CE905961180D984C008C5C1E /* SUMarkViewToolbar.h */,
+				CE905962180D984C008C5C1E /* SUMarkViewToolbar.m */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -344,6 +361,12 @@
 		CECC238F1807ED6D0090E3E0 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				CE2C92A3180EF46C0011E358 /* editIcon.png */,
+				CE2C92A1180EB1A80011E358 /* sliderIcon.png */,
+				CE2C929F180EA6750011E358 /* cornerIcon.png */,
+				CE2C929D180EA58F0011E358 /* addIcon.png */,
+				CE2C9299180EA4F40011E358 /* backIcon.png */,
+				CE2C9295180EA3EF0011E358 /* closeIcon.jpeg */,
 				CECC23901807ED6D0090E3E0 /* CoolTool.strings */,
 				CECC23921807ED6D0090E3E0 /* gallery.png */,
 				CECC23931807ED6D0090E3E0 /* off.jpg */,
@@ -439,18 +462,24 @@
 			buildActionMask = 2147483647;
 			files = (
 				CE7E405017E9FCE30083F861 /* Default-568h@2x.png in Resources */,
+				CE2C9296180EA3EF0011E358 /* closeIcon.jpeg in Resources */,
 				CECC23AA1807ED6D0090E3E0 /* off.jpg in Resources */,
+				CE2C929E180EA58F0011E358 /* addIcon.png in Resources */,
 				CECC23AC1807ED6D0090E3E0 /* photoShutter.mp3 in Resources */,
 				CECC23AD1807ED6D0090E3E0 /* share.png in Resources */,
 				CE7E405117E9FCE30083F861 /* Default.png in Resources */,
 				CECC23A91807ED6D0090E3E0 /* gallery.png in Resources */,
 				CE7E405217E9FCE30083F861 /* Default@2x.png in Resources */,
 				CE61D2041805A8E9008434A4 /* iOS Simulator Screen shot Oct 9, 2013 6.08.02 PM.png in Resources */,
+				CE2C92A2180EB1A80011E358 /* sliderIcon.png in Resources */,
+				CE2C929A180EA4F40011E358 /* backIcon.png in Resources */,
 				CECC23A81807ED6D0090E3E0 /* CoolTool.strings in Resources */,
 				CE103A1C180308BD00873BFB /* imageeee.png in Resources */,
+				CE2C92A0180EA6750011E358 /* cornerIcon.png in Resources */,
 				CE7E405317E9FCE30083F861 /* InfoPlist.strings in Resources */,
 				CE7E405417E9FCE30083F861 /* MainStoryboard_iPad.storyboard in Resources */,
 				CECC23AB1807ED6D0090E3E0 /* ON.jpg in Resources */,
+				CE2C92A4180EF46C0011E358 /* editIcon.png in Resources */,
 				CE7E405517E9FCE30083F861 /* MainStoryboard_iPhone.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -504,6 +533,7 @@
 				CECC23A71807ED6D0090E3E0 /* SUToolbarView.m in Sources */,
 				CECC239F1807ED6D0090E3E0 /* SUGridViewController.m in Sources */,
 				CECC23A11807ED6D0090E3E0 /* SUGridRootView.m in Sources */,
+				CE905963180D984C008C5C1E /* SUMarkViewToolbar.m in Sources */,
 				CE7E405717E9FCE30083F861 /* SUAppDelegate.m in Sources */,
 				CECC23AE1807ED6D0090E3E0 /* SUCoolTool.m in Sources */,
 			);

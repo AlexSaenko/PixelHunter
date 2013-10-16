@@ -8,10 +8,12 @@
 
 #import <UIKit/UIKit.h>
 #import "SUErrorMarkingToolbar.h"
+#import "SUMarkViewToolbar.h"
 
 @interface SUErrorMarkingView : UIView
 
-@property (nonatomic, strong) SUErrorMarkingToolbar *toolbar;
+@property (nonatomic, strong) SUErrorMarkingToolbar *errorMarkingToolbar;
+@property (nonatomic, strong) SUMarkViewToolbar *markViewToolbar;
 @property (nonatomic, strong) UITapGestureRecognizer *tapGesture;
 @property (nonatomic, strong) UIPinchGestureRecognizer *pinchGesture;
 

@@ -8,11 +8,11 @@
 
 #import "SUMarkView.h"
 #import <QuartzCore/QuartzCore.h>
+#import "SUConstants.h"
 
 @interface SUMarkView ()
 
 @property (nonatomic, strong) UIView *gestureView;
-@property (nonatomic, assign) CGFloat borderWidth;
 
 @end
 
@@ -27,8 +27,7 @@
         self.layer.borderColor = [UIColor redColor].CGColor;
         self.borderWidth = 1.0f;
         self.layer.borderWidth = self.borderWidth;
-        self.layer.cornerRadius = 10.0f;
-//        [self.layer addAnimation:[self wiggleRotationAnimation] forKey:@"animationWiggle"];
+        self.layer.cornerRadius = kSUCornerRadius;
         self.isActive = YES;
         
         // Init tap gesture
