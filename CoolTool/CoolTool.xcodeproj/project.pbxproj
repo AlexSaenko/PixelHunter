@@ -41,6 +41,9 @@
 		CE90595D180D7A12008C5C1E /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE90595C180D7A12008C5C1E /* QuartzCore.framework */; };
 		CE905960180D8A7D008C5C1E /* SUShareController.m in Sources */ = {isa = PBXBuildFile; fileRef = CE90595F180D8A7D008C5C1E /* SUShareController.m */; };
 		CE905963180D984C008C5C1E /* SUMarkViewToolbar.m in Sources */ = {isa = PBXBuildFile; fileRef = CE905962180D984C008C5C1E /* SUMarkViewToolbar.m */; };
+		CEB6B8B8180FFE25007CDC55 /* SUMarkColorView.m in Sources */ = {isa = PBXBuildFile; fileRef = CEB6B8B7180FFE25007CDC55 /* SUMarkColorView.m */; };
+		CEB6B8BB181002EE007CDC55 /* SUColorView.m in Sources */ = {isa = PBXBuildFile; fileRef = CEB6B8BA181002EE007CDC55 /* SUColorView.m */; };
+		CEB6B8BD18100C80007CDC55 /* colorIcon.jpg in Resources */ = {isa = PBXBuildFile; fileRef = CEB6B8BC18100C80007CDC55 /* colorIcon.jpg */; };
 		CECC239F1807ED6D0090E3E0 /* SUGridViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CECC237D1807ED6D0090E3E0 /* SUGridViewController.m */; };
 		CECC23A01807ED6D0090E3E0 /* SUCompositeButton.m in Sources */ = {isa = PBXBuildFile; fileRef = CECC23801807ED6D0090E3E0 /* SUCompositeButton.m */; };
 		CECC23A11807ED6D0090E3E0 /* SUGridRootView.m in Sources */ = {isa = PBXBuildFile; fileRef = CECC23821807ED6D0090E3E0 /* SUGridRootView.m */; };
@@ -118,6 +121,11 @@
 		CE90595F180D8A7D008C5C1E /* SUShareController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SUShareController.m; sourceTree = "<group>"; };
 		CE905961180D984C008C5C1E /* SUMarkViewToolbar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SUMarkViewToolbar.h; sourceTree = "<group>"; };
 		CE905962180D984C008C5C1E /* SUMarkViewToolbar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SUMarkViewToolbar.m; sourceTree = "<group>"; };
+		CEB6B8B6180FFE25007CDC55 /* SUMarkColorView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SUMarkColorView.h; sourceTree = "<group>"; };
+		CEB6B8B7180FFE25007CDC55 /* SUMarkColorView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SUMarkColorView.m; sourceTree = "<group>"; };
+		CEB6B8B9181002EE007CDC55 /* SUColorView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SUColorView.h; sourceTree = "<group>"; };
+		CEB6B8BA181002EE007CDC55 /* SUColorView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SUColorView.m; sourceTree = "<group>"; };
+		CEB6B8BC18100C80007CDC55 /* colorIcon.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = colorIcon.jpg; sourceTree = "<group>"; };
 		CECC237C1807ED6D0090E3E0 /* SUGridViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SUGridViewController.h; sourceTree = "<group>"; };
 		CECC237D1807ED6D0090E3E0 /* SUGridViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SUGridViewController.m; sourceTree = "<group>"; };
 		CECC237F1807ED6D0090E3E0 /* SUCompositeButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SUCompositeButton.h; sourceTree = "<group>"; };
@@ -201,6 +209,10 @@
 				CE7B30F0180C0A570027742E /* SUMarkView.m */,
 				CE905961180D984C008C5C1E /* SUMarkViewToolbar.h */,
 				CE905962180D984C008C5C1E /* SUMarkViewToolbar.m */,
+				CEB6B8B6180FFE25007CDC55 /* SUMarkColorView.h */,
+				CEB6B8B7180FFE25007CDC55 /* SUMarkColorView.m */,
+				CEB6B8B9181002EE007CDC55 /* SUColorView.h */,
+				CEB6B8BA181002EE007CDC55 /* SUColorView.m */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -361,6 +373,7 @@
 		CECC238F1807ED6D0090E3E0 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				CEB6B8BC18100C80007CDC55 /* colorIcon.jpg */,
 				CE2C92A3180EF46C0011E358 /* editIcon.png */,
 				CE2C92A1180EB1A80011E358 /* sliderIcon.png */,
 				CE2C929F180EA6750011E358 /* cornerIcon.png */,
@@ -474,6 +487,7 @@
 				CE2C92A2180EB1A80011E358 /* sliderIcon.png in Resources */,
 				CE2C929A180EA4F40011E358 /* backIcon.png in Resources */,
 				CECC23A81807ED6D0090E3E0 /* CoolTool.strings in Resources */,
+				CEB6B8BD18100C80007CDC55 /* colorIcon.jpg in Resources */,
 				CE103A1C180308BD00873BFB /* imageeee.png in Resources */,
 				CE2C92A0180EA6750011E358 /* cornerIcon.png in Resources */,
 				CE7E405317E9FCE30083F861 /* InfoPlist.strings in Resources */,
@@ -525,6 +539,7 @@
 				CECC23A21807ED6D0090E3E0 /* SUGridRulerView.m in Sources */,
 				CECC23A31807ED6D0090E3E0 /* SUGridToolbar.m in Sources */,
 				CECC23A61807ED6D0090E3E0 /* SUSmallGridView.m in Sources */,
+				CEB6B8BB181002EE007CDC55 /* SUColorView.m in Sources */,
 				CECC23A01807ED6D0090E3E0 /* SUCompositeButton.m in Sources */,
 				CE7B30EB180BFF540027742E /* SUErrorMarkingView.m in Sources */,
 				CECC23AF1807ED6D0090E3E0 /* SUDrawUtil.m in Sources */,
@@ -532,6 +547,7 @@
 				CECC23A51807ED6D0090E3E0 /* SUGridView.m in Sources */,
 				CECC23A71807ED6D0090E3E0 /* SUToolbarView.m in Sources */,
 				CECC239F1807ED6D0090E3E0 /* SUGridViewController.m in Sources */,
+				CEB6B8B8180FFE25007CDC55 /* SUMarkColorView.m in Sources */,
 				CECC23A11807ED6D0090E3E0 /* SUGridRootView.m in Sources */,
 				CE905963180D984C008C5C1E /* SUMarkViewToolbar.m in Sources */,
 				CE7E405717E9FCE30083F861 /* SUAppDelegate.m in Sources */,

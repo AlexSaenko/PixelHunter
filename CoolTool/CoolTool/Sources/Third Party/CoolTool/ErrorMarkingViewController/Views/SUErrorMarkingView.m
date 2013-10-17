@@ -60,6 +60,8 @@
         // Init button actions
         [self.markViewToolbar.borderWidthSliderButton addTarget:self
                                                         action:@selector(showSlider)];
+        [self.markViewToolbar.borderColorPickerButton addTarget:self
+                                                         action:@selector(showColorPicker)];
         
     }
     return self;
@@ -99,26 +101,86 @@
 
 - (void)showSlider
 {
-    if (self.markViewToolbar.widthSlider.hidden) {
-        self.markViewToolbar.widthSlider.hidden = NO;
-        [UIView animateWithDuration:0.1f animations:^{
-            CGRect newFrame = self.markViewToolbar.frame;
-            self.markViewToolbar.frame = CGRectMake(newFrame.origin.x - kSUMarkViewToolbarWidth / 2,
-                                                                     newFrame.origin.y,
-                                                                     newFrame.size.width, newFrame.size.height);
-        }];
-        
-    } else {
+    if (!self.markViewToolbar.markColorView.hidden) {
         [UIView animateWithDuration:0.1f animations:^{
             CGRect newFrame = self.markViewToolbar.frame;
             self.markViewToolbar.frame = CGRectMake(newFrame.origin.x + kSUMarkViewToolbarWidth / 2,
-                                                                     newFrame.origin.y,
-                                                                     newFrame.size.width, newFrame.size.height);
+                                                    newFrame.origin.y,
+                                                    newFrame.size.width, newFrame.size.height);
+        } completion:^(BOOL finished) {
+            self.markViewToolbar.markColorView.hidden = YES;
+            self.markViewToolbar.widthSlider.hidden = NO;
+            [UIView animateWithDuration:0.1f animations:^{
+                CGRect newFrame = self.markViewToolbar.frame;
+                self.markViewToolbar.frame = CGRectMake(newFrame.origin.x - kSUMarkViewToolbarWidth / 2,
+                                                        newFrame.origin.y,
+                                                        newFrame.size.width, newFrame.size.height);
+            }];
+
+        }];
+
+    } else {
+        if (self.markViewToolbar.widthSlider.hidden) {
+            self.markViewToolbar.widthSlider.hidden = NO;
+            [UIView animateWithDuration:0.1f animations:^{
+                CGRect newFrame = self.markViewToolbar.frame;
+                self.markViewToolbar.frame = CGRectMake(newFrame.origin.x - kSUMarkViewToolbarWidth / 2,
+                                                                         newFrame.origin.y,
+                                                                         newFrame.size.width, newFrame.size.height);
+            }];
+            
+        } else {
+            [UIView animateWithDuration:0.1f animations:^{
+                CGRect newFrame = self.markViewToolbar.frame;
+                self.markViewToolbar.frame = CGRectMake(newFrame.origin.x + kSUMarkViewToolbarWidth / 2,
+                                                                         newFrame.origin.y,
+                                                                         newFrame.size.width, newFrame.size.height);
+            } completion:^(BOOL finished) {
+                self.markViewToolbar.widthSlider.hidden = YES;
+            }];
+        }
+    }
+}
+
+- (void)showColorPicker
+{
+    if (!self.markViewToolbar.widthSlider.hidden) {
+        [UIView animateWithDuration:0.1f animations:^{
+            CGRect newFrame = self.markViewToolbar.frame;
+            self.markViewToolbar.frame = CGRectMake(newFrame.origin.x + kSUMarkViewToolbarWidth / 2,
+                                                    newFrame.origin.y,
+                                                    newFrame.size.width, newFrame.size.height);
         } completion:^(BOOL finished) {
             self.markViewToolbar.widthSlider.hidden = YES;
+            self.markViewToolbar.markColorView.hidden = NO;
+            [UIView animateWithDuration:0.1f animations:^{
+                CGRect newFrame = self.markViewToolbar.frame;
+                self.markViewToolbar.frame = CGRectMake(newFrame.origin.x - kSUMarkViewToolbarWidth / 2,
+                                                        newFrame.origin.y,
+                                                        newFrame.size.width, newFrame.size.height);
+            }];
         }];
+    } else {
+        if (self.markViewToolbar.markColorView.hidden) {
+            self.markViewToolbar.markColorView.hidden = NO;
+            [UIView animateWithDuration:0.1f animations:^{
+                CGRect newFrame = self.markViewToolbar.frame;
+                self.markViewToolbar.frame = CGRectMake(newFrame.origin.x - kSUMarkViewToolbarWidth / 2,
+                                                        newFrame.origin.y,
+                                                        newFrame.size.width, newFrame.size.height);
+            }];
+            
+        } else {
+            [UIView animateWithDuration:0.1f animations:^{
+                CGRect newFrame = self.markViewToolbar.frame;
+                self.markViewToolbar.frame = CGRectMake(newFrame.origin.x + kSUMarkViewToolbarWidth / 2,
+                                                        newFrame.origin.y,
+                                                        newFrame.size.width, newFrame.size.height);
+            } completion:^(BOOL finished) {
+                self.markViewToolbar.markColorView.hidden = YES;
+            }];
+        }
     }
-    
 }
 
 - (void)viewTapped
@@ -146,6 +208,7 @@
             self.errorMarkingToolbar.hidden = YES;
             self.markViewToolbar.hidden = YES;
             self.markViewToolbar.widthSlider.hidden = YES;
+            self.markViewToolbar.markColorView.hidden = YES;
         }];
     }
 }

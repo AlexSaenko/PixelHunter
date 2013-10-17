@@ -12,6 +12,7 @@
 #import <QuartzCore/QuartzCore.h>
 #import "SUShareController.h"
 #import "SUConstants.h"
+#import "SUMarkColorView.h"
 
 static CGRect const kSUMarkViewFrame = {{50.0f, 50.0f}, {150.0f, 150.0f}};
 static CGRect const kSUMarkViewCloseButtonFrame = {{10.0f, 10.0f}, {30.0f, 30.0f}};
@@ -20,7 +21,7 @@ static CGFloat const kSUMaxValidScale = 2.0f;
 static CGFloat const kSUScaleRestraintStartValue = 1.5f;
 static NSString * const kSUShakingAnimationKey = @"shakingAnimation";
 
-@interface SUErrorMarkingViewController () <UIGestureRecognizerDelegate, SUMarkViewDelegate>
+@interface SUErrorMarkingViewController () <UIGestureRecognizerDelegate, SUMarkViewDelegate, SUMarkColorViewDelegate>
 
 @property (nonatomic, strong) UIImage *screenshotImage;
 @property (nonatomic, strong) SUErrorMarkingView *errorMarkingView;
@@ -72,6 +73,7 @@ static NSString * const kSUShakingAnimationKey = @"shakingAnimation";
     [self.errorMarkingView.markViewToolbar.widthSlider addTarget:self
                                          action:@selector(changeBorderWidth:)
                                forControlEvents:UIControlEventValueChanged];
+    self.errorMarkingView.markViewToolbar.markColorView.delegate = self;
     
 }
 
@@ -132,6 +134,18 @@ static NSString * const kSUShakingAnimationKey = @"shakingAnimation";
     }
 }
 
+- (void)colorViewPickedWithColor:(UIColor *)color
+{
+    for (SUMarkView *subview in [self.errorMarkingView subviews])
+    {
+        if ([subview isKindOfClass:[SUMarkView class]]) {
+            if (subview.isActive) {
+                subview.layer.borderColor = color.CGColor;
+            }
+        }
+    }
+}
+
 - (void)makeMarkViewToolbarButtonsActive:(BOOL)isActive
 {
     self.errorMarkingView.errorMarkingToolbar.showMarkingViewToolbarButton.enabled = isActive;
@@ -179,6 +193,7 @@ static NSString * const kSUShakingAnimationKey = @"shakingAnimation";
             [self makeMarkViewToolbarButtonsActive:YES];
         }
     }
+    
 }
 
 - (void)stopShakingAnimation
