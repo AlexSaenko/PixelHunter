@@ -36,7 +36,7 @@ static BOOL L0AccelerationIsShaking(UIAcceleration *last, UIAcceleration *curren
 
 @implementation SUCoolTool 
 
-#pragma mark Singleton stuff
+#pragma mark - Singleton stuff
 
 static id __sharedInstance;
 
@@ -114,11 +114,6 @@ static id __sharedInstance;
 - (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
 {
     switch (buttonIndex) {
-        case 0: {
-            
-        }
-            break;
-            
         case 1: {
             // Create grid
             [self createWindowForDebugWithImage:[SUScreenshotUtil convertViewToImage:

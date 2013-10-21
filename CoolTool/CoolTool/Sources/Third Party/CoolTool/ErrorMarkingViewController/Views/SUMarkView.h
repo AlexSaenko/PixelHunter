@@ -14,6 +14,7 @@
 
 @end
 
+
 @interface SUMarkView : UIView
 
 @property (nonatomic, strong) UITapGestureRecognizer *tapGesture;

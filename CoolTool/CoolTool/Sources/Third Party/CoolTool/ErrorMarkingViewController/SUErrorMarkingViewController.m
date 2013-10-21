@@ -15,7 +15,7 @@
 #import "SUMarkColorView.h"
 
 static CGRect const kSUMarkViewFrame = {{50.0f, 50.0f}, {150.0f, 150.0f}};
-static CGRect const kSUMarkViewCloseButtonFrame = {{10.0f, 10.0f}, {30.0f, 30.0f}};
+static CGRect const kSUMarkViewRemoveButtonFrame = {{10.0f, 10.0f}, {30.0f, 30.0f}};
 static CGFloat const kSUMinValidScale = 0.8f;
 static CGFloat const kSUMaxValidScale = 2.0f;
 static CGFloat const kSUScaleRestraintStartValue = 1.5f;
@@ -31,6 +31,7 @@ static CGFloat const kSUMinimumViewSideSize = 10.0f;
 @property (nonatomic, assign) CGFloat verticalScale;
 
 @end
+
 
 @implementation SUErrorMarkingViewController
 
@@ -57,7 +58,9 @@ static CGFloat const kSUMinimumViewSideSize = 10.0f;
 {
     [super viewDidLoad];
     
-    self.shareController = [[SUShareController alloc] initWithToolbar:self.errorMarkingView.errorMarkingToolbar onViewController:self];
+    // Init share controller
+    self.shareController = [[SUShareController alloc] initWithToolbar:self.errorMarkingView.errorMarkingToolbar
+                                                     onViewController:self];
     
     // Error marking toolbar actions
     [self.errorMarkingView.errorMarkingToolbar.addMarkingViewButton addTarget:self
@@ -85,12 +88,12 @@ static CGFloat const kSUMinimumViewSideSize = 10.0f;
     [self stopShakingAnimation];
     [self makeMarkViewToolbarButtonsActive:YES];
     
-    for (SUMarkView *subView in [self.errorMarkingView subviews])
-    {
+    for (SUMarkView *subView in [self.errorMarkingView subviews]) {
         if ([subView isKindOfClass:[SUMarkView class]]) {
             subView.isActive = NO;
         }
     }
+    
     SUMarkView *markView = [[SUMarkView alloc] initWithFrame:kSUMarkViewFrame withView:self.errorMarkingView];
     markView.delegate = self;
     [markView.tapGesture addTarget:self action:@selector(handleTap:)];
@@ -104,11 +107,10 @@ static CGFloat const kSUMinimumViewSideSize = 10.0f;
     [self dismissViewControllerAnimated:YES completion:nil];
 }
 
-#pragma mark Mark View toolbar
+#pragma mark - Mark View toolbar
 - (void)changeCornerType
 {
-    for (SUMarkView *subview in [self.errorMarkingView subviews])
-    {
+    for (SUMarkView *subview in [self.errorMarkingView subviews]) {
         if ([subview isKindOfClass:[SUMarkView class]]) {
             if (subview.isActive) {
                 if (subview.layer.cornerRadius == kSUCornerRadius) {
@@ -123,14 +125,10 @@ static CGFloat const kSUMinimumViewSideSize = 10.0f;
 
 - (void)changeBorderWidth:(UISlider *)sender
 {
-    NSInteger discreteValue = roundl([sender value]);
-    [sender setValue:(CGFloat)discreteValue];
-    
-    for (SUMarkView *subview in [self.errorMarkingView subviews])
-    {
+    for (SUMarkView *subview in [self.errorMarkingView subviews]) {
         if ([subview isKindOfClass:[SUMarkView class]]) {
             if (subview.isActive) {
-                subview.borderWidth = discreteValue;
+                subview.borderWidth = [sender value];
                 subview.layer.borderWidth = subview.borderWidth * 2;
             }
         }
@@ -139,8 +137,7 @@ static CGFloat const kSUMinimumViewSideSize = 10.0f;
 
 - (void)colorViewPickedWithColor:(UIColor *)color
 {
-    for (SUMarkView *subview in [self.errorMarkingView subviews])
-    {
+    for (SUMarkView *subview in [self.errorMarkingView subviews]) {
         if ([subview isKindOfClass:[SUMarkView class]]) {
             if (subview.isActive) {
                 subview.layer.borderColor = color.CGColor;
@@ -154,24 +151,36 @@ static CGFloat const kSUMinimumViewSideSize = 10.0f;
     self.errorMarkingView.errorMarkingToolbar.showMarkingViewToolbarButton.enabled = isActive;
 }
 
-#pragma mark Handle long tap gesture
+#pragma mark - Handle long tap gesture
 
 - (void)handleLongPress:(UILongPressGestureRecognizer *)recognizer
 {
     [self makeViewActiveWithRecognizer:recognizer];
     
-    for (SUMarkView *subview in [self.errorMarkingView subviews])
-    {
+    for (SUMarkView *subview in [self.errorMarkingView subviews]) {
         if ([subview isKindOfClass:[SUMarkView class]]) {
             [subview.layer addAnimation:[self shakingViewAnimation] forKey:kSUShakingAnimationKey];
-            // Init button
-            UIButton *button = [UIButton buttonWithType:UIButtonTypeCustom];
-            button.backgroundColor = [UIColor blackColor];
-            button.frame = kSUMarkViewCloseButtonFrame;
-            [button addTarget:self action:@selector(removeMarkView:) forControlEvents:UIControlEventTouchUpInside];
-            [subview addSubview:button];
+            
+            // Init remove mark view button
+            UIButton *removeButton = [UIButton buttonWithType:UIButtonTypeCustom];
+            removeButton.backgroundColor = [UIColor blackColor];
+            removeButton.frame = kSUMarkViewRemoveButtonFrame;
+            [removeButton addTarget:self action:@selector(removeMarkView:) forControlEvents:UIControlEventTouchUpInside];
+            [subview addSubview:removeButton];
         }
     }
+}
+
+- (void)removeMarkView:(id)sender
+{
+    [((UIButton *)sender).superview removeFromSuperview];
+    [self makeMarkViewToolbarButtonsActive:NO];
+    for (SUMarkView *subview in [self.errorMarkingView subviews]) {
+        if ([subview isKindOfClass:[SUMarkView class]]) {
+            [self makeMarkViewToolbarButtonsActive:YES];
+        }
+    }
+    
 }
 
 - (CAAnimation *)shakingViewAnimation
@@ -186,23 +195,9 @@ static CGFloat const kSUMinimumViewSideSize = 10.0f;
     return animation;
 }
 
-- (void)removeMarkView:(id)sender
-{
-    [((UIButton *)sender).superview removeFromSuperview];
-    [self makeMarkViewToolbarButtonsActive:NO];
-    for (SUMarkView *subview in [self.errorMarkingView subviews])
-    {
-        if ([subview isKindOfClass:[SUMarkView class]]) {
-            [self makeMarkViewToolbarButtonsActive:YES];
-        }
-    }
-    
-}
-
 - (void)stopShakingAnimation
 {
-    for (SUMarkView *subview in [self.errorMarkingView subviews])
-    {
+    for (SUMarkView *subview in [self.errorMarkingView subviews]) {
         if ([subview isKindOfClass:[SUMarkView class]]) {
             [subview.layer removeAnimationForKey:kSUShakingAnimationKey];
             for (UIButton *button in [subview subviews]) {
@@ -212,7 +207,7 @@ static CGFloat const kSUMinimumViewSideSize = 10.0f;
     }
 }
 
-#pragma mark Handle tap and pan gestures
+#pragma mark - Handle tap and pan gestures
 
 - (void)handleTap:(UITapGestureRecognizer *)recognizer
 {
@@ -226,25 +221,24 @@ static CGFloat const kSUMinimumViewSideSize = 10.0f;
 
 - (void)makeViewActiveWithRecognizer:(UIGestureRecognizer *)recognizer
 {
-    for (SUMarkView *subview in [self.errorMarkingView subviews])
-    {
+    for (SUMarkView *subview in [self.errorMarkingView subviews]) {
         if ([subview isKindOfClass:[SUMarkView class]]) {
             subview.isActive = NO;
         }
     }
     
     self.errorMarkingView.markViewToolbar.widthSlider.value = ((SUMarkView *)recognizer.view).borderWidth;
+    
     if (!((SUMarkView *)recognizer.view).isActive) {
         ((SUMarkView *)recognizer.view).isActive = YES;
     }
 }
 
-#pragma mark Handle pinch gesture
+#pragma mark - Handle pinch gesture
 
 - (void)handlePinch:(UIPinchGestureRecognizer *)recognizer
 {
-    for (SUMarkView *subview in [self.errorMarkingView subviews])
-    {
+    for (SUMarkView *subview in [self.errorMarkingView subviews]) {
         if ([subview isKindOfClass:[SUMarkView class]]) {
             if (subview.isActive) {
                 if ([recognizer numberOfTouches] == 2) {
@@ -278,38 +272,7 @@ static CGFloat const kSUMinimumViewSideSize = 10.0f;
     }
 }
 
-- (BOOL)isScaleValid:(CGFloat)scale
-{
-    if (scale > kSUMaxValidScale)
-    {
-        return NO;
-    }
-    
-    if (scale < kSUMinValidScale)
-    {
-        return NO;
-    }
-    
-    return YES;
-}
-
-- (CGPoint)getRestraintedScaleWithScale:(CGPoint)scale withView:(UIView *)view
-{
-    CGPoint resultScale = scale;
-    CGPoint oldScale = CGPointMake(sqrt(pow(view.transform.a, 2) + pow(view.transform.c, 2)), sqrt(pow(view.transform.b, 2) + pow(view.transform.d, 2)));
-    
-    if (oldScale.x > kSUScaleRestraintStartValue ||
-        oldScale.y > kSUScaleRestraintStartValue)
-    {
-        CGFloat resultXScale = oldScale.x + (scale.x - oldScale.x) * (1 - (scale.x - kSUScaleRestraintStartValue) / (kSUMaxValidScale - kSUScaleRestraintStartValue));
-        CGFloat resultYScale = oldScale.y + (scale.y - oldScale.y) * (1 - (scale.y - kSUScaleRestraintStartValue) / (kSUMaxValidScale - kSUScaleRestraintStartValue));
-        resultScale = CGPointMake(resultXScale, resultYScale);
-    }
-    
-    return resultScale;
-}
-
-#pragma mark Different delegate methods
+#pragma mark - Different delegate methods
 
 - (BOOL)gestureRecognizer:(UIGestureRecognizer *)gestureRecognizer shouldRecognizeSimultaneouslyWithGestureRecognizer:(UIGestureRecognizer *)otherGestureRecognizer
 {

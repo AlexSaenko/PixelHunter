@@ -14,6 +14,7 @@
 
 @end
 
+
 @interface SUMarkColorView : UIView
 
 @property (nonatomic, assign) id <SUMarkColorViewDelegate> delegate;

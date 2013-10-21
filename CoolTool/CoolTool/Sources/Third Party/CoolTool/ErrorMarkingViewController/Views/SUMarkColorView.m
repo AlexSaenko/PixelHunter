@@ -15,7 +15,9 @@
 @property (nonatomic, strong) NSArray *colorArray;
 @property (nonatomic, strong) NSMutableArray *colorViews;
 @property (nonatomic, strong) UIView *selectedColorView;
+
 @end
+
 
 @implementation SUMarkColorView
 
@@ -25,10 +27,11 @@
     if (self) {
         self.hidden = YES;
         self.userInteractionEnabled = YES;
+        
         // Init color views array
         self.colorViews = [[NSMutableArray alloc] init];
         
-        // Init color array
+        // Init colors array
         self.colorArray = [NSArray arrayWithObjects:[UIColor redColor],
                                                     [UIColor blueColor],
                                                     [UIColor greenColor],
@@ -54,6 +57,7 @@
         [self addSubview:self.selectedColorView];
         
     }
+    
     return self;
 }
 

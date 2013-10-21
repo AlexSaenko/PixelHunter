@@ -16,6 +16,7 @@
 
 @end
 
+
 @implementation SUMarkView
 
 - (id)initWithFrame:(CGRect)frame withView:(UIView *)view
@@ -43,6 +44,7 @@
         self.longPressGesture = [[UILongPressGestureRecognizer alloc] init];
         [self addGestureRecognizer:self.longPressGesture];  
     }
+    
     return self;
 }
 

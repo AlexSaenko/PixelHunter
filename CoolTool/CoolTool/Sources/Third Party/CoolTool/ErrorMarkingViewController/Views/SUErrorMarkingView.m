@@ -15,8 +15,8 @@
 
 @end
 
-@implementation SUErrorMarkingView
 
+@implementation SUErrorMarkingView
 
 - (id)initWithScreenshotImage:(UIImage *)screenshotImage
 {
@@ -64,6 +64,7 @@
                                                          action:@selector(showColorPicker)];
         
     }
+    
     return self;
 }
 

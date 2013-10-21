@@ -35,6 +35,8 @@
 
 - (void)loadView
 {
+    [super loadView];
+    
     CGSize sz = [[UIScreen mainScreen] applicationFrame].size;
     SUGridRootView *view = [[SUGridRootView alloc] initWithFrame:CGRectMake(0.0f, 0.0f, sz.width, sz.height) withScreenshotImage:self.screenshotImage];
     view.contentMode = UIViewContentModeScaleAspectFit;
@@ -46,6 +48,7 @@
 {
     [super viewDidLoad];
     
+    // Toolbar actions
     [self.gridRootView.toolbar.closeButton addTarget:self
                                               action:@selector(tapOnCloseButton)
                                     forControlEvents:UIControlEventTouchUpInside];
@@ -57,6 +60,7 @@
                                         action:@selector(changeMockupImageAlpha:)
                               forControlEvents:UIControlEventValueChanged];
     
+    // Scroll view stuff
     self.gridRootView.gridUnderLayerView.scrollView.delegate = self;
     self.gridRootView.gridUnderLayerView.scrollView.contentSize = self.gridRootView.gridUnderLayerView.containerView.frame.size;
 }
@@ -145,7 +149,7 @@
     }];
 }
 
-#pragma mark Error marking view controller
+#pragma mark - Error marking view controller
 
 - (void)showMarkingViewController
 {

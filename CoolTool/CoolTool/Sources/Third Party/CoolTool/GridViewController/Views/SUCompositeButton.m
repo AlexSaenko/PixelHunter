@@ -8,7 +8,6 @@
 
 #import "SUCompositeButton.h"
 
-
 @interface SUCompositeButton ()
 
 @property (nonatomic, strong) UIImage *imageNormal;
@@ -69,6 +68,7 @@
 
 - (void)onDown
 {
+//TODO: Uncomment when design will be provided
 //    self.imageView.image = self.imagePressed;
 }
 

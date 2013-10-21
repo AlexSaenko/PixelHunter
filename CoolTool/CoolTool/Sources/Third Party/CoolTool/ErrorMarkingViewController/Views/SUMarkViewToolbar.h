@@ -14,8 +14,8 @@
 
 @property (nonatomic, strong) SUCompositeButton *cornerTypeButton;
 @property (nonatomic, strong) SUCompositeButton *borderWidthSliderButton;
-@property (nonatomic, strong) UISlider *widthSlider;
 @property (nonatomic, strong) SUCompositeButton *borderColorPickerButton;
 @property (nonatomic, strong) SUMarkColorView *markColorView;
+@property (nonatomic, strong) UISlider *widthSlider;
 
 @end

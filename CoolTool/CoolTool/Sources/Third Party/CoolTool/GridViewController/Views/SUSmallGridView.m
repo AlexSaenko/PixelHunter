@@ -20,6 +20,7 @@
         self.userInteractionEnabled = NO;
         self.hidden = YES;
     }
+    
     return self;
 }
 

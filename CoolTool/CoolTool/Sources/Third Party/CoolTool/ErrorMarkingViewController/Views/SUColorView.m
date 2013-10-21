@@ -28,6 +28,7 @@
         self.colorViewButton.backgroundColor = [UIColor clearColor];
         [self addSubview:self.colorViewButton];
     }
+    
     return self;
 }
 

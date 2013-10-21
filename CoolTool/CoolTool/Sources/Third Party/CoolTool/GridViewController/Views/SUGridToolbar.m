@@ -9,6 +9,10 @@
 #import "SUGridToolbar.h"
 #import "SUConstants.h"
 
+static CGFloat const kSUSliderMinimumValue = 0.1f;
+static CGFloat const kSUSliderMaximumValue = 1.0f;
+
+
 @implementation SUGridToolbar
 
 - (id)initWithFrame:(CGRect)frame
@@ -35,8 +39,8 @@
         
         // Init slider
         self.slider = [[UISlider alloc] init];
-        self.slider.maximumValue = 1.0f;
-        self.slider.minimumValue = 0.1f;
+        self.slider.maximumValue = kSUSliderMaximumValue;
+        self.slider.minimumValue = kSUSliderMinimumValue;
         self.slider.value = kSUStartAlpha;
         self.slider.enabled = NO;
         [self addSubview:self.slider];

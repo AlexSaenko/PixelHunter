@@ -37,6 +37,7 @@
         // Init close button
         [self.closeButton setBackgroundImage:[UIImage imageNamed:@"backIcon.png"] forState:UIControlStateNormal];
     }
+    
     return self;
 }
 
@@ -45,13 +46,16 @@
     [super layoutSubviews];
     
     // Layout add markingview button
-    self.addMarkingViewButton.frame = CGRectMake(kSUCloseButtonWidth + 20.0f, 0.0f, kSUCloseButtonWidth, kSUCloseButtonHeight);
+    self.addMarkingViewButton.frame = CGRectMake(kSUCloseButtonWidth + 20.0f, 0.0f,
+                                                 kSUCloseButtonWidth, kSUCloseButtonHeight);
     
     // Layout send mail button
-    self.sendMailButton.frame = CGRectMake((kSUCloseButtonWidth + 20.0f) * 2, 0.0f, kSUCloseButtonWidth, kSUCloseButtonHeight);
+    self.sendMailButton.frame = CGRectMake((kSUCloseButtonWidth + 20.0f) * 2, 0.0f,
+                                           kSUCloseButtonWidth, kSUCloseButtonHeight);
     
     // Layout show marking view toolbar button
-    self.showMarkingViewToolbarButton.frame = CGRectMake((kSUCloseButtonWidth + 20.0f) * 3, 0.0f, kSUCloseButtonWidth, kSUCloseButtonHeight);
+    self.showMarkingViewToolbarButton.frame = CGRectMake((kSUCloseButtonWidth + 20.0f) * 3, 0.0f,
+                                                         kSUCloseButtonWidth, kSUCloseButtonHeight);
 }
 
 @end

@@ -32,6 +32,7 @@
                                            forControlEvents:UIControlEventTouchUpInside];
         [self createScreenshotSound];
     }
+    
     return self;
 }
 
@@ -55,8 +56,7 @@
                 [self.toolbar setHidden:NO];
             }];
         }];
-    }
-    else {
+    } else {
         [self showErrorAlertView];
     }
 }
@@ -92,7 +92,7 @@
     [alertView show];
 }
 
-- (void)mailComposeController:(MFMailComposeViewController*)controller didFinishWithResult:(MFMailComposeResult)result error:(NSError*)error
+- (void)mailComposeController:(MFMailComposeViewController *)controller didFinishWithResult:(MFMailComposeResult)result error:(NSError *)error
 {
     switch(result)
     {
@@ -102,6 +102,7 @@
         default:
             break;
     }
+    
     [controller dismissViewControllerAnimated:YES completion:nil];
 }
 

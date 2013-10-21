@@ -13,7 +13,6 @@
 @property (nonatomic, strong) UIView *smallColorView;
 @property (nonatomic, strong) UIButton *colorViewButton;
 
-
 - (id)initWithColor:(UIColor *)color;
 
 @end
