@@ -20,12 +20,15 @@ static CGFloat const kSUMinValidScale = 0.8f;
 static CGFloat const kSUMaxValidScale = 2.0f;
 static CGFloat const kSUScaleRestraintStartValue = 1.5f;
 static NSString * const kSUShakingAnimationKey = @"shakingAnimation";
+static CGFloat const kSUMinimumViewSideSize = 10.0f;
 
 @interface SUErrorMarkingViewController () <UIGestureRecognizerDelegate, SUMarkViewDelegate, SUMarkColorViewDelegate>
 
 @property (nonatomic, strong) UIImage *screenshotImage;
 @property (nonatomic, strong) SUErrorMarkingView *errorMarkingView;
 @property (nonatomic, strong) SUShareController *shareController;
+@property (nonatomic, assign) CGFloat horizontalScale;
+@property (nonatomic, assign) CGFloat verticalScale;
 
 @end
 
@@ -244,21 +247,31 @@ static NSString * const kSUShakingAnimationKey = @"shakingAnimation";
     {
         if ([subview isKindOfClass:[SUMarkView class]]) {
             if (subview.isActive) {
-                CGFloat oldXScale = sqrt(pow(subview.transform.a, 2) + pow(subview.transform.c, 2));
-                CGFloat oldYScale = sqrt(pow(subview.transform.b, 2) + pow(subview.transform.d, 2));
-                CGPoint scale = CGPointMake(oldXScale * [recognizer scale], oldYScale * [recognizer scale]);
-                
-                if ([recognizer state] == UIGestureRecognizerStateBegan ||
-                    [recognizer state] == UIGestureRecognizerStateChanged)
-                {
-                    if ([self isScaleValid:scale.x] &&
-                        [self isScaleValid:scale.y])
-                    {
-                        scale = [self getRestraintedScaleWithScale:scale withView:subview];
-                        subview.transform = CGAffineTransformScale(subview.transform, scale.x / oldXScale, scale.y / oldYScale);
+                if ([recognizer numberOfTouches] == 2) {
+                    CGFloat x = [recognizer locationInView:subview].x - [recognizer locationOfTouch:1 inView:subview].x;
+                    if (x < 0) {
+                        x *= -1;
+                    }
+                    CGFloat y = [recognizer locationInView:subview].y - [recognizer locationOfTouch:1 inView:subview].y;
+                    if (y < 0) {
+                        y *= -1;
                     }
                     
-                    [recognizer setScale:1.0];
+                    if (recognizer.state == UIGestureRecognizerStateBegan) {
+                        self.horizontalScale = subview.bounds.size.width - x * 2;
+                        self.verticalScale = subview.bounds.size.height - y * 2;
+                    }
+                        
+                    CGFloat width = x * 2 + self.horizontalScale;
+                    if (width < kSUMinimumViewSideSize) {
+                        width = kSUMinimumViewSideSize;
+                    }
+                    CGFloat height = y * 2 + self.verticalScale;
+                    if (height < kSUMinimumViewSideSize) {
+                        height = kSUMinimumViewSideSize;
+                    }
+                    subview.bounds = CGRectMake(subview.bounds.origin.x , subview.bounds.origin.y , width, height);
+                    [recognizer setScale:1.0f];
                 }
             }
         }

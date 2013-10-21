@@ -330,9 +330,9 @@
 				CE7B30E4180BFCF20027742E /* ErrorMarkingViewController */,
 				CECC237B1807ED6D0090E3E0 /* GridViewController */,
 				CECC238F1807ED6D0090E3E0 /* Resources */,
+				CECC23991807ED6D0090E3E0 /* Utils */,
 				CECC23971807ED6D0090E3E0 /* SUCoolTool.h */,
 				CECC23981807ED6D0090E3E0 /* SUCoolTool.m */,
-				CECC23991807ED6D0090E3E0 /* Utils */,
 			);
 			path = CoolTool;
 			sourceTree = "<group>";

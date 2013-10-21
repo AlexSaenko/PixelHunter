@@ -76,7 +76,6 @@ static CGFloat const kSUSliderHeight = 320.0f;
     
     // Layout mark color view
     self.markColorView.frame = CGRectMake(kSUCloseButtonHeight, 0.0f, kSUSliderWidth, kSUSliderHeight);
-    NSLog(@"%@", NSStringFromCGRect(self.markColorView.frame));
 }
 
 

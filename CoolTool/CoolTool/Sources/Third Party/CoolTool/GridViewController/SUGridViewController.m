@@ -59,7 +59,6 @@
     
     self.gridRootView.gridUnderLayerView.scrollView.delegate = self;
     self.gridRootView.gridUnderLayerView.scrollView.contentSize = self.gridRootView.gridUnderLayerView.containerView.frame.size;
-    
 }
 
 - (void)viewWillAppear:(BOOL)animated
