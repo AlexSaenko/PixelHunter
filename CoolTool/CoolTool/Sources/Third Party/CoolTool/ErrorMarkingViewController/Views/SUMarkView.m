@@ -26,8 +26,9 @@
         self.gestureView = view;
         self.backgroundColor = [UIColor clearColor];
         self.layer.borderColor = [UIColor redColor].CGColor;
-        self.borderWidth = 1.0f;
-        self.layer.borderWidth = self.borderWidth;
+        self.layer.shadowColor = [UIColor blackColor].CGColor;
+        self.layer.shadowOffset = CGSizeMake(2.0f, 2.0f);
+        self.layer.borderWidth = 1.0f;
         self.layer.cornerRadius = kSUCornerRadius;
         self.isActive = YES;
         
@@ -67,9 +68,9 @@
 - (void)setIsActive:(BOOL)isActive
 {
     if (isActive) {
-        self.layer.borderWidth = self.borderWidth * 2;
+        self.layer.shadowOpacity = 1.0f;
     } else {
-        self.layer.borderWidth = self.borderWidth;
+        self.layer.shadowOpacity = 0.0f;
     }
     _isActive = isActive;
 }

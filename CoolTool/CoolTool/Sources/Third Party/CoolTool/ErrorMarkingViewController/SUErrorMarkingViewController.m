@@ -128,8 +128,7 @@ static CGFloat const kSUMinimumViewSideSize = 10.0f;
     for (SUMarkView *subview in [self.errorMarkingView subviews]) {
         if ([subview isKindOfClass:[SUMarkView class]]) {
             if (subview.isActive) {
-                subview.borderWidth = [sender value];
-                subview.layer.borderWidth = subview.borderWidth * 2;
+                subview.layer.borderWidth = [sender value];
             }
         }
     }
@@ -227,7 +226,7 @@ static CGFloat const kSUMinimumViewSideSize = 10.0f;
         }
     }
     
-    self.errorMarkingView.markViewToolbar.widthSlider.value = ((SUMarkView *)recognizer.view).borderWidth;
+    self.errorMarkingView.markViewToolbar.widthSlider.value = ((SUMarkView *)recognizer.view).layer.borderWidth;
     
     if (!((SUMarkView *)recognizer.view).isActive) {
         ((SUMarkView *)recognizer.view).isActive = YES;
