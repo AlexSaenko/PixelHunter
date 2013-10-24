@@ -95,6 +95,7 @@
         } completion:^(BOOL finished) {
             self.markViewToolbar.hidden = YES;
             self.markViewToolbar.widthSlider.hidden = YES;
+            self.markViewToolbar.markColorView.hidden = YES;
         }];
     }
 

@@ -100,7 +100,7 @@ static CGFloat const kSUMinimumViewSideSize = 10.0f;
     
 }
 
-- (void)addMarkView
+- (void)addMarkViewWithText:(BOOL)withText
 {
     [self stopShakingAnimation];
     [self makeMarkViewToolbarButtonsActive:YES];
@@ -111,31 +111,27 @@ static CGFloat const kSUMinimumViewSideSize = 10.0f;
         }
     }
     
-    SUMarkView *markView = [[SUMarkView alloc] initWithFrame:kSUMarkViewFrame withView:self.errorMarkingView];
+    SUMarkView *markView;
+    if (withText) {
+        markView = [[SUTextMarkView alloc] initWithFrame:kSUMarkViewFrame withView:self.errorMarkingView];
+    } else {
+        markView = [[SUMarkView alloc] initWithFrame:kSUMarkViewFrame withView:self.errorMarkingView];
+    }
     markView.delegate = self;
     [markView.tapGesture addTarget:self action:@selector(handleTap:)];
     [markView.longPressGesture addTarget:self action:@selector(handleLongPress:)];
     self.errorMarkingView.markViewToolbar.widthSlider.value = markView.layer.borderWidth;
-    [self.errorMarkingView addSubview:markView];
+    [self.errorMarkingView insertSubview:markView belowSubview:self.errorMarkingView.errorMarkingToolbar];
+}
+
+- (void)addMarkView
+{
+    [self addMarkViewWithText:NO];
 }
 
 - (void)addTextMarkView
 {
-    [self stopShakingAnimation];
-    [self makeMarkViewToolbarButtonsActive:YES];
-    
-    for (SUMarkView *subView in [self.errorMarkingView subviews]) {
-        if ([subView isKindOfClass:[SUMarkView class]]) {
-            subView.isActive = NO;
-        }
-    }
-    
-    SUTextMarkView *textMarkView = [[SUTextMarkView alloc] initWithFrame:kSUMarkViewFrame withView:self.errorMarkingView];
-    textMarkView.delegate = self;
-    [textMarkView.tapGesture addTarget:self action:@selector(handleTap:)];
-    [textMarkView.longPressGesture addTarget:self action:@selector(handleLongPress:)];
-    self.errorMarkingView.markViewToolbar.widthSlider.value = textMarkView.layer.borderWidth;
-    [self.errorMarkingView addSubview:textMarkView];
+    [self addMarkViewWithText:YES];
 }
 
 - (void)showPreviousViewController
