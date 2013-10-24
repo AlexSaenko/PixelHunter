@@ -50,6 +50,10 @@ static id __sharedInstance;
                                                  selector:@selector(orientationChanged:)
                                                      name:UIApplicationWillChangeStatusBarFrameNotification
                                                    object:nil];
+        [[NSNotificationCenter defaultCenter] addObserver:__sharedInstance
+                                                 selector:@selector(removeWindowForDebug)
+                                                     name:UIApplicationDidEnterBackgroundNotification
+                                                   object:nil];
     });
     return __sharedInstance;
 }
