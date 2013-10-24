@@ -14,7 +14,6 @@
 
 @property (nonatomic, strong) NSArray *colorArray;
 @property (nonatomic, strong) NSMutableArray *colorViews;
-@property (nonatomic, strong) UIView *selectedColorView;
 
 @end
 

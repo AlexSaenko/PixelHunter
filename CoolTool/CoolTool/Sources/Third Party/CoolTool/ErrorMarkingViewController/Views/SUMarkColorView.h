@@ -18,5 +18,6 @@
 @interface SUMarkColorView : UIView
 
 @property (nonatomic, assign) id <SUMarkColorViewDelegate> delegate;
+@property (nonatomic, strong) UIView *selectedColorView;
 
 @end

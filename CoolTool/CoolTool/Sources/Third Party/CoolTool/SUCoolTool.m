@@ -9,6 +9,7 @@
 #import "SUCoolTool.h"
 #import "SUGridViewController.h"
 #import "SUScreenshotUtil.h"
+#import "SUZGestureView.h"
 
 static BOOL L0AccelerationIsShaking(UIAcceleration *last, UIAcceleration *current, double threshold) {
 	double
@@ -89,7 +90,7 @@ static id __sharedInstance;
 		if (!histeresisExcited && L0AccelerationIsShaking(self.lastAcceleration, acceleration, 0.7)) {
 			histeresisExcited = YES;
             if (self.alertView == nil && self.debugWindow == nil) {
-                [self showAlert];
+                [self createZGestureView];
             }
 		} else if (histeresisExcited && !L0AccelerationIsShaking(self.lastAcceleration, acceleration, 0.2)) {
 			histeresisExcited = NO;
@@ -131,11 +132,20 @@ static id __sharedInstance;
     }
 }
 
+- (void)createZGestureView
+{
+    UIWindow *window = [[[UIApplication sharedApplication] windows] objectAtIndex:0];
+    SUZGestureView *zGestureView = [[SUZGestureView alloc] initWithFrame:window.rootViewController.view.frame];
+    [zGestureView.zGestureRecognizer addTarget:self action:@selector(showAlert)];
+    [window.rootViewController.view addSubview:zGestureView];
+}
+
 - (void)createWindowForDebugWithImage:(UIImage *)image
 {
     self.parentWindow = [[[UIApplication sharedApplication] windows] objectAtIndex:0];
     self.debugWindow = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
-    SUGridViewController *viewController = [[SUGridViewController alloc] initWithScreenshotImage:image];
+    SUGridViewController *viewController = [[SUGridViewController alloc] initWithScreenshotImage:[SUScreenshotUtil convertViewToImage:
+                                                                                                  [[[[[UIApplication sharedApplication] windows] objectAtIndex:0] rootViewController] view]]];
     viewController.delegate = self;
     self.debugWindow.rootViewController = viewController;
     self.parentWindow.hidden = YES;

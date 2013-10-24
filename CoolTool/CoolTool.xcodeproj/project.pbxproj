@@ -17,6 +17,8 @@
 		CE376F4F1806E2EB00F2F64E /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE376F4E1806E2EB00F2F64E /* MessageUI.framework */; };
 		CE376F511806E36800F2F64E /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE376F501806E36800F2F64E /* AVFoundation.framework */; };
 		CE61D2041805A8E9008434A4 /* iOS Simulator Screen shot Oct 9, 2013 6.08.02 PM.png in Resources */ = {isa = PBXBuildFile; fileRef = CE61D2031805A8E9008434A4 /* iOS Simulator Screen shot Oct 9, 2013 6.08.02 PM.png */; };
+		CE62BEA81819489A00210ECF /* SUZGestureRecognizer.m in Sources */ = {isa = PBXBuildFile; fileRef = CE62BEA71819489A00210ECF /* SUZGestureRecognizer.m */; };
+		CE62BEAB1819619300210ECF /* SUZGestureView.m in Sources */ = {isa = PBXBuildFile; fileRef = CE62BEAA1819619300210ECF /* SUZGestureView.m */; };
 		CE7B30E7180BFD120027742E /* SUErrorMarkingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CE7B30E6180BFD120027742E /* SUErrorMarkingViewController.m */; };
 		CE7B30EB180BFF540027742E /* SUErrorMarkingView.m in Sources */ = {isa = PBXBuildFile; fileRef = CE7B30EA180BFF540027742E /* SUErrorMarkingView.m */; };
 		CE7B30EE180C03B10027742E /* SUErrorMarkingToolbar.m in Sources */ = {isa = PBXBuildFile; fileRef = CE7B30ED180C03B10027742E /* SUErrorMarkingToolbar.m */; };
@@ -86,6 +88,10 @@
 		CE376F4E1806E2EB00F2F64E /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
 		CE376F501806E36800F2F64E /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		CE61D2031805A8E9008434A4 /* iOS Simulator Screen shot Oct 9, 2013 6.08.02 PM.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "iOS Simulator Screen shot Oct 9, 2013 6.08.02 PM.png"; sourceTree = "<group>"; };
+		CE62BEA61819489A00210ECF /* SUZGestureRecognizer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SUZGestureRecognizer.h; sourceTree = "<group>"; };
+		CE62BEA71819489A00210ECF /* SUZGestureRecognizer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SUZGestureRecognizer.m; sourceTree = "<group>"; };
+		CE62BEA91819619300210ECF /* SUZGestureView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SUZGestureView.h; sourceTree = "<group>"; };
+		CE62BEAA1819619300210ECF /* SUZGestureView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SUZGestureView.m; sourceTree = "<group>"; };
 		CE7B30E5180BFD120027742E /* SUErrorMarkingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SUErrorMarkingViewController.h; sourceTree = "<group>"; };
 		CE7B30E6180BFD120027742E /* SUErrorMarkingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SUErrorMarkingViewController.m; sourceTree = "<group>"; };
 		CE7B30E9180BFF540027742E /* SUErrorMarkingView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SUErrorMarkingView.h; sourceTree = "<group>"; };
@@ -338,6 +344,10 @@
 				CECC23991807ED6D0090E3E0 /* Utils */,
 				CECC23971807ED6D0090E3E0 /* SUCoolTool.h */,
 				CECC23981807ED6D0090E3E0 /* SUCoolTool.m */,
+				CE62BEA61819489A00210ECF /* SUZGestureRecognizer.h */,
+				CE62BEA71819489A00210ECF /* SUZGestureRecognizer.m */,
+				CE62BEA91819619300210ECF /* SUZGestureView.h */,
+				CE62BEAA1819619300210ECF /* SUZGestureView.m */,
 			);
 			path = CoolTool;
 			sourceTree = "<group>";
@@ -537,6 +547,7 @@
 				CE7E404E17E9FCE30083F861 /* SUViewController.m in Sources */,
 				CECC23A41807ED6D0090E3E0 /* SUGridUnderLayerView.m in Sources */,
 				CE7E405617E9FCE30083F861 /* main.m in Sources */,
+				CE62BEAB1819619300210ECF /* SUZGestureView.m in Sources */,
 				CE7B30E7180BFD120027742E /* SUErrorMarkingViewController.m in Sources */,
 				CE7B30EE180C03B10027742E /* SUErrorMarkingToolbar.m in Sources */,
 				CE905960180D8A7D008C5C1E /* SUShareController.m in Sources */,
@@ -553,6 +564,7 @@
 				CECC23A51807ED6D0090E3E0 /* SUGridView.m in Sources */,
 				CECC23A71807ED6D0090E3E0 /* SUToolbarView.m in Sources */,
 				CECC239F1807ED6D0090E3E0 /* SUGridViewController.m in Sources */,
+				CE62BEA81819489A00210ECF /* SUZGestureRecognizer.m in Sources */,
 				CEB6B8B8180FFE25007CDC55 /* SUMarkColorView.m in Sources */,
 				CECC23A11807ED6D0090E3E0 /* SUGridRootView.m in Sources */,
 				CE905963180D984C008C5C1E /* SUMarkViewToolbar.m in Sources */,
