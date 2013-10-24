@@ -172,12 +172,13 @@ static CGFloat const kSUMinimumViewSideSize = 10.0f;
     }
 }
 
-- (void)colorViewPickedWithColor:(UIColor *)color
+- (void)colorViewPickedWithColor:(UIColor *)color withSelectedColorViewCenter:(CGPoint)center
 {
     for (SUMarkView *subview in [self.errorMarkingView subviews]) {
         if ([subview isKindOfClass:[SUMarkView class]]) {
             if (subview.isActive) {
                 subview.layer.borderColor = color.CGColor;
+                subview.selectedColorCenter = center;
             }
         }
     }
@@ -287,6 +288,7 @@ static CGFloat const kSUMinimumViewSideSize = 10.0f;
     }
     
     self.errorMarkingView.markViewToolbar.widthSlider.value = ((SUMarkView *)recognizer.view).layer.borderWidth;
+    self.errorMarkingView.markViewToolbar.markColorView.selectedColorView.center = ((SUMarkView *)recognizer.view).selectedColorCenter;
     
     if (!((SUMarkView *)recognizer.view).isActive) {
         ((SUMarkView *)recognizer.view).isActive = YES;

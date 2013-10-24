@@ -65,7 +65,7 @@
     [UIView animateWithDuration:0.1f animations:^{
         self.selectedColorView.center = ((SUColorView *)colorViewButton.superview).center;
     }];
-    [self.delegate colorViewPickedWithColor:((SUColorView *)colorViewButton.superview).smallColorView.backgroundColor];
+    [self.delegate colorViewPickedWithColor:((SUColorView *)colorViewButton.superview).smallColorView.backgroundColor withSelectedColorViewCenter:((SUColorView *)colorViewButton.superview).center];
 }
 
 - (CGRect)rectWithIndex:(NSInteger)index

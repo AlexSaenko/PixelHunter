@@ -21,6 +21,7 @@
 @property (nonatomic, strong) UIPanGestureRecognizer *panGesture;
 @property (nonatomic, strong) UILongPressGestureRecognizer *longPressGesture;
 @property (nonatomic, assign) BOOL isActive;
+@property (nonatomic, assign) CGPoint selectedColorCenter;
 @property (nonatomic, assign) id <SUMarkViewDelegate> delegate;
 
 - (id)initWithFrame:(CGRect)frame withView:(UIView *)view;

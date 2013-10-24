@@ -31,7 +31,7 @@
         self.layer.borderWidth = 1.0f;
         self.layer.cornerRadius = kSUCornerRadius;
         self.isActive = YES;
-        
+        self.selectedColorCenter = CGPointMake(kSUColorViewRect.size.width / 2, kSUColorViewRect.size.height / 2);
         // Init tap gesture
         self.tapGesture = [[UITapGestureRecognizer alloc] init];
         [self addGestureRecognizer:self.tapGesture];

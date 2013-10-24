@@ -10,7 +10,7 @@
 
 @protocol SUMarkColorViewDelegate <NSObject>
 
-- (void)colorViewPickedWithColor:(UIColor *)color;
+- (void)colorViewPickedWithColor:(UIColor *)color withSelectedColorViewCenter:(CGPoint)center;
 
 @end
 
