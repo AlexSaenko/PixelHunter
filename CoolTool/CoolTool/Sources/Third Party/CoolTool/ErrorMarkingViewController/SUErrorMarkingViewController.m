@@ -150,9 +150,11 @@ static CGFloat const kSUMinimumViewSideSize = 10.0f;
         if ([subview isKindOfClass:[SUMarkView class]]) {
             if (subview.isActive) {
                 if (subview.layer.cornerRadius == kSUCornerRadius) {
-                    subview.layer.cornerRadius = 0;
+                    subview.layer.cornerRadius = 0.0f;
+                    ((SUTextMarkView *)subview).commentTextView.layer.cornerRadius = 0.0f;
                 } else {
                     subview.layer.cornerRadius = kSUCornerRadius;
+                    ((SUTextMarkView *)subview).commentTextView.layer.cornerRadius = kSUCornerRadius;
                 }
             }
         }
