@@ -41,6 +41,7 @@
 		CE90595D180D7A12008C5C1E /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE90595C180D7A12008C5C1E /* QuartzCore.framework */; };
 		CE905960180D8A7D008C5C1E /* SUShareController.m in Sources */ = {isa = PBXBuildFile; fileRef = CE90595F180D8A7D008C5C1E /* SUShareController.m */; };
 		CE905963180D984C008C5C1E /* SUMarkViewToolbar.m in Sources */ = {isa = PBXBuildFile; fileRef = CE905962180D984C008C5C1E /* SUMarkViewToolbar.m */; };
+		CEA3F91A1816C99600930A76 /* SUTextMarkView.m in Sources */ = {isa = PBXBuildFile; fileRef = CEA3F9191816C99600930A76 /* SUTextMarkView.m */; };
 		CEB6B8B8180FFE25007CDC55 /* SUMarkColorView.m in Sources */ = {isa = PBXBuildFile; fileRef = CEB6B8B7180FFE25007CDC55 /* SUMarkColorView.m */; };
 		CEB6B8BB181002EE007CDC55 /* SUColorView.m in Sources */ = {isa = PBXBuildFile; fileRef = CEB6B8BA181002EE007CDC55 /* SUColorView.m */; };
 		CEB6B8BD18100C80007CDC55 /* colorIcon.jpg in Resources */ = {isa = PBXBuildFile; fileRef = CEB6B8BC18100C80007CDC55 /* colorIcon.jpg */; };
@@ -121,6 +122,8 @@
 		CE90595F180D8A7D008C5C1E /* SUShareController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SUShareController.m; sourceTree = "<group>"; };
 		CE905961180D984C008C5C1E /* SUMarkViewToolbar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SUMarkViewToolbar.h; sourceTree = "<group>"; };
 		CE905962180D984C008C5C1E /* SUMarkViewToolbar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SUMarkViewToolbar.m; sourceTree = "<group>"; };
+		CEA3F9181816C99600930A76 /* SUTextMarkView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SUTextMarkView.h; sourceTree = "<group>"; };
+		CEA3F9191816C99600930A76 /* SUTextMarkView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SUTextMarkView.m; sourceTree = "<group>"; };
 		CEB6B8B6180FFE25007CDC55 /* SUMarkColorView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SUMarkColorView.h; sourceTree = "<group>"; };
 		CEB6B8B7180FFE25007CDC55 /* SUMarkColorView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SUMarkColorView.m; sourceTree = "<group>"; };
 		CEB6B8B9181002EE007CDC55 /* SUColorView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SUColorView.h; sourceTree = "<group>"; };
@@ -213,6 +216,8 @@
 				CEB6B8B7180FFE25007CDC55 /* SUMarkColorView.m */,
 				CEB6B8B9181002EE007CDC55 /* SUColorView.h */,
 				CEB6B8BA181002EE007CDC55 /* SUColorView.m */,
+				CEA3F9181816C99600930A76 /* SUTextMarkView.h */,
+				CEA3F9191816C99600930A76 /* SUTextMarkView.m */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -535,6 +540,7 @@
 				CE7B30E7180BFD120027742E /* SUErrorMarkingViewController.m in Sources */,
 				CE7B30EE180C03B10027742E /* SUErrorMarkingToolbar.m in Sources */,
 				CE905960180D8A7D008C5C1E /* SUShareController.m in Sources */,
+				CEA3F91A1816C99600930A76 /* SUTextMarkView.m in Sources */,
 				CECC23B01807ED6D0090E3E0 /* SUScreenshotUtil.m in Sources */,
 				CECC23A21807ED6D0090E3E0 /* SUGridRulerView.m in Sources */,
 				CECC23A31807ED6D0090E3E0 /* SUGridToolbar.m in Sources */,

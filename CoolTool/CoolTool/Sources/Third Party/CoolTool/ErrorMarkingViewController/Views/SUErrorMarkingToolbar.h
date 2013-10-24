@@ -14,5 +14,6 @@
 @property (nonatomic, strong) SUCompositeButton *addMarkingViewButton;
 @property (nonatomic, strong) SUCompositeButton *sendMailButton;
 @property (nonatomic, strong) SUCompositeButton *showMarkingViewToolbarButton;
+@property (nonatomic, strong) SUCompositeButton *addTextMarkingViewButton;
 
 @end

@@ -21,6 +21,12 @@
                                                                 imageNameActivated:@"addIcon.png"];
         [self addSubview:self.addMarkingViewButton];
         
+        // Init add text marking view button
+        self.addTextMarkingViewButton = [[SUCompositeButton alloc] initWithImageNameNormal:@"addIcon.png"
+                                                                      imageNamePressed:nil
+                                                                    imageNameActivated:@"addIcon.png"];
+        [self addSubview:self.addTextMarkingViewButton];
+        
         // Init send mail button
         self.sendMailButton = [[SUCompositeButton alloc] initWithImageNameNormal:@"share.png"
                                                                       imageNamePressed:nil
@@ -46,15 +52,18 @@
     [super layoutSubviews];
     
     // Layout add markingview button
-    self.addMarkingViewButton.frame = CGRectMake(kSUCloseButtonWidth + 20.0f, 0.0f,
+    self.addMarkingViewButton.frame = CGRectMake(kSUCloseButtonWidth + 5.0f, 0.0f,
                                                  kSUCloseButtonWidth, kSUCloseButtonHeight);
+    // Layout add text marking view button
+    self.addTextMarkingViewButton.frame = CGRectMake((kSUCloseButtonWidth + 5.0f) * 2, 0.0f,
+                                                     kSUCloseButtonWidth, kSUCloseButtonHeight);
     
     // Layout send mail button
-    self.sendMailButton.frame = CGRectMake((kSUCloseButtonWidth + 20.0f) * 2, 0.0f,
+    self.sendMailButton.frame = CGRectMake((kSUCloseButtonWidth + 5.0f) * 3, 0.0f,
                                            kSUCloseButtonWidth, kSUCloseButtonHeight);
     
     // Layout show marking view toolbar button
-    self.showMarkingViewToolbarButton.frame = CGRectMake((kSUCloseButtonWidth + 20.0f) * 3, 0.0f,
+    self.showMarkingViewToolbarButton.frame = CGRectMake((kSUCloseButtonWidth + 5.0f) * 4, 0.0f,
                                                          kSUCloseButtonWidth, kSUCloseButtonHeight);
 }
 

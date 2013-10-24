@@ -212,6 +212,7 @@
             self.markViewToolbar.markColorView.hidden = YES;
         }];
     }
+    [[[UIApplication sharedApplication] keyWindow] endEditing:YES];
 }
 
 @end

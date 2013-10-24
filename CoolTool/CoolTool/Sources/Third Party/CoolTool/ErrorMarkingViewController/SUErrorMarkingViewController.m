@@ -13,6 +13,7 @@
 #import "SUShareController.h"
 #import "SUConstants.h"
 #import "SUMarkColorView.h"
+#import "SUTextMarkView.h"
 
 static CGRect const kSUMarkViewFrame = {{50.0f, 50.0f}, {150.0f, 150.0f}};
 static CGRect const kSUMarkViewRemoveButtonFrame = {{10.0f, 10.0f}, {30.0f, 30.0f}};
@@ -29,6 +30,8 @@ static CGFloat const kSUMinimumViewSideSize = 10.0f;
 @property (nonatomic, strong) SUShareController *shareController;
 @property (nonatomic, assign) CGFloat horizontalScale;
 @property (nonatomic, assign) CGFloat verticalScale;
+@property (nonatomic, assign) CGRect tempTextMarkViewRect;
+@property (nonatomic, readwrite) BOOL isKeyboardShown;
 
 @end
 
@@ -41,6 +44,18 @@ static CGFloat const kSUMinimumViewSideSize = 10.0f;
 	if (self) {
         // Init screenshot image
 		self.screenshotImage = screenshotImage;
+        
+        // Subscribe for keyboard appearance
+        [[NSNotificationCenter defaultCenter] addObserver:self
+                                                 selector:@selector(keyboardWillShow:)
+                                                     name:UIKeyboardWillShowNotification
+                                                   object:nil];
+        
+        [[NSNotificationCenter defaultCenter] addObserver:self
+                                                 selector:@selector(keyboardWillHide:)
+                                                     name:UIKeyboardWillHideNotification
+                                                   object:nil];
+
 	}
     
 	return self;
@@ -65,6 +80,8 @@ static CGFloat const kSUMinimumViewSideSize = 10.0f;
     // Error marking toolbar actions
     [self.errorMarkingView.errorMarkingToolbar.addMarkingViewButton addTarget:self
                                                            action:@selector(addMarkView)];
+    [self.errorMarkingView.errorMarkingToolbar.addTextMarkingViewButton addTarget:self
+                                                                       action:@selector(addTextMarkView)];
     [self.errorMarkingView.errorMarkingToolbar.closeButton addTarget:self
                                                   action:@selector(showPreviousViewController)
                                         forControlEvents:UIControlEventTouchUpInside];
@@ -100,6 +117,25 @@ static CGFloat const kSUMinimumViewSideSize = 10.0f;
     [markView.longPressGesture addTarget:self action:@selector(handleLongPress:)];
     self.errorMarkingView.markViewToolbar.widthSlider.value = markView.layer.borderWidth;
     [self.errorMarkingView addSubview:markView];
+}
+
+- (void)addTextMarkView
+{
+    [self stopShakingAnimation];
+    [self makeMarkViewToolbarButtonsActive:YES];
+    
+    for (SUMarkView *subView in [self.errorMarkingView subviews]) {
+        if ([subView isKindOfClass:[SUMarkView class]]) {
+            subView.isActive = NO;
+        }
+    }
+    
+    SUTextMarkView *textMarkView = [[SUTextMarkView alloc] initWithFrame:kSUMarkViewFrame withView:self.errorMarkingView];
+    textMarkView.delegate = self;
+    [textMarkView.tapGesture addTarget:self action:@selector(handleTap:)];
+    [textMarkView.longPressGesture addTarget:self action:@selector(handleLongPress:)];
+    self.errorMarkingView.markViewToolbar.widthSlider.value = textMarkView.layer.borderWidth;
+    [self.errorMarkingView addSubview:textMarkView];
 }
 
 - (void)showPreviousViewController
@@ -200,7 +236,9 @@ static CGFloat const kSUMinimumViewSideSize = 10.0f;
         if ([subview isKindOfClass:[SUMarkView class]]) {
             [subview.layer removeAnimationForKey:kSUShakingAnimationKey];
             for (UIButton *button in [subview subviews]) {
-                [button removeFromSuperview];
+                if ([button isKindOfClass:[UIButton class]]) {
+                    [button removeFromSuperview];
+                }
             }
         }
     }
@@ -211,10 +249,30 @@ static CGFloat const kSUMinimumViewSideSize = 10.0f;
 - (void)handleTap:(UITapGestureRecognizer *)recognizer
 {
     [self makeViewActiveWithRecognizer:recognizer];
+    
+    for (SUTextMarkView *subview in [self.errorMarkingView subviews]) {
+        if ([subview isKindOfClass:[SUTextMarkView class]]) {
+            if (subview.isActive) {
+                subview.commentTextView.userInteractionEnabled = YES;
+                [subview.commentTextView becomeFirstResponder];
+            } else {
+                subview.commentTextView.userInteractionEnabled = NO;
+            }
+        }
+    }
 }
 
 - (void)panGestureActivated:(UIPanGestureRecognizer *)recognizer
 {
+    for (SUTextMarkView *subview in [self.errorMarkingView subviews]) {
+        if ([subview isKindOfClass:[SUTextMarkView class]]) {
+            if (subview.isActive) {
+                if (!CGRectIsEmpty(self.tempTextMarkViewRect)) {
+                    self.tempTextMarkViewRect = subview.frame;
+                }
+            }
+        }
+    }
     [self makeViewActiveWithRecognizer:recognizer];
 }
 
@@ -281,6 +339,50 @@ static CGFloat const kSUMinimumViewSideSize = 10.0f;
 - (BOOL)prefersStatusBarHidden
 {
     return YES;
+}
+
+- (void)keyboardWillShow:(id)sender
+{
+    NSDictionary *userInfo = [sender userInfo];
+    
+    CGRect keyboardRect = [[userInfo objectForKey:@"UIKeyboardBoundsUserInfoKey"] CGRectValue];
+    CGFloat keyboardAnimationTime = [[userInfo objectForKey:@"UIKeyboardAnimationDurationUserInfoKey"] doubleValue];
+
+    for (SUTextMarkView *subview in [self.errorMarkingView subviews]) {
+        if ([subview isKindOfClass:[SUTextMarkView class]]) {
+            if (subview.isActive) {
+                self.tempTextMarkViewRect = subview.frame;
+                if (subview.frame.origin.y + subview.frame.size.height > self.view.frame.size.height - keyboardRect.size.height) {
+                    CGRect tempRect = subview.frame;
+                    tempRect.origin.y = self.view.frame.size.height - keyboardRect.size.height - subview.frame.size.height - 20.0f;
+                    [UIView animateWithDuration:keyboardAnimationTime animations:^{
+                        subview.frame = tempRect;
+                    }];
+                }
+                
+            }
+        }
+    }
+}
+
+- (void)keyboardWillHide:(id)sender
+{
+    NSDictionary *userInfo = [sender userInfo];
+    
+    CGFloat keyboardAnimationTime = [[userInfo objectForKey:@"UIKeyboardAnimationDurationUserInfoKey"] doubleValue];
+
+    for (SUTextMarkView *subview in [self.errorMarkingView subviews]) {
+        if ([subview isKindOfClass:[SUTextMarkView class]]) {
+            if (subview.isActive) {
+                if (!CGRectIsEmpty(self.tempTextMarkViewRect)) {
+                    [UIView animateWithDuration:keyboardAnimationTime animations:^{
+                        subview.frame = self.tempTextMarkViewRect;
+                    }];
+                }
+            }
+        }
+    }
+
 }
 
 @end
