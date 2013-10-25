@@ -18,9 +18,11 @@
 
 @end
 
+
 @implementation SUZGestureRecognizer
 
-- (void)touchesMoved:(NSSet *)touches withEvent:(UIEvent *)event {
+- (void)touchesMoved:(NSSet *)touches withEvent:(UIEvent *)event
+{
     [super touchesMoved:touches withEvent:event];
     
     if ([self state] == UIGestureRecognizerStateFailed)
@@ -29,30 +31,29 @@
     CGPoint currentPoint = [[touches anyObject] locationInView:self.view];
     CGPoint previousPoint = [[touches anyObject] previousLocationInView:self.view];
     
+    if (currentPoint.x >= previousPoint.x) {
+        self.isFirstRightSwipe = YES;
+    }
+    if (self.isFirstRightSwipe) {
+        if (currentPoint.x <= previousPoint.x && currentPoint.y >= previousPoint.y) {
+            self.isDiagonalSwipe = YES;
+        }
+    }
+    if (self.isDiagonalSwipe && self.isFirstRightSwipe) {
         if (currentPoint.x >= previousPoint.x) {
-            self.isFirstRightSwipe = YES;
+            self.isSecondRightSwipe = YES;
         }
-        if (self.isFirstRightSwipe) {
-            if (currentPoint.x <= previousPoint.x && currentPoint.y >= previousPoint.y) {
-                self.isDiagonalSwipe = YES;
-            }
-        }
-        if (self.isDiagonalSwipe && self.isFirstRightSwipe) {
-            if (currentPoint.x >= previousPoint.x) {
-                self.isSecondRightSwipe = YES;
-            }
-        }
+    }
 }
 
-- (void)touchesEnded:(NSSet *)touches withEvent:(UIEvent *)event {
+- (void)touchesEnded:(NSSet *)touches withEvent:(UIEvent *)event
+{
     [super touchesEnded:touches withEvent:event];
     
-    
     if (self.isSecondRightSwipe) {
-        NSLog(@"!!!");
         self.state = UIGestureRecognizerStateRecognized;
     }
-    
+
 }
 
 @end

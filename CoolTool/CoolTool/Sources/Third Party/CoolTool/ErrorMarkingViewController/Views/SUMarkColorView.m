@@ -36,7 +36,8 @@
                                                     [UIColor greenColor],
                                                     [UIColor grayColor],
                                                     [UIColor purpleColor],
-                                                    [UIColor orangeColor],nil];
+                                                    [UIColor orangeColor],
+                                                    [UIColor yellowColor], nil];
         
         // Init color views
         for (NSInteger i = 0; i < [self.colorArray count]; i++) {

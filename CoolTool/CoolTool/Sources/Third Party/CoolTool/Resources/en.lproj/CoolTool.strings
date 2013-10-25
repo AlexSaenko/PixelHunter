@@ -1,7 +1,5 @@
-"CHOOSE_INSTRUMENT" = "Choose instrument";
-"GRID" = "Grid";
-"RULER" = "Ruler";
+"ENTER_UI_DEBUG_MODE" = "Enter UI debug mode";
+"ENTER" = "Enter";
 "CANCEL" = "Cancel";
-"GALLERY" = "Gallery";
 "MAIL_SUBJECT" = "I find bug in design here";
 "MAIL_BODY" = "Bug in this place on picture in attachment";

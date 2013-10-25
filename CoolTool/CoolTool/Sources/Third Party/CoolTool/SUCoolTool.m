@@ -104,11 +104,11 @@ static id __sharedInstance;
 
 {
     UIAlertView *alertView = [[UIAlertView alloc]
-                              initWithTitle:NSLocalizedStringFromTable(@"CHOOSE_INSTRUMENT", @"CoolTool", @"Choose instrument")
+                              initWithTitle:NSLocalizedStringFromTable(@"ENTER_UI_DEBUG_MODE", @"CoolTool", @"Enter UI debug mode")
                               message:nil
                               delegate:self
                               cancelButtonTitle:NSLocalizedStringFromTable(@"CANCEL", @"CoolTool", @"Cancel")
-                              otherButtonTitles:NSLocalizedStringFromTable(@"GRID", @"CoolTool", @"Grid"),
+                              otherButtonTitles:NSLocalizedStringFromTable(@"ENTER", @"CoolTool", @"Enter"),
                               nil];
     
     
