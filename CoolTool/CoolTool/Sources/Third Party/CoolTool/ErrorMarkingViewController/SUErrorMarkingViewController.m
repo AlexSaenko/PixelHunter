@@ -99,7 +99,7 @@ static CGFloat const kSUNewMarkViewIndent = 20.0f;
     
     // Mark view toolbar
     [self.errorMarkingView.markViewToolbar.cornerTypeButton addTarget:self
-                                                               action:@selector(changeCornerType)];
+                                                               action:@selector(switchCornerType)];
     [self.errorMarkingView.markViewToolbar.widthSlider addTarget:self
                                          action:@selector(changeBorderWidth:)
                                forControlEvents:UIControlEventValueChanged];
@@ -156,7 +156,7 @@ static CGFloat const kSUNewMarkViewIndent = 20.0f;
 }
 
 #pragma mark - Mark View toolbar
-- (void)changeCornerType
+- (void)switchCornerType
 {
     for (SUMarkView *subview in [self.errorMarkingView subviews]) {
         if ([subview isKindOfClass:[SUMarkView class]]) {
@@ -383,7 +383,6 @@ static CGFloat const kSUNewMarkViewIndent = 20.0f;
         if ([subview isKindOfClass:[SUTextMarkView class]]) {
             if (subview.isActive) {
                 if (subview.frame.origin.y + subview.frame.size.height > self.view.frame.size.height - keyboardRect.size.height) {
-//                    self.tempTextMarkViewRect = self.errorMarkingView.frame;
                     CGRect tempRect = self.errorMarkingView.frame;
                     tempRect.origin.y -= keyboardRect.size.height;
                     if (tempRect.origin.y == -keyboardRect.size.height) {
