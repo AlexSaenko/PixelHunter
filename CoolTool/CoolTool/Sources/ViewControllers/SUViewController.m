@@ -20,8 +20,8 @@
 {
     [super viewDidAppear:animated];
 
-//    SUCoolTool *coolTool = [[SUCoolTool alloc] init];
-//    [coolTool createWindowForDebugWithImage:self.testImageView.image];
+    SUCoolTool *coolTool = [[SUCoolTool alloc] init];
+    [coolTool createWindowForDebugWithImage:self.testImageView.image];
 }
 
 @end

@@ -17,16 +17,20 @@
 @property (nonatomic, strong) AVAudioPlayer *screenshotSound;
 @property (nonatomic, strong) SUErrorMarkingToolbar *toolbar;
 @property (nonatomic, strong) UIViewController *viewController;
+@property (nonatomic, strong) NSArray *unnecessaryViewsArray;
 
 @end
 
 @implementation SUShareController
 
-- (id)initWithToolbar:(SUErrorMarkingToolbar *)toolbar onViewController:(UIViewController *)viewController
+- (id)initWithToolbar:(SUErrorMarkingToolbar *)toolbar
+withUnnecessaryViewsArray:(NSArray *)unnecessaryViewsArray
+     onViewController:(UIViewController *)viewController
 {
     self = [super init];
     if (self) {
         self.toolbar = toolbar;
+        self.unnecessaryViewsArray = unnecessaryViewsArray;
         self.viewController = viewController;
         [self.toolbar.sendMailButton.button addTarget:self action:@selector(sendScreenshotViaMail)
                                            forControlEvents:UIControlEventTouchUpInside];
@@ -43,7 +47,11 @@
         mailComposeViewController.mailComposeDelegate = self;
 
         [mailComposeViewController setSubject:NSLocalizedStringFromTable(@"MAIL_SUBJECT", @"CoolTool", nil)];
-        [self.toolbar setHidden:YES];
+        for (UIView *view in self.unnecessaryViewsArray) {
+            if (view.hidden == NO) {
+                [view setHidden:YES];
+            }
+        }
         [self.screenshotSound play];
         [self showBlinkingViewWithCompletionBlock:^(void) {
             UIImage *imageToSend = [SUScreenshotUtil convertViewToImage:self.viewController.view];
@@ -52,9 +60,7 @@
             NSString *emailBody = NSLocalizedStringFromTable(@"MAIL_BODY", @"CoolTool", nil);
             [mailComposeViewController setMessageBody:emailBody isHTML:NO];
 
-            [self.viewController presentViewController:mailComposeViewController animated:YES completion:^{
-                [self.toolbar setHidden:NO];
-            }];
+            [self.viewController presentViewController:mailComposeViewController animated:YES completion:nil];
         }];
     } else {
         [self showErrorAlertView];

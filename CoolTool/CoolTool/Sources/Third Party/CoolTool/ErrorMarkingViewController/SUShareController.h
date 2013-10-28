@@ -11,6 +11,6 @@
 
 @interface SUShareController : NSObject
 
-- (id)initWithToolbar:(SUErrorMarkingToolbar *)toolbar onViewController:(UIViewController *)viewController;
+- (id)initWithToolbar:(SUErrorMarkingToolbar *)toolbar withUnnecessaryViewsArray:(NSArray *)unnecessaryViewsArray onViewController:(UIViewController *)viewController;
 
 @end

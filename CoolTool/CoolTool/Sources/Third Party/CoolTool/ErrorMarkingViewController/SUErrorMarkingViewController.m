@@ -33,6 +33,7 @@ static CGFloat const kSUNewMarkViewIndent = 20.0f;
 @property (nonatomic, assign) CGFloat verticalScale;
 @property (nonatomic, assign) CGRect tempTextMarkViewRect;
 @property (nonatomic, readwrite) BOOL isKeyboardShown;
+@property (nonatomic, strong) NSArray *unnecessaryViewsArray;
 
 @end
 
@@ -74,8 +75,13 @@ static CGFloat const kSUNewMarkViewIndent = 20.0f;
 {
     [super viewDidLoad];
     
+    // Init unnecessary views array
+    self.unnecessaryViewsArray = [[NSArray alloc] initWithObjects:self.errorMarkingView.errorMarkingToolbar,
+                                  self.errorMarkingView.markViewToolbar,
+                                  nil];
     // Init share controller
     self.shareController = [[SUShareController alloc] initWithToolbar:self.errorMarkingView.errorMarkingToolbar
+                                            withUnnecessaryViewsArray:self.unnecessaryViewsArray
                                                      onViewController:self];
     
     // Error marking toolbar actions
