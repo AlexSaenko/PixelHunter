@@ -11,17 +11,23 @@
 -  Add CoolTool folder to project
 -  Go to AppDelegate.m 
 -  Make an import:
+
 ```objective-c
 #import “SUCoolTool.h”
 ```
+
 -  In method 
+
 ```objective-c
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 ```
+
 write this line: 
+
 ```objective-c
 [SUCoolTool setup];
 ```
+
 -  Go to Project > Choose target > Build Phases > Link Binary With Libraries.
 -  Add “AVFoundation.framework”, “MessageUI.framework” and “CoreGraphics.framework”
 -  Run application on device
