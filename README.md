@@ -1,10 +1,13 @@
+This library presents User Interface verifying tool for iOS applications which appears by specific gesture. It helps to detect differences between designers mock-ups and real application. The library could be embedded to an application during development stage and might be useful for project managers, QA engineers and software development engineers.
+
+
 ## Features
-1) Standard 50-pixel grid
-2) 1-pixel grid while zoom to max
-3) Interactive rulers
-4) Upload mockup from gallery to compare
-5) Different marking notes
-6) Mail sharing
+-  Standard 50-pixel grid
+-  1-pixel grid while zoom to max
+-  Interactive rulers
+-  Upload mockup from gallery to compare
+-  Different marking notes
+-  Mail sharing
 
 
 ## How To Get Started
