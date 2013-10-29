@@ -156,6 +156,7 @@ static id __sharedInstance;
 {
     self.parentWindow.hidden = NO;
     self.debugWindow = nil;
+    [self.alertView dismissWithClickedButtonIndex:0 animated:NO];
 }
 
 #pragma mark - Orientation handling
