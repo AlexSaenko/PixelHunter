@@ -10,28 +10,17 @@
 #import "SUGridViewController.h"
 #import "SUScreenshotUtil.h"
 #import "SUZGestureView.h"
+#import <CoreMotion/CoreMotion.h>
 
-static BOOL L0AccelerationIsShaking(UIAcceleration *last, UIAcceleration *current, double threshold) {
-	double
-    deltaX = fabs(last.x - current.x),
-    deltaY = fabs(last.y - current.y),
-    deltaZ = fabs(last.z - current.z);
-    
-	return
-    (deltaX > threshold && deltaY > threshold) ||
-    (deltaX > threshold && deltaZ > threshold) ||
-    (deltaY > threshold && deltaZ > threshold);
-}
+static CGFloat const kSUAccelerationThreshold = 1.7f;
+static CGFloat const kSUAccelerometerUpdateInterval = (1.0f/10.0f);
 
 @interface SUCoolTool () <UIAccelerometerDelegate, SUGridViewControllerDelegate>
-{
-    BOOL histeresisExcited;
-}
 
-@property (nonatomic, strong) UIAcceleration *lastAcceleration;
 @property (nonatomic, weak) UIAlertView *alertView;
 @property (nonatomic, strong) UIWindow *debugWindow;
 @property (nonatomic, strong) UIWindow *parentWindow;
+@property (nonatomic, strong) CMMotionManager *motionManager;
 
 @end
 
@@ -46,7 +35,6 @@ static id __sharedInstance;
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
         __sharedInstance = [[SUCoolTool alloc] init];
-        [UIAccelerometer sharedAccelerometer].delegate = __sharedInstance;
         [[NSNotificationCenter defaultCenter] addObserver:__sharedInstance
                                                  selector:@selector(orientationChanged:)
                                                      name:UIApplicationWillChangeStatusBarFrameNotification
@@ -75,8 +63,26 @@ static id __sharedInstance;
     return self;
 }
 
-#pragma mark - Public init
+- (id)init
+{
+    if (self = [super init]) {
+        self.motionManager = [[CMMotionManager alloc] init];
+        self.motionManager.accelerometerUpdateInterval = (1.0f/10.0f);
+        
+        [self.motionManager startAccelerometerUpdatesToQueue:[NSOperationQueue currentQueue]
+                                                 withHandler:^(CMAccelerometerData *accelerometerData, NSError *error) {
+                                                     if (error) {
+                                                         [self.motionManager stopAccelerometerUpdates];
+                                                     } else {
+                                                         [self performSelectorOnMainThread:@selector(handleShake:) withObject:accelerometerData waitUntilDone:YES];
+                                                     }
+                                                 }];
+    }
+    
+    return self;
+}
 
+#pragma mark - Public init
 + (void)setup
 {
     [SUCoolTool sharedInstance];
@@ -84,20 +90,17 @@ static id __sharedInstance;
 
 #pragma mark - Accelerometer delegate
 
-- (void)accelerometer:(UIAccelerometer *)accelerometer didAccelerate:(UIAcceleration *)acceleration
+- (void)handleShake:(CMAccelerometerData *)accelerometerData
 {
-    if (self.lastAcceleration) {
-		if (!histeresisExcited && L0AccelerationIsShaking(self.lastAcceleration, acceleration, 0.7)) {
-			histeresisExcited = YES;
-            if (self.alertView == nil && self.debugWindow == nil) {
-                [self createZGestureView];
-            }
-		} else if (histeresisExcited && !L0AccelerationIsShaking(self.lastAcceleration, acceleration, 0.2)) {
-			histeresisExcited = NO;
-		}
-	}
-    
-	self.lastAcceleration = acceleration;
+    CMAcceleration acceleration = accelerometerData.acceleration;
+    if (acceleration.x > kSUAccelerationThreshold
+        || acceleration.y > kSUAccelerationThreshold
+        || acceleration.z > kSUAccelerationThreshold) {
+        if (self.alertView == nil && self.debugWindow == nil) {
+            [self createZGestureView];
+        }
+
+    }
 }
 
 - (void)showAlert

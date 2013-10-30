@@ -32,7 +32,7 @@ write this line:
 ```
 
 -  Go to Project > Choose target > Build Phases > Link Binary With Libraries.
--  Add “AVFoundation.framework”, “MessageUI.framework” and “CoreGraphics.framework”
+-  Add “AVFoundation.framework”, “MessageUI.framework”, “CoreGraphics.framework” and “CoreMotion.framework”
 -  Run application on device
 -  Shake device
 -  Draw Z on screen
