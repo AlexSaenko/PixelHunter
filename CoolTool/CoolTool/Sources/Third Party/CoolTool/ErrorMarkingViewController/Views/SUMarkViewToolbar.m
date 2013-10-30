@@ -11,6 +11,7 @@
 
 static CGFloat const kSUSliderWidth = 44.0f;
 static CGFloat const kSUSliderHeight = 320.0f;
+static CGFloat const kSUButtonIndent = 10.0f;
 
 @implementation SUMarkViewToolbar
 
@@ -66,7 +67,7 @@ static CGFloat const kSUSliderHeight = 320.0f;
                                              kSUCloseButtonHeight, kSUCloseButtonHeight);
     
     // Layout border width slider button
-    self.borderWidthSliderButton.frame = CGRectMake(0.0f, kSUCloseButtonHeight + 10.0f,
+    self.borderWidthSliderButton.frame = CGRectMake(0.0f, kSUCloseButtonHeight + kSUButtonIndent,
                                                     kSUCloseButtonHeight, kSUCloseButtonHeight);
     
     // Layout width slider
@@ -74,7 +75,7 @@ static CGFloat const kSUSliderHeight = 320.0f;
                                         kSUSliderWidth, kSUSliderHeight - kSUCloseButtonHeight);
     
     // Layout border color picker button
-    self.borderColorPickerButton.frame = CGRectMake(0.0f, (kSUCloseButtonHeight + 10.0f) * 2,
+    self.borderColorPickerButton.frame = CGRectMake(0.0f, (kSUCloseButtonHeight + kSUButtonIndent) * 2,
                                                     kSUCloseButtonHeight, kSUCloseButtonHeight);
     
     // Layout mark color view

@@ -39,7 +39,7 @@
     for (NSInteger i = 0; i < numberOfVeticalLines; i++) {
         CGPoint startPoint = CGPointMake(startLinePoint + self.startVerticalPoint, 0);
         CGPoint endPoint = CGPointMake(startLinePoint + self.startVerticalPoint, self.frame.size.height);
-        draw1PxStroke(context, startPoint, endPoint, lineColor.CGColor);
+        [SUDrawUtil draw1PxStrokeWithContext:context withStartPoint:startPoint withEndPoint:endPoint withColor:lineColor.CGColor];
         startLinePoint = startLinePoint + cellSize;
     }
     
@@ -49,7 +49,7 @@
     for (NSInteger i = 0; i < numberOfHorizontalLines; i++) {
         CGPoint startPoint = CGPointMake(0, startLinePoint + self.startHorizontalPoint);
         CGPoint endPoint = CGPointMake(self.frame.size.width, startLinePoint + self.startHorizontalPoint);
-        draw1PxStroke(context, startPoint, endPoint, lineColor.CGColor);
+        [SUDrawUtil draw1PxStrokeWithContext:context withStartPoint:startPoint withEndPoint:endPoint withColor:lineColor.CGColor];
         startLinePoint = startLinePoint + cellSize;
     }
 }

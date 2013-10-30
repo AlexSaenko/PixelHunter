@@ -9,6 +9,8 @@
 #import "SUErrorMarkingToolbar.h"
 #import "SUConstants.h"
 
+static CGFloat const kSUButtonIndent = 5.0f;
+
 @implementation SUErrorMarkingToolbar
 
 - (id)initWithFrame:(CGRect)frame
@@ -52,18 +54,18 @@
     [super layoutSubviews];
     
     // Layout add markingview button
-    self.addMarkingViewButton.frame = CGRectMake(kSUCloseButtonWidth + 5.0f, 0.0f,
+    self.addMarkingViewButton.frame = CGRectMake(kSUCloseButtonWidth + kSUButtonIndent, 0.0f,
                                                  kSUCloseButtonWidth, kSUCloseButtonHeight);
     // Layout add text marking view button
-    self.addTextMarkingViewButton.frame = CGRectMake((kSUCloseButtonWidth + 5.0f) * 2, 0.0f,
+    self.addTextMarkingViewButton.frame = CGRectMake((kSUCloseButtonWidth + kSUButtonIndent) * 2, 0.0f,
                                                      kSUCloseButtonWidth, kSUCloseButtonHeight);
     
     // Layout send mail button
-    self.sendMailButton.frame = CGRectMake((kSUCloseButtonWidth + 5.0f) * 3, 0.0f,
+    self.sendMailButton.frame = CGRectMake((kSUCloseButtonWidth + kSUButtonIndent) * 3, 0.0f,
                                            kSUCloseButtonWidth, kSUCloseButtonHeight);
     
     // Layout show marking view toolbar button
-    self.showMarkingViewToolbarButton.frame = CGRectMake((kSUCloseButtonWidth + 5.0f) * 4, 0.0f,
+    self.showMarkingViewToolbarButton.frame = CGRectMake((kSUCloseButtonWidth + kSUButtonIndent) * 4, 0.0f,
                                                          kSUCloseButtonWidth, kSUCloseButtonHeight);
 }
 

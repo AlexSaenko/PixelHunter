@@ -293,13 +293,6 @@ static CGFloat const kSUNewMarkViewIndent = 20.0f;
         if ([subview isKindOfClass:[SUTextMarkView class]]) {
             if (!subview.isActive) {
                 [subview.commentTextView endEditing:YES];
-//                subview.commentTextView.userInteractionEnabled = YES;
-//                [subview.commentTextView becomeFirstResponder];
-//                if (!CGRectIsEmpty(self.tempTextMarkViewRect)) {
-//                    self.tempTextMarkViewRect = subview.frame;
-//                }
-//            } else {
-//                [subview.commentTextView becomeFirstResponder];
             }
         }
     }
@@ -376,16 +369,18 @@ static CGFloat const kSUNewMarkViewIndent = 20.0f;
 {
     NSDictionary *userInfo = [sender userInfo];
     
-    CGRect keyboardRect = [[userInfo objectForKey:@"UIKeyboardBoundsUserInfoKey"] CGRectValue];
-    CGFloat keyboardAnimationTime = [[userInfo objectForKey:@"UIKeyboardAnimationDurationUserInfoKey"] doubleValue];
-
+    CGFloat keyboardAnimationTime = [[userInfo objectForKey:UIKeyboardAnimationDurationUserInfoKey] doubleValue];
+    CGRect keyboardRect = [[userInfo objectForKey:UIKeyboardFrameBeginUserInfoKey] CGRectValue];
+    keyboardRect = [self.view convertRect:keyboardRect toView:nil];
+    CGSize keyboardSize = keyboardRect.size;
+    
     for (SUTextMarkView *subview in [self.errorMarkingView subviews]) {
         if ([subview isKindOfClass:[SUTextMarkView class]]) {
             if (subview.isActive) {
-                if (subview.frame.origin.y + subview.frame.size.height > self.view.frame.size.height - keyboardRect.size.height) {
+                if (subview.frame.origin.y + subview.frame.size.height > self.view.frame.size.height - keyboardSize.height) {
                     CGRect tempRect = self.errorMarkingView.frame;
-                    tempRect.origin.y -= keyboardRect.size.height;
-                    if (tempRect.origin.y == -keyboardRect.size.height) {
+                    tempRect.origin.y -= keyboardSize.height;
+                    if (tempRect.origin.y == -keyboardSize.height) {
                         [UIView animateWithDuration:keyboardAnimationTime animations:^{
                             self.tempTextMarkViewRect = self.errorMarkingView.frame;
                             self.errorMarkingView.frame = tempRect;
@@ -402,16 +397,19 @@ static CGFloat const kSUNewMarkViewIndent = 20.0f;
 {
     NSDictionary *userInfo = [sender userInfo];
     
-    CGFloat keyboardAnimationTime = [[userInfo objectForKey:@"UIKeyboardAnimationDurationUserInfoKey"] doubleValue];
-    CGRect keyboardRect = [[userInfo objectForKey:@"UIKeyboardBoundsUserInfoKey"] CGRectValue];
+    CGFloat keyboardAnimationTime = [[userInfo objectForKey:UIKeyboardAnimationDurationUserInfoKey] doubleValue];
+    CGRect keyboardRect = [[userInfo objectForKey:UIKeyboardFrameBeginUserInfoKey] CGRectValue];
+    keyboardRect = [self.view convertRect:keyboardRect toView:nil];
+    
+    CGSize keyboardSize = keyboardRect.size;
     
     for (SUTextMarkView *subview in [self.errorMarkingView subviews]) {
         if ([subview isKindOfClass:[SUTextMarkView class]]) {
             if (subview.isActive) {
                 if (!CGRectIsEmpty(self.tempTextMarkViewRect) && (self.errorMarkingView.frame.origin.y != self.tempTextMarkViewRect.origin.y)) {
                     CGRect tempRect = self.errorMarkingView.frame;
-                    tempRect.origin.y += keyboardRect.size.height;
-                    if (self.errorMarkingView.frame.origin.y == -keyboardRect.size.height) {
+                    tempRect.origin.y += keyboardSize.height;
+                    if (self.errorMarkingView.frame.origin.y == -keyboardSize.height) {
                         [UIView animateWithDuration:keyboardAnimationTime animations:^{
                             self.errorMarkingView.frame = tempRect;
                             self.errorMarkingView.frame = self.tempTextMarkViewRect;

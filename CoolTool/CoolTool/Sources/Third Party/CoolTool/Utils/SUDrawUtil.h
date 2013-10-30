@@ -10,6 +10,6 @@
 
 @interface SUDrawUtil : NSObject
 
-void draw1PxStroke(CGContextRef context, CGPoint startPoint, CGPoint endPoint, CGColorRef color);
++ (void)draw1PxStrokeWithContext:(CGContextRef)context withStartPoint:(CGPoint)startPoint withEndPoint:(CGPoint)endPoint withColor:(CGColorRef)color;
 
 @end

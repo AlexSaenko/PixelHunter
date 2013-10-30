@@ -51,12 +51,6 @@ static NSString * const kSUPlaceHolderText = @"Type your text here...";
     return YES;
 }
 
-- (BOOL)textViewShouldBeginEditing:(UITextView *)textView
-{
-    //Has Focus
-    return YES;
-}
-
 - (void)textViewDidBeginEditing:(UITextView *)textView
 {
     if ([textView.text isEqualToString:kSUPlaceHolderText]) {

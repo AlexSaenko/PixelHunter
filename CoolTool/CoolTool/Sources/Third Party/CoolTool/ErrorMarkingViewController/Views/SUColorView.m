@@ -9,6 +9,8 @@
 #import "SUColorView.h"
 #import "SUConstants.h"
 
+static CGFloat const kSUColorViewSize = 20.0f;
+
 @implementation SUColorView
 
 - (id)initWithColor:(UIColor *)color
@@ -36,7 +38,7 @@
 {
     [super layoutSubviews];
     
-    self.smallColorView.frame = CGRectMake(self.frame.size.width / 4.0f, self.frame.size.height / 4.0f, 20.0f, 20.0f);
+    self.smallColorView.frame = CGRectMake(self.frame.size.width / 4.0f, self.frame.size.height / 4.0f, kSUColorViewSize, kSUColorViewSize);
     self.colorViewButton.frame = kSUColorViewRect;
 }
 
