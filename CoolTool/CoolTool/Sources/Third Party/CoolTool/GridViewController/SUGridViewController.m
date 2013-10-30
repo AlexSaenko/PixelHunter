@@ -12,12 +12,14 @@
 #import "SUScreenshotUtil.h"
 #import "SUErrorMarkingViewController.h"
 
+
 @interface SUGridViewController () <SUGridViewControllerDelegate, UIScrollViewDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate>
 
 @property (nonatomic, strong) UIImage *screenshotImage;
 @property (nonatomic, strong) UIImagePickerController *imagePicker;
 
 @end
+
 
 @implementation SUGridViewController
 

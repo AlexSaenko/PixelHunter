@@ -8,6 +8,7 @@
 
 #import "SUCompositeButton.h"
 
+
 @interface SUCompositeButton ()
 
 @property (nonatomic, strong) UIImage *imageNormal;

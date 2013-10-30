@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
+
 @protocol SUMarkColorViewDelegate <NSObject>
 
 - (void)colorViewPickedWithColor:(UIColor *)color withSelectedColorViewCenter:(CGPoint)center;

@@ -54,7 +54,6 @@
 		CECC23A31807ED6D0090E3E0 /* SUGridToolbar.m in Sources */ = {isa = PBXBuildFile; fileRef = CECC23861807ED6D0090E3E0 /* SUGridToolbar.m */; };
 		CECC23A41807ED6D0090E3E0 /* SUGridUnderLayerView.m in Sources */ = {isa = PBXBuildFile; fileRef = CECC23881807ED6D0090E3E0 /* SUGridUnderLayerView.m */; };
 		CECC23A51807ED6D0090E3E0 /* SUGridView.m in Sources */ = {isa = PBXBuildFile; fileRef = CECC238A1807ED6D0090E3E0 /* SUGridView.m */; };
-		CECC23A61807ED6D0090E3E0 /* SUSmallGridView.m in Sources */ = {isa = PBXBuildFile; fileRef = CECC238C1807ED6D0090E3E0 /* SUSmallGridView.m */; };
 		CECC23A71807ED6D0090E3E0 /* SUToolbarView.m in Sources */ = {isa = PBXBuildFile; fileRef = CECC238E1807ED6D0090E3E0 /* SUToolbarView.m */; };
 		CECC23A81807ED6D0090E3E0 /* CoolTool.strings in Resources */ = {isa = PBXBuildFile; fileRef = CECC23901807ED6D0090E3E0 /* CoolTool.strings */; };
 		CECC23A91807ED6D0090E3E0 /* gallery.png in Resources */ = {isa = PBXBuildFile; fileRef = CECC23921807ED6D0090E3E0 /* gallery.png */; };
@@ -149,8 +148,6 @@
 		CECC23881807ED6D0090E3E0 /* SUGridUnderLayerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SUGridUnderLayerView.m; sourceTree = "<group>"; };
 		CECC23891807ED6D0090E3E0 /* SUGridView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SUGridView.h; sourceTree = "<group>"; };
 		CECC238A1807ED6D0090E3E0 /* SUGridView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SUGridView.m; sourceTree = "<group>"; };
-		CECC238B1807ED6D0090E3E0 /* SUSmallGridView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SUSmallGridView.h; sourceTree = "<group>"; };
-		CECC238C1807ED6D0090E3E0 /* SUSmallGridView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SUSmallGridView.m; sourceTree = "<group>"; };
 		CECC238D1807ED6D0090E3E0 /* SUToolbarView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SUToolbarView.h; sourceTree = "<group>"; };
 		CECC238E1807ED6D0090E3E0 /* SUToolbarView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SUToolbarView.m; sourceTree = "<group>"; };
 		CECC23911807ED6D0090E3E0 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/CoolTool.strings; sourceTree = "<group>"; };
@@ -377,8 +374,6 @@
 				CECC23881807ED6D0090E3E0 /* SUGridUnderLayerView.m */,
 				CECC23891807ED6D0090E3E0 /* SUGridView.h */,
 				CECC238A1807ED6D0090E3E0 /* SUGridView.m */,
-				CECC238B1807ED6D0090E3E0 /* SUSmallGridView.h */,
-				CECC238C1807ED6D0090E3E0 /* SUSmallGridView.m */,
 				CECC238D1807ED6D0090E3E0 /* SUToolbarView.h */,
 				CECC238E1807ED6D0090E3E0 /* SUToolbarView.m */,
 			);
@@ -555,7 +550,6 @@
 				CECC23B01807ED6D0090E3E0 /* SUScreenshotUtil.m in Sources */,
 				CECC23A21807ED6D0090E3E0 /* SUGridRulerView.m in Sources */,
 				CECC23A31807ED6D0090E3E0 /* SUGridToolbar.m in Sources */,
-				CECC23A61807ED6D0090E3E0 /* SUSmallGridView.m in Sources */,
 				CEB6B8BB181002EE007CDC55 /* SUColorView.m in Sources */,
 				CECC23A01807ED6D0090E3E0 /* SUCompositeButton.m in Sources */,
 				CE7B30EB180BFF540027742E /* SUErrorMarkingView.m in Sources */,

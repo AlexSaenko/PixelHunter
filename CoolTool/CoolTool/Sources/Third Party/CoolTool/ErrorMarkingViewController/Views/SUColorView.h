@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
+
 @interface SUColorView : UIView
 
 @property (nonatomic, strong) UIView *smallColorView;

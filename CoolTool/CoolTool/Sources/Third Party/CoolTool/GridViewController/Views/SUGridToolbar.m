@@ -12,7 +12,6 @@
 static CGFloat const kSUSliderMinimumValue = 0.1f;
 static CGFloat const kSUSliderMaximumValue = 1.0f;
 
-
 @implementation SUGridToolbar
 
 - (id)initWithFrame:(CGRect)frame

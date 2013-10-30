@@ -8,6 +8,12 @@
 
 #import <UIKit/UIKit.h>
 
+
 @interface SUGridView : UIView
+
+@property (nonatomic, assign) NSInteger startVerticalPoint;
+@property (nonatomic, assign) NSInteger startHorizontalPoint;
+
+- (id)initWithSmallGrid:(BOOL)isSmallGrid;
 
 @end

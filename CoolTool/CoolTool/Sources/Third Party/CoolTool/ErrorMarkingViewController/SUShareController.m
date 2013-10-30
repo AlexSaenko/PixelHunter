@@ -12,6 +12,7 @@
 #import <AVFoundation/AVAudioPlayer.h>
 #import "SUScreenshotUtil.h"
 
+
 @interface SUShareController () <MFMailComposeViewControllerDelegate>
 
 @property (nonatomic, strong) AVAudioPlayer *screenshotSound;
@@ -20,6 +21,7 @@
 @property (nonatomic, strong) NSArray *unnecessaryViewsArray;
 
 @end
+
 
 @implementation SUShareController
 

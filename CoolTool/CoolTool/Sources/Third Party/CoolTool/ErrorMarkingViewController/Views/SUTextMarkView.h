@@ -8,6 +8,7 @@
 
 #import "SUMarkView.h"
 
+
 @interface SUTextMarkView : SUMarkView
 
 @property (nonatomic, strong) UITextView *commentTextView;

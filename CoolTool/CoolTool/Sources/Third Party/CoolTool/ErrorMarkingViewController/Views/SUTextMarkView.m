@@ -18,6 +18,7 @@ static NSString * const kSUPlaceHolderText = @"Type your text here...";
 
 @end
 
+
 @implementation SUTextMarkView
 
 - (id)initWithFrame:(CGRect)frame withView:(UIView *)view

@@ -9,11 +9,13 @@
 #import "SUGridUnderLayerView.h"
 #import "SUConstants.h"
 
+
 @interface SUGridUnderLayerView ()
 
 @property (nonatomic, strong) UIImageView *screenshotImageView;
 
 @end
+
 
 @implementation SUGridUnderLayerView
 
@@ -44,7 +46,7 @@
         [self.containerView addSubview:self.mockupImageView];
         
         // Init grid view
-        self.gridView = [[SUGridView alloc] init];
+        self.gridView = [[SUGridView alloc] initWithSmallGrid:NO];
         self.gridView.contentMode = UIViewContentModeScaleAspectFit;
         [self.containerView addSubview:self.gridView];
     }

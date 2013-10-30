@@ -8,10 +8,12 @@
 
 #import <UIKit/UIKit.h>
 
+
 typedef enum {
     SUCompositeButtonStateNormal,
     SUCompositeButtonStateActivated,
 }SUCompositeButtonState;
+
 
 @interface SUCompositeButton : UIView
 

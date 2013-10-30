@@ -9,6 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "SUGridRootView.h"
 
+
 @protocol SUGridViewControllerDelegate <NSObject>
 
 - (void)tapOnCloseButton;

@@ -9,6 +9,7 @@
 #import "SUGridRootView.h"
 #import "SUConstants.h"
 
+
 @implementation SUGridRootView
 
 - (id)initWithFrame:(CGRect)rect withScreenshotImage:(UIImage *)screenshotImage
@@ -28,7 +29,7 @@
         [self.tapGesture addTarget:self action:@selector(viewTapped)];
         
         // Init small grid view
-        self.smallGridView = [[SUSmallGridView alloc] init];
+        self.smallGridView = [[SUGridView alloc] initWithSmallGrid:YES];
         [self addSubview:self.smallGridView];
         
         // Init rulers
@@ -62,13 +63,15 @@
     
     CGSize layoutSize = [[UIScreen mainScreen] bounds].size;
     
-    self.smallGridView.frame = CGRectMake(0.0f, 0.0f, layoutSize.width, layoutSize.height);
+    
     
     // Layout grid underlayer
     if (UIInterfaceOrientationIsLandscape([UIApplication sharedApplication].statusBarOrientation)) {
         self.gridUnderLayerView.frame = CGRectMake(0.0f, 0.0f, layoutSize.height, layoutSize.width);
+        self.smallGridView.frame = CGRectMake(0.0f, 0.0f, layoutSize.height, layoutSize.width);
     } else {
         self.gridUnderLayerView.frame = CGRectMake(0.0f, 0.0f, layoutSize.width, layoutSize.height);
+        self.smallGridView.frame = CGRectMake(0.0f, 0.0f, layoutSize.width, layoutSize.height);
     }
 }
 
