@@ -37,3 +37,6 @@ write this line:
 -  Shake device
 -  Draw Z on screen
 -  Enjoy!
+
+## License
+Copyright (c) 2013 GitHub, Inc. See the LICENSE file for license rights and limitations (MIT).
