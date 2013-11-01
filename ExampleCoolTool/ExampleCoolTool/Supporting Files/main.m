@@ -1,8 +1,8 @@
 //
 //  main.m
-//  CoolTool
+//  ExampleCoolTool
 //
-//  Created by Alex Saenko on 9/18/13.
+//  Created by Alex Saenko on 11/1/13.
 //  Copyright (c) 2013 Sigma Ukraine. All rights reserved.
 //
 
@@ -10,7 +10,7 @@
 
 #import "SUAppDelegate.h"
 
-int main(int argc, char *argv[])
+int main(int argc, char * argv[])
 {
     @autoreleasepool {
         return UIApplicationMain(argc, argv, nil, NSStringFromClass([SUAppDelegate class]));

@@ -1,12 +1,13 @@
 //
 //  SUAppDelegate.h
-//  CoolTool
+//  ExampleCoolTool
 //
-//  Created by Alex Saenko on 9/18/13.
+//  Created by Alex Saenko on 11/1/13.
 //  Copyright (c) 2013 Sigma Ukraine. All rights reserved.
 //
 
 #import <UIKit/UIKit.h>
+#import "SUCoolTool.h"
 
 @interface SUAppDelegate : UIResponder <UIApplicationDelegate>
 
