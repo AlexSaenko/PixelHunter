@@ -17,9 +17,10 @@
 
 @implementation SUViewController
 
-- (void)viewDidLoad
+- (void)viewDidAppear:(BOOL)animated
 {
-    [super viewDidLoad];
+    [super viewDidAppear:animated];
+    
 	SUCoolTool *coolTool = [[SUCoolTool alloc] init];
     [coolTool createWindowForDebugWithImage:self.imageView.image];
 }

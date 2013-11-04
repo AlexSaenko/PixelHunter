@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		CE5890301827CEB200FA216F /* iPhoneMock.png in Resources */ = {isa = PBXBuildFile; fileRef = CE58902F1827CEB200FA216F /* iPhoneMock.png */; };
+		CE5890321827CF4100FA216F /* iPadMock.png in Resources */ = {isa = PBXBuildFile; fileRef = CE5890311827CF4100FA216F /* iPadMock.png */; };
 		CEFD7DB518241F1C005EC11C /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CEFD7DB418241F1C005EC11C /* Foundation.framework */; };
 		CEFD7DB718241F1C005EC11C /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CEFD7DB618241F1C005EC11C /* CoreGraphics.framework */; };
 		CEFD7DB918241F1C005EC11C /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CEFD7DB818241F1C005EC11C /* UIKit.framework */; };
@@ -70,6 +72,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		CE58902F1827CEB200FA216F /* iPhoneMock.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = iPhoneMock.png; sourceTree = "<group>"; };
+		CE5890311827CF4100FA216F /* iPadMock.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = iPadMock.png; sourceTree = "<group>"; };
 		CEFD7DB118241F1C005EC11C /* ExampleCoolTool.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ExampleCoolTool.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CEFD7DB418241F1C005EC11C /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		CEFD7DB618241F1C005EC11C /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -252,6 +256,8 @@
 		CEFD7DF018241FDE005EC11C /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				CE5890311827CF4100FA216F /* iPadMock.png */,
+				CE58902F1827CEB200FA216F /* iPhoneMock.png */,
 				CEFD7DF118241FDE005EC11C /* Main_iPad.storyboard */,
 				CEFD7DF318241FDE005EC11C /* Main_iPhone.storyboard */,
 				CEFD7DF518241FDE005EC11C /* InfoPlist.strings */,
@@ -467,10 +473,12 @@
 				CEFD7E63182420D4005EC11C /* photoShutter.mp3 in Resources */,
 				CEFD7E62182420D4005EC11C /* ON.jpg in Resources */,
 				CEFD7E0218241FDE005EC11C /* Images.xcassets in Resources */,
+				CE5890321827CF4100FA216F /* iPadMock.png in Resources */,
 				CEFD7E5A182420D4005EC11C /* backIcon.png in Resources */,
 				CEFD7E5B182420D4005EC11C /* closeIcon.jpeg in Resources */,
 				CEFD7DFF18241FDE005EC11C /* Main_iPhone.storyboard in Resources */,
 				CEFD7E65182420D4005EC11C /* sliderIcon.png in Resources */,
+				CE5890301827CEB200FA216F /* iPhoneMock.png in Resources */,
 				CEFD7E5D182420D4005EC11C /* cornerIcon.png in Resources */,
 				CEFD7E61182420D4005EC11C /* off.jpg in Resources */,
 				CEFD7E5C182420D4005EC11C /* colorIcon.jpg in Resources */,
@@ -750,6 +758,7 @@
 				CEFD7DE818241F1C005EC11C /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		CEFD7DE918241F1C005EC11C /* Build configuration list for PBXNativeTarget "ExampleCoolToolTests" */ = {
 			isa = XCConfigurationList;
@@ -758,6 +767,7 @@
 				CEFD7DEB18241F1C005EC11C /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
