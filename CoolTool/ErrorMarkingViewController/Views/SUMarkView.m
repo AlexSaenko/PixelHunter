@@ -64,8 +64,30 @@
                                          recognizer.view.center.y);
         finalPoint.x = MIN(MAX(finalPoint.x, 0), self.gestureView.bounds.size.width);
         finalPoint.y = MIN(MAX(finalPoint.y, 0), self.gestureView.bounds.size.height);
+        [self returnView:recognizer.view toVisiblePositionOnParentView:recognizer.view.superview];
     }
 }
+
+- (void)returnView:(UIView *)view toVisiblePositionOnParentView:(UIView *)parentView
+{
+    CGRect newFrame = view.frame;
+    if (view.frame.origin.y < parentView.frame.origin.y) {
+        newFrame.origin.y = parentView.frame.origin.y;
+    }
+    if (view.frame.origin.x < parentView.frame.origin.x) {
+        newFrame.origin.x = parentView.frame.origin.x;
+    }
+    if (view.frame.origin.x + view.frame.size.width > parentView.frame.size.width) {
+        newFrame.origin.x = parentView.frame.size.width - view.frame.size.width;
+    }
+    if (view.frame.origin.y + view.frame.size.height > parentView.frame.size.height) {
+        newFrame.origin.y = parentView.frame.size.height - view.frame.size.height;
+    }
+    [UIView animateWithDuration:kSUStandardAnimationTime animations:^{
+        view.frame = newFrame;
+    }];
+}
+
 
 - (void)setIsActive:(BOOL)isActive
 {

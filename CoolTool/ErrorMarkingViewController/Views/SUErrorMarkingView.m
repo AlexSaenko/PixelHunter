@@ -83,13 +83,13 @@
     
     if (self.markViewToolbar.isHidden) {
         self.markViewToolbar.hidden = NO;
-        [UIView animateWithDuration:0.1f animations:^{
+        [UIView animateWithDuration:kSUStandardAnimationTime animations:^{
             self.markViewToolbar.frame = CGRectMake(sz.width - kSUMarkViewToolbarWidth / 2,
                                                     (sz.height - kSUMarkViewToolbarHeight) / 2,
                                                     kSUMarkViewToolbarWidth, kSUMarkViewToolbarHeight);
         }];
     } else {
-        [UIView animateWithDuration:0.1f animations:^{
+        [UIView animateWithDuration:kSUStandardAnimationTime animations:^{
             self.markViewToolbar.frame = CGRectMake(sz.width,
                                                     (sz.height - kSUMarkViewToolbarHeight) / 2,
                                                     kSUMarkViewToolbarWidth, kSUMarkViewToolbarHeight);
@@ -105,7 +105,7 @@
 - (void)showSlider
 {
     if (!self.markViewToolbar.markColorView.hidden) {
-        [UIView animateWithDuration:0.1f animations:^{
+        [UIView animateWithDuration:kSUStandardAnimationTime animations:^{
             CGRect newFrame = self.markViewToolbar.frame;
             self.markViewToolbar.frame = CGRectMake(newFrame.origin.x + kSUMarkViewToolbarWidth / 2,
                                                     newFrame.origin.y,
@@ -113,7 +113,7 @@
         } completion:^(BOOL finished) {
             self.markViewToolbar.markColorView.hidden = YES;
             self.markViewToolbar.widthSlider.hidden = NO;
-            [UIView animateWithDuration:0.1f animations:^{
+            [UIView animateWithDuration:kSUStandardAnimationTime animations:^{
                 CGRect newFrame = self.markViewToolbar.frame;
                 self.markViewToolbar.frame = CGRectMake(newFrame.origin.x - kSUMarkViewToolbarWidth / 2,
                                                         newFrame.origin.y,
@@ -125,7 +125,7 @@
     } else {
         if (self.markViewToolbar.widthSlider.hidden) {
             self.markViewToolbar.widthSlider.hidden = NO;
-            [UIView animateWithDuration:0.1f animations:^{
+            [UIView animateWithDuration:kSUStandardAnimationTime animations:^{
                 CGRect newFrame = self.markViewToolbar.frame;
                 self.markViewToolbar.frame = CGRectMake(newFrame.origin.x - kSUMarkViewToolbarWidth / 2,
                                                                          newFrame.origin.y,
@@ -133,7 +133,7 @@
             }];
             
         } else {
-            [UIView animateWithDuration:0.1f animations:^{
+            [UIView animateWithDuration:kSUStandardAnimationTime animations:^{
                 CGRect newFrame = self.markViewToolbar.frame;
                 self.markViewToolbar.frame = CGRectMake(newFrame.origin.x + kSUMarkViewToolbarWidth / 2,
                                                                          newFrame.origin.y,
@@ -148,7 +148,7 @@
 - (void)showColorPicker
 {
     if (!self.markViewToolbar.widthSlider.hidden) {
-        [UIView animateWithDuration:0.1f animations:^{
+        [UIView animateWithDuration:kSUStandardAnimationTime animations:^{
             CGRect newFrame = self.markViewToolbar.frame;
             self.markViewToolbar.frame = CGRectMake(newFrame.origin.x + kSUMarkViewToolbarWidth / 2,
                                                     newFrame.origin.y,
@@ -156,7 +156,7 @@
         } completion:^(BOOL finished) {
             self.markViewToolbar.widthSlider.hidden = YES;
             self.markViewToolbar.markColorView.hidden = NO;
-            [UIView animateWithDuration:0.1f animations:^{
+            [UIView animateWithDuration:kSUStandardAnimationTime animations:^{
                 CGRect newFrame = self.markViewToolbar.frame;
                 self.markViewToolbar.frame = CGRectMake(newFrame.origin.x - kSUMarkViewToolbarWidth / 2,
                                                         newFrame.origin.y,
@@ -166,7 +166,7 @@
     } else {
         if (self.markViewToolbar.markColorView.hidden) {
             self.markViewToolbar.markColorView.hidden = NO;
-            [UIView animateWithDuration:0.1f animations:^{
+            [UIView animateWithDuration:kSUStandardAnimationTime animations:^{
                 CGRect newFrame = self.markViewToolbar.frame;
                 self.markViewToolbar.frame = CGRectMake(newFrame.origin.x - kSUMarkViewToolbarWidth / 2,
                                                         newFrame.origin.y,
@@ -174,7 +174,7 @@
             }];
             
         } else {
-            [UIView animateWithDuration:0.1f animations:^{
+            [UIView animateWithDuration:kSUStandardAnimationTime animations:^{
                 CGRect newFrame = self.markViewToolbar.frame;
                 self.markViewToolbar.frame = CGRectMake(newFrame.origin.x + kSUMarkViewToolbarWidth / 2,
                                                         newFrame.origin.y,
@@ -194,13 +194,13 @@
     
     if (self.errorMarkingToolbar.isHidden) {
         self.errorMarkingToolbar.hidden = NO;
-        [UIView animateWithDuration:0.1f animations:^{
+        [UIView animateWithDuration:kSUStandardAnimationTime animations:^{
             self.errorMarkingToolbar.frame = CGRectMake(sz.width / 2 - toolbarSize.width / 2,
                                             sz.height - toolbarSize.height,
                                             toolbarSize.width, toolbarSize.height);
         }];
     } else {
-        [UIView animateWithDuration:0.1f animations:^{
+        [UIView animateWithDuration:kSUStandardAnimationTime animations:^{
             self.errorMarkingToolbar.frame = CGRectMake(sz.width / 2 - toolbarSize.width / 2,
                                             sz.height - toolbarSize.height + kSUToolBarHeight,
                                             toolbarSize.width, toolbarSize.height);

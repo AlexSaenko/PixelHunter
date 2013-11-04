@@ -1,8 +1,8 @@
 //
 //  SUCompositeButton.m
-//  Z360ShowMyAd
+//  CoolTool
 //
-//  Created by Rostyslav Druzhchenko on 7/24/13.
+//  Created by Alex Saenko on 10/14/13.
 //  Copyright (c) 2013 Sigma Ukraine. All rights reserved.
 //
 

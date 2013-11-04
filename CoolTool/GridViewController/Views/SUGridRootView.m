@@ -102,13 +102,13 @@
     
     if (self.toolbar.isHidden) {
         self.toolbar.hidden = NO;
-        [UIView animateWithDuration:0.1f animations:^{
+        [UIView animateWithDuration:kSUStandardAnimationTime animations:^{
             self.toolbar.frame = CGRectMake(sz.width / 2 - toolbarSize.width / 2,
                                             sz.height - toolbarSize.height,
                                             toolbarSize.width, toolbarSize.height);
         }];
     } else {
-        [UIView animateWithDuration:0.1f animations:^{
+        [UIView animateWithDuration:kSUStandardAnimationTime animations:^{
             self.toolbar.frame = CGRectMake(sz.width / 2 - toolbarSize.width / 2,
                                             sz.height - toolbarSize.height + kSUToolBarHeight,
                                             toolbarSize.width, toolbarSize.height);

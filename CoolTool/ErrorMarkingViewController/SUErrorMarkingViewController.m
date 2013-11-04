@@ -243,7 +243,7 @@ static CGFloat const kSUNewMarkViewIndent = 20.0f;
     animation.values = [NSArray arrayWithObjects:[NSNumber numberWithFloat:-0.05f],
                         [NSNumber numberWithFloat:0.05f],
                         nil];
-    animation.duration = 0.1f;
+    animation.duration = kSUStandardAnimationTime;
     animation.autoreverses = YES;
     animation.repeatCount = HUGE_VALF;
     return animation;
@@ -341,16 +341,46 @@ static CGFloat const kSUNewMarkViewIndent = 20.0f;
                     if (width < kSUMinimumViewSideSize) {
                         width = kSUMinimumViewSideSize;
                     }
+                    if (width > self.view.frame.size.width) {
+                        width = self.view.frame.size.width;
+                    }
                     CGFloat height = y * 2 + self.verticalScale;
                     if (height < kSUMinimumViewSideSize) {
                         height = kSUMinimumViewSideSize;
                     }
+                    if (height > self.view.frame.size.height) {
+                        height = self.view.frame.size.height;
+                    }
                     subview.bounds = CGRectMake(subview.bounds.origin.x , subview.bounds.origin.y , width, height);
+                    
+                    if (recognizer.state == UIGestureRecognizerStateEnded) {
+                        [self returnView:subview toVisiblePositionOnParentView:self.view];
+                    }
                     [recognizer setScale:1.0f];
                 }
             }
         }
     }
+}
+
+- (void)returnView:(UIView *)view toVisiblePositionOnParentView:(UIView *)parentView
+{
+    CGRect newFrame = view.frame;
+    if (view.frame.origin.y < parentView.frame.origin.y) {
+        newFrame.origin.y = parentView.frame.origin.y;
+    }
+    if (view.frame.origin.x < parentView.frame.origin.x) {
+        newFrame.origin.x = parentView.frame.origin.x;
+    }
+    if (view.frame.origin.x + view.frame.size.width > parentView.frame.size.width) {
+        newFrame.origin.x = parentView.frame.size.width - view.frame.size.width;
+    }
+    if (view.frame.origin.y + view.frame.size.height > parentView.frame.size.height) {
+        newFrame.origin.y = parentView.frame.size.height - view.frame.size.height;
+    }
+    [UIView animateWithDuration:kSUStandardAnimationTime animations:^{
+        view.frame = newFrame;
+    }];
 }
 
 #pragma mark - Different delegate methods

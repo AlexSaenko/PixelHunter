@@ -28,3 +28,5 @@ static CGFloat const kSUMarkViewToolbarHeight = 320.0f;
 static CGFloat const kSUMarkViewToolbarWidth = 88.0f;
 
 static CGRect const kSUColorViewRect = {0.0f, 0.0f, 44.0f, 44.0f};
+
+static CGFloat const kSUStandardAnimationTime = 0.25f;
