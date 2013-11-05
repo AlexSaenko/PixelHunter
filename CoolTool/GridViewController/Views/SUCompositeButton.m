@@ -29,9 +29,15 @@
 {
     self = [super init];
     if (self) {
-        self.imageNormal = [UIImage imageNamed:imageNameNormal];
-        self.imagePressed = [UIImage imageNamed:imageNamePressed];
-        self.imageActivated = [UIImage imageNamed:imageNameActivated];
+        if (imageNameNormal.length != 0) {
+            self.imageNormal = [UIImage imageNamed:imageNameNormal];
+        }
+        if (imageNamePressed.length != 0) {
+            self.imagePressed = [UIImage imageNamed:imageNamePressed];
+        }
+        if (imageNameActivated.length != 0) {
+            self.imageActivated = [UIImage imageNamed:imageNameActivated];
+        }
         
         if (imageNameActivated == nil) {
             self.imageActivated = self.imageNormal;
