@@ -80,37 +80,52 @@
     
     CGSize toolbarSize = CGSizeMake(kSUToolBarWidth, kSUToolBarHeight);
     
-    self.toolbar.frame = CGRectMake(sz.width / 2 - toolbarSize.width / 2,
-                                    sz.height - toolbarSize.height + kSUToolBarHeight,
-                                    toolbarSize.width, toolbarSize.height);
-    
     if (UIInterfaceOrientationIsLandscape([UIApplication sharedApplication].statusBarOrientation)) {
         self.topRuler.frame = CGRectMake(0.0f, 0.0f, sz.height, kSURulerSize);
         self.sideRuler.frame = CGRectMake(0.0f, 0.0f, kSURulerSize, sz.width);
+        self.toolbar.frame = CGRectMake(sz.height / 2 - toolbarSize.width / 2,
+                                        sz.width - toolbarSize.height + kSUToolBarHeight,
+                                        toolbarSize.width, toolbarSize.height);
     } else {
         self.topRuler.frame = CGRectMake(0.0f, 0.0f, sz.width, kSURulerSize);
         self.sideRuler.frame = CGRectMake(0.0f, 0.0f, kSURulerSize, sz.height);
+        self.toolbar.frame = CGRectMake(sz.width / 2 - toolbarSize.width / 2,
+                                        sz.height - toolbarSize.height + kSUToolBarHeight,
+                                        toolbarSize.width, toolbarSize.height);
     }
+    self.toolbar.hidden = YES;
 }
 
 - (void)viewTapped
 {
-    CGSize sz = [super bounds].size;
+    CGSize sz = [[UIScreen mainScreen] bounds].size;
     
     CGSize toolbarSize = CGSizeMake(kSUToolBarWidth, kSUToolBarHeight);
     
     if (self.toolbar.isHidden) {
         self.toolbar.hidden = NO;
         [UIView animateWithDuration:kSUStandardAnimationTime animations:^{
-            self.toolbar.frame = CGRectMake(sz.width / 2 - toolbarSize.width / 2,
-                                            sz.height - toolbarSize.height,
-                                            toolbarSize.width, toolbarSize.height);
+            if (UIInterfaceOrientationIsLandscape([UIApplication sharedApplication].statusBarOrientation)) {
+                self.toolbar.frame = CGRectMake(sz.height / 2 - toolbarSize.width / 2,
+                                                sz.width - toolbarSize.height,
+                                                toolbarSize.width, toolbarSize.height);
+            } else {
+                self.toolbar.frame = CGRectMake(sz.width / 2 - toolbarSize.width / 2,
+                                                sz.height - toolbarSize.height,
+                                                toolbarSize.width, toolbarSize.height);
+            }
         }];
     } else {
         [UIView animateWithDuration:kSUStandardAnimationTime animations:^{
-            self.toolbar.frame = CGRectMake(sz.width / 2 - toolbarSize.width / 2,
-                                            sz.height - toolbarSize.height + kSUToolBarHeight,
-                                            toolbarSize.width, toolbarSize.height);
+            if (UIInterfaceOrientationIsLandscape([UIApplication sharedApplication].statusBarOrientation)) {
+                self.toolbar.frame = CGRectMake(sz.height / 2 - toolbarSize.width / 2,
+                                                sz.width - toolbarSize.height + kSUToolBarHeight,
+                                                toolbarSize.width, toolbarSize.height);
+            } else {
+                self.toolbar.frame = CGRectMake(sz.width / 2 - toolbarSize.width / 2,
+                                                sz.height - toolbarSize.height + kSUToolBarHeight,
+                                                toolbarSize.width, toolbarSize.height);
+            }
         } completion:^(BOOL finished) {
             self.toolbar.hidden = YES;
         }];
