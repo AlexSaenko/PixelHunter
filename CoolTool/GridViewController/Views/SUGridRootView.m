@@ -63,8 +63,6 @@
     
     CGSize layoutSize = [[UIScreen mainScreen] bounds].size;
     
-    
-    
     // Layout grid underlayer
     if (UIInterfaceOrientationIsLandscape([UIApplication sharedApplication].statusBarOrientation)) {
         self.gridUnderLayerView.frame = CGRectMake(0.0f, 0.0f, layoutSize.height, layoutSize.width);

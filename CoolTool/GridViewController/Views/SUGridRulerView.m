@@ -58,8 +58,6 @@ static const CGFloat kSUFontSize = 11.0f;
     CGContextRef context = UIGraphicsGetCurrentContext();
     CGContextStrokeRect(context, rect);
     CGContextSetFillColorWithColor(context, [[UIColor blackColor] CGColor]);
-//    [numberString drawInRect:rect withFont:[UIFont boldSystemFontOfSize:kSUFontSize] lineBreakMode:NSLineBreakByWordWrapping
-//                   alignment:NSTextAlignmentLeft];
     UIFont *font = [UIFont boldSystemFontOfSize:kSUFontSize];
     
     NSMutableParagraphStyle *paragraphStyle = [[NSMutableParagraphStyle defaultParagraphStyle] mutableCopy];

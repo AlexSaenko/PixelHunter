@@ -43,6 +43,7 @@
         // Init mockup image view
         self.mockupImageView = [[UIImageView alloc] init];
         self.mockupImageView.alpha = kSUStartAlpha;
+        self.mockupImageView.contentMode = UIViewContentModeScaleAspectFit;
         [self.containerView addSubview:self.mockupImageView];
         
         // Init grid view

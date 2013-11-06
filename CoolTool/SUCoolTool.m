@@ -37,7 +37,7 @@ static id __sharedInstance;
         __sharedInstance = [[SUCoolTool alloc] init];
         [[NSNotificationCenter defaultCenter] addObserver:__sharedInstance
                                                  selector:@selector(orientationChanged:)
-                                                     name:UIApplicationWillChangeStatusBarFrameNotification
+                                                     name:UIApplicationDidChangeStatusBarOrientationNotification
                                                    object:nil];
         [[NSNotificationCenter defaultCenter] addObserver:__sharedInstance
                                                  selector:@selector(removeWindowForDebug)
