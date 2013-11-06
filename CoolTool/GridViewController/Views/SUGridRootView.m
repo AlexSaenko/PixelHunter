@@ -75,6 +75,7 @@
 
 - (void)layoutViewsDependingOnOrientation
 {
+    [self.gridUnderLayerView.scrollView setZoomScale:self.gridUnderLayerView.scrollView.minimumZoomScale];
     CGSize sz = [[UIScreen mainScreen] bounds].size;
     
     CGSize toolbarSize = CGSizeMake(kSUToolBarWidth, kSUToolBarHeight);
