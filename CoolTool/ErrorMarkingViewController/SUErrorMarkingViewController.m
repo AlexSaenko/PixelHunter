@@ -23,6 +23,7 @@ static CGFloat const kSUScaleRestraintStartValue = 1.5f;
 static NSString * const kSUShakingAnimationKey = @"shakingAnimation";
 static CGFloat const kSUMinimumViewSideSize = 25.0f;
 static CGFloat const kSUNewMarkViewIndent = 20.0f;
+static CGFloat const kSURemovableViewShakeAnimationTime = 0.1f;
 
 @interface SUErrorMarkingViewController () <UIGestureRecognizerDelegate, SUMarkViewDelegate, SUMarkColorViewDelegate>
 
@@ -243,7 +244,7 @@ static CGFloat const kSUNewMarkViewIndent = 20.0f;
     animation.values = [NSArray arrayWithObjects:[NSNumber numberWithFloat:-0.05f],
                         [NSNumber numberWithFloat:0.05f],
                         nil];
-    animation.duration = kSUStandardAnimationTime;
+    animation.duration = kSURemovableViewShakeAnimationTime;
     animation.autoreverses = YES;
     animation.repeatCount = HUGE_VALF;
     return animation;
