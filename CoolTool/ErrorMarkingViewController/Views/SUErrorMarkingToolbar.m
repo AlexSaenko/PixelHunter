@@ -39,6 +39,7 @@ static CGFloat const kSUButtonIndent = 5.0f;
         self.showMarkingViewToolbarButton = [[SUCompositeButton alloc] initWithImageNameNormal:@"editIcon.png"
                                                                 imageNamePressed:nil
                                                               imageNameActivated:@"editIcon.png"];
+        self.showMarkingViewToolbarButton.hidden = YES;
         self.showMarkingViewToolbarButton.enabled = NO;
         [self addSubview:self.showMarkingViewToolbarButton];
         

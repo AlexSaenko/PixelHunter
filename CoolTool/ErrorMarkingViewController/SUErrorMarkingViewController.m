@@ -203,6 +203,7 @@ static CGFloat const kSURemovableViewShakeAnimationTime = 0.1f;
 
 - (void)makeMarkViewToolbarButtonsActive:(BOOL)isActive
 {
+    self.errorMarkingView.errorMarkingToolbar.showMarkingViewToolbarButton.hidden = !isActive;
     self.errorMarkingView.errorMarkingToolbar.showMarkingViewToolbarButton.enabled = isActive;
 }
 
