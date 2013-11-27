@@ -6,7 +6,7 @@
 //  Copyright (c) 2013 Sigma Ukraine. All rights reserved.
 //
 
-#import "SUCoolTool.h"
+#import "SUPixelHunter.h"
 #import "SUGridViewController.h"
 #import "SUScreenshotUtil.h"
 #import "SUZGestureView.h"
@@ -15,7 +15,7 @@
 static CGFloat const kSUAccelerationThreshold = 1.7f;
 static CGFloat const kSUAccelerometerUpdateInterval = (1.0f/10.0f);
 
-@interface SUCoolTool () <UIAccelerometerDelegate, SUGridViewControllerDelegate>
+@interface SUPixelHunter () <UIAccelerometerDelegate, SUGridViewControllerDelegate>
 
 @property (nonatomic, weak) UIAlertView *alertView;
 @property (nonatomic, strong) UIWindow *debugWindow;
@@ -24,17 +24,17 @@ static CGFloat const kSUAccelerometerUpdateInterval = (1.0f/10.0f);
 
 @end
 
-@implementation SUCoolTool 
+@implementation SUPixelHunter 
 
 #pragma mark - Singleton stuff
 
 static id __sharedInstance;
 
-+ (SUCoolTool *)sharedInstance
++ (SUPixelHunter *)sharedInstance
 {
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
-        __sharedInstance = [[SUCoolTool alloc] init];
+        __sharedInstance = [[SUPixelHunter alloc] init];
         [[NSNotificationCenter defaultCenter] addObserver:__sharedInstance
                                                  selector:@selector(orientationChanged:)
                                                      name:UIApplicationDidChangeStatusBarOrientationNotification
@@ -85,7 +85,7 @@ static id __sharedInstance;
 #pragma mark - Public init
 + (void)setup
 {
-    [SUCoolTool sharedInstance];
+    [SUPixelHunter sharedInstance];
 }
 
 #pragma mark - Accelerometer delegate

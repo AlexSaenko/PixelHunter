@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
-@interface SUCoolTool : NSObject
+@interface SUPixelHunter : NSObject
 
 + (void)setup;
 - (void)createWindowForDebugWithImage:(UIImage *)image;

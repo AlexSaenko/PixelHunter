@@ -7,7 +7,7 @@
 //
 
 #import "SUGridViewController.h"
-#import "SUCoolTool.h"
+#import "SUPixelHunter.h"
 #import "SUConstants.h"
 #import "SUScreenshotUtil.h"
 #import "SUErrorMarkingViewController.h"

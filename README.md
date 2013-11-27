@@ -2,21 +2,21 @@ This library presents User Interface verifying tool for iOS applications which a
 
 
 ## Features
--  Standard 50-pixel grid
--  1-pixel grid while zoom to max
--  Interactive rulers
 -  Upload mockup from gallery to compare
+-  Interactive rulers
 -  Different marking notes
 -  Mail sharing
+-  Standard 50-pixel grid
+-  1-pixel grid while zoom to max
 
 
 ## How To Get Started
--  Add CoolTool folder to project
+-  Add PixelHunter folder to project
 -  Go to AppDelegate.m 
 -  Make an import:
 
 ```objective-c
-#import “SUCoolTool.h”
+#import “SUPixelHunter.h”
 ```
 
 -  In method 
@@ -28,7 +28,7 @@ This library presents User Interface verifying tool for iOS applications which a
 write this line: 
 
 ```objective-c
-[SUCoolTool setup];
+[SUPixelHunter setup];
 ```
 
 -  Go to Project > Choose target > Build Phases > Link Binary With Libraries.
