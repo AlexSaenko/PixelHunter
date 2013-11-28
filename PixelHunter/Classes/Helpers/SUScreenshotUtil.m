@@ -7,7 +7,6 @@
 //
 
 #import "SUScreenshotUtil.h"
-#import <QuartzCore/QuartzCore.h>
 
 @implementation SUScreenshotUtil
 

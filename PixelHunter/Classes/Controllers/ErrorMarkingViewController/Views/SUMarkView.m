@@ -7,7 +7,6 @@
 //
 
 #import "SUMarkView.h"
-#import <QuartzCore/QuartzCore.h>
 #import "SUConstants.h"
 
 

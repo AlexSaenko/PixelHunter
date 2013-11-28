@@ -9,7 +9,6 @@
 #import "SUErrorMarkingViewController.h"
 #import "SUErrorMarkingView.h"
 #import "SUMarkView.h"
-#import <QuartzCore/QuartzCore.h>
 #import "SUShareController.h"
 #import "SUConstants.h"
 #import "SUMarkColorView.h"

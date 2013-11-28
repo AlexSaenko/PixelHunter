@@ -13,7 +13,7 @@
 #import <CoreMotion/CoreMotion.h>
 
 static CGFloat const kSUAccelerationThreshold = 1.7f;
-static CGFloat const kSUAccelerometerUpdateInterval = (1.0f/10.0f);
+static CGFloat const kSUAccelerometerUpdateInterval = 0.1f;
 
 @interface SUPixelHunter () <UIAccelerometerDelegate, SUGridViewControllerDelegate>
 
@@ -67,7 +67,7 @@ static id __sharedInstance;
 {
     if (self = [super init]) {
         self.motionManager = [[CMMotionManager alloc] init];
-        self.motionManager.accelerometerUpdateInterval = (1.0f/10.0f);
+        self.motionManager.accelerometerUpdateInterval = kSUAccelerometerUpdateInterval;
         
         [self.motionManager startAccelerometerUpdatesToQueue:[NSOperationQueue currentQueue]
                                                  withHandler:^(CMAccelerometerData *accelerometerData, NSError *error) {
@@ -99,12 +99,10 @@ static id __sharedInstance;
         if (self.alertView == nil && self.debugWindow == nil) {
             [self createZGestureView];
         }
-
     }
 }
 
 - (void)showAlert
-
 {
     UIAlertView *alertView = [[UIAlertView alloc]
                               initWithTitle:NSLocalizedStringFromTable(@"ENTER_UI_DEBUG_MODE", @"PixelHunter", @"Enter UI debug mode")
@@ -113,8 +111,6 @@ static id __sharedInstance;
                               cancelButtonTitle:NSLocalizedStringFromTable(@"CANCEL", @"PixelHunter", @"Cancel")
                               otherButtonTitles:NSLocalizedStringFromTable(@"ENTER", @"PixelHunter", @"Enter"),
                               nil];
-    
-    
     [alertView show];
     self.alertView = alertView;
 }
@@ -129,7 +125,6 @@ static id __sharedInstance;
         }
             break;
 
-            
         default:
             break;
     }

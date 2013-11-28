@@ -7,7 +7,6 @@
 //
 
 #import "SUZGestureView.h"
-#import <QuartzCore/QuartzCore.h>
 
 @implementation SUZGestureView
 

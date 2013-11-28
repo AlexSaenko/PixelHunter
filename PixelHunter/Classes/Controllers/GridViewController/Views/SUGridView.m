@@ -7,7 +7,6 @@
 //
 
 #import "SUGridView.h"
-#import <QuartzCore/QuartzCore.h>
 #import "SUConstants.h"
 #import "SUDrawUtil.h"
 #import "SUGridViewController.h"

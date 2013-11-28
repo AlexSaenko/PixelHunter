@@ -21,8 +21,8 @@
 {
     [super viewDidAppear:animated];
     
-	SUPixelHunter *coolTool = [[SUPixelHunter alloc] init];
-    [coolTool createWindowForDebugWithImage:self.imageView.image];
+//	SUPixelHunter *coolTool = [[SUPixelHunter alloc] init];
+//    [coolTool createWindowForDebugWithImage:self.imageView.image];
 }
 
 @end
