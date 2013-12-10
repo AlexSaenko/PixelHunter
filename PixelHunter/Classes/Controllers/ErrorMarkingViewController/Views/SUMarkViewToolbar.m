@@ -8,10 +8,13 @@
 
 #import "SUMarkViewToolbar.h"
 #import "SUConstants.h"
+#import "SUTheme.h"
 
-static CGFloat const kSUSliderWidth = 44.0f;
-static CGFloat const kSUSliderHeight = 320.0f;
-static CGFloat const kSUButtonIndent = 10.0f;
+static CGFloat const kSUSliderWidth = 42.0f;
+static CGFloat const kSUSliderHeight = 285.0f;
+static CGFloat const kSUSliderStartY = 15.0f;
+static CGFloat const kSUMarkColorViewStartY = 30.0f;
+static CGFloat const kSUMarkColorViewIndent = 3.0f;
 
 @implementation SUMarkViewToolbar
 
@@ -19,19 +22,19 @@ static CGFloat const kSUButtonIndent = 10.0f;
 {
     self = [super initWithFrame:frame];
     if (self) {
-        self.backgroundColor = [UIColor blackColor];
+        self.backgroundColor = [[SUTheme colors] lightGrayBackgroundColor];
         self.userInteractionEnabled = YES;
         
         // Init add markingview button
-        self.cornerTypeButton = [[SUCompositeButton alloc] initWithImageNameNormal:@"cornerIcon.png"
-                                                                      imageNamePressed:nil
-                                                                    imageNameActivated:@"cornerIcon.png"];
+        self.cornerTypeButton = [[SUMarkViewToolbarCompositeButton alloc] initWithImageNameNormal:@"corner2_button.png"
+                                                                      imageNamePressed:@"corner_button.png"
+                                                                    imageNameActivated:@"corner_button.png"];
         [self addSubview:self.cornerTypeButton];
         
         // Init border width slider button
-        self.borderWidthSliderButton = [[SUCompositeButton alloc] initWithImageNameNormal:@"sliderIcon.png"
-                                                                  imageNamePressed:nil
-                                                                imageNameActivated:@"sliderIcon.png"];
+        self.borderWidthSliderButton = [[SUMarkViewToolbarCompositeButton alloc] initWithImageNameNormal:@"stroke_button.png"
+                                                                  imageNamePressed:@"stroke_button_active.png"
+                                                                imageNameActivated:@"stroke_button_active.png"];
         [self addSubview:self.borderWidthSliderButton];
         
         // Init width slider
@@ -45,9 +48,9 @@ static CGFloat const kSUButtonIndent = 10.0f;
         [self addSubview:self.widthSlider];
         
         // Init border color picker button
-        self.borderColorPickerButton = [[SUCompositeButton alloc] initWithImageNameNormal:@"colorIcon.jpg"
-                                                                         imageNamePressed:nil
-                                                                       imageNameActivated:@"colorIcon.jpg"];
+        self.borderColorPickerButton = [[SUMarkViewToolbarCompositeButton alloc] initWithImageNameNormal:@"color_button.png"
+                                                                         imageNamePressed:@"color_button_active.png"
+                                                                       imageNameActivated:@"color_button_active.png"];
         [self addSubview:self.borderColorPickerButton];
         
         // Init mark color view
@@ -62,25 +65,25 @@ static CGFloat const kSUButtonIndent = 10.0f;
 {
     [super layoutSubviews];
     
-    // Layout add markingview button
-    self.cornerTypeButton.frame = CGRectMake(0.0f, 0.0f,
-                                             kSUCloseButtonHeight, kSUCloseButtonHeight);
-    
     // Layout border width slider button
-    self.borderWidthSliderButton.frame = CGRectMake(0.0f, kSUCloseButtonHeight + kSUButtonIndent,
-                                                    kSUCloseButtonHeight, kSUCloseButtonHeight);
-    
-    // Layout width slider
-    self.widthSlider.frame = CGRectMake(kSUCloseButtonHeight, kSUCloseButtonHeight / 2,
-                                        kSUSliderWidth, kSUSliderHeight - kSUCloseButtonHeight);
+    self.borderWidthSliderButton.frame = CGRectMake(0.0f, 0.0f,
+                                                    kSUMarkViewToolbarButtonWidth, kSUMarkViewToolbarButtonHeight);
     
     // Layout border color picker button
-    self.borderColorPickerButton.frame = CGRectMake(0.0f, (kSUCloseButtonHeight + kSUButtonIndent) * 2,
-                                                    kSUCloseButtonHeight, kSUCloseButtonHeight);
+    self.borderColorPickerButton.frame = CGRectMake(0.0f, CGRectGetMaxY(self.borderWidthSliderButton.frame),
+                                                    kSUMarkViewToolbarButtonWidth, kSUMarkViewToolbarButtonHeight);
+    
+    // Layout add markingview button
+    self.cornerTypeButton.frame = CGRectMake(0.0f, CGRectGetMaxY(self.borderColorPickerButton.frame),
+                                             kSUMarkViewToolbarButtonWidth, kSUMarkViewToolbarButtonHeight);
+    
+    // Layout width slider
+    self.widthSlider.frame = CGRectMake(CGRectGetMaxX(self.borderWidthSliderButton.frame), kSUSliderStartY,
+                                        kSUSliderWidth, kSUSliderHeight);
     
     // Layout mark color view
-    self.markColorView.frame = CGRectMake(kSUCloseButtonHeight, 0.0f,
-                                          kSUSliderWidth, kSUSliderHeight);
+    self.markColorView.frame = CGRectMake(kSUMarkViewToolbarButtonWidth + kSUMarkColorViewIndent, kSUMarkColorViewStartY,
+                                          kSUMarkViewToolbarColorViewWidth, kSUSliderHeight);
 }
 
 

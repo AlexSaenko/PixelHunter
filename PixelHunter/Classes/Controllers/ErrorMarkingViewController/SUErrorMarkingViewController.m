@@ -13,6 +13,7 @@
 #import "SUConstants.h"
 #import "SUMarkColorView.h"
 #import "SUTextMarkView.h"
+#import "SUTheme.h"
 
 static CGRect const kSUMarkViewFrame = {{50.0f, 50.0f}, {150.0f, 150.0f}};
 static CGRect const kSUMarkViewRemoveButtonFrame = {{10.0f, 10.0f}, {30.0f, 30.0f}};
@@ -89,9 +90,8 @@ static CGFloat const kSURemovableViewShakeAnimationTime = 0.1f;
                                                            action:@selector(addMarkView)];
     [self.errorMarkingView.errorMarkingToolbar.addTextMarkingViewButton addTarget:self
                                                                        action:@selector(addTextMarkView)];
-    [self.errorMarkingView.errorMarkingToolbar.closeButton addTarget:self
-                                                  action:@selector(showPreviousViewController)
-                                        forControlEvents:UIControlEventTouchUpInside];
+    [self.errorMarkingView.errorMarkingToolbar.backButton addTarget:self
+                                                  action:@selector(showPreviousViewController)];
     
     // Error marking view gestures
     [self.errorMarkingView.pinchGesture addTarget:self action:@selector(handlePinch:)];
@@ -158,6 +158,10 @@ static CGFloat const kSURemovableViewShakeAnimationTime = 0.1f;
 #pragma mark - Mark View toolbar
 - (void)switchCornerType
 {
+    BOOL pressed = (self.errorMarkingView.markViewToolbar.cornerTypeButton.state == SUCompositeButtonStateNormal) ? YES : NO;
+    
+    self.errorMarkingView.markViewToolbar.cornerTypeButton.state = (pressed)? SUCompositeButtonStateActivated : SUCompositeButtonStateNormal;
+    
     for (SUMarkView *subview in [self.errorMarkingView subviews]) {
         if ([subview isKindOfClass:[SUMarkView class]]) {
             if (subview.isActive) {
@@ -218,7 +222,8 @@ static CGFloat const kSURemovableViewShakeAnimationTime = 0.1f;
             
             // Init remove mark view button
             UIButton *removeButton = [UIButton buttonWithType:UIButtonTypeCustom];
-            removeButton.backgroundColor = [UIColor blackColor];
+            [removeButton setBackgroundImage:[UIImage imageNamed:@"close_button.png"] forState:UIControlStateNormal];
+            removeButton.backgroundColor = [[SUTheme colors] darkGrayBackgroundColor];
             removeButton.frame = kSUMarkViewRemoveButtonFrame;
             [removeButton addTarget:self action:@selector(removeMarkView:) forControlEvents:UIControlEventTouchUpInside];
             [subview addSubview:removeButton];

@@ -6,15 +6,15 @@
 //  Copyright (c) 2013 Sigma Ukraine. All rights reserved.
 //
 
-#import "SUToolbarView.h"
 #import "SUCompositeButton.h"
 
 
-@interface SUGridToolbar : SUToolbarView
+@interface SUGridToolbar : UIView
 
 @property (nonatomic, strong) SUCompositeButton *gridDisplayButton;
 @property (nonatomic, strong) SUCompositeButton *showPickerButton;
 @property (nonatomic, strong) SUCompositeButton *showMarkingViewControllerButton;
+@property (nonatomic, strong) SUCompositeButton *closeButton;
 @property (nonatomic, strong) UISlider *slider;
 
 @end

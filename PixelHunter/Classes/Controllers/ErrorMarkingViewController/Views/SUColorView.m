@@ -11,6 +11,12 @@
 
 static CGFloat const kSUColorViewSize = 20.0f;
 
+@interface SUColorView ()
+
+
+
+@end
+
 @implementation SUColorView
 
 - (id)initWithColor:(UIColor *)color
@@ -20,10 +26,8 @@ static CGFloat const kSUColorViewSize = 20.0f;
         self.backgroundColor = [UIColor clearColor];
         self.userInteractionEnabled = YES;
         
-        // Init small color view
-        self.smallColorView = [[UIView alloc] init];
-        self.smallColorView.backgroundColor = color;
-        [self addSubview:self.smallColorView];
+        // Init color
+        self.color = color;
         
         // Init color view button
         self.colorViewButton = [UIButton buttonWithType:UIButtonTypeCustom];
@@ -34,11 +38,28 @@ static CGFloat const kSUColorViewSize = 20.0f;
     return self;
 }
 
+- (void)drawRect:(CGRect)rect
+{
+    [super drawRect:rect];
+    
+    CGContextRef ctx = UIGraphicsGetCurrentContext();
+
+    CGPoint center = CGPointMake(self.frame.size.width / 2.0, self.frame.size.height / 2.0);
+        CGContextBeginPath(ctx);
+    
+    CGContextBeginPath(ctx);
+    CGContextAddArc(ctx, center.x, center.y, 10.0, 0, 2*M_PI, 0);
+    CGContextClosePath(ctx);
+    CGContextSetFillColorWithColor(ctx, [self.color CGColor]);
+    CGContextSetStrokeColorWithColor(ctx, [self.color CGColor]);
+    CGContextDrawPath(ctx, kCGPathFillStroke);
+
+}
+
 - (void)layoutSubviews
 {
     [super layoutSubviews];
     
-    self.smallColorView.frame = CGRectMake(self.frame.size.width / 4.0f, self.frame.size.height / 4.0f, kSUColorViewSize, kSUColorViewSize);
     self.colorViewButton.frame = kSUColorViewRect;
 }
 

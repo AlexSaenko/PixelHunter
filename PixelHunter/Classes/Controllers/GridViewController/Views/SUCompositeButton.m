@@ -7,6 +7,8 @@
 //
 
 #import "SUCompositeButton.h"
+#import "SUConstants.h"
+#import "SUTheme.h"
 
 
 @interface SUCompositeButton ()
@@ -25,10 +27,11 @@
 - (id)initWithImageNameNormal:(NSString *)imageNameNormal
              imageNamePressed:(NSString *)imageNamePressed
            imageNameActivated:(NSString *)imageNameActivated
-
 {
     self = [super init];
     if (self) {
+        self.backgroundColor = [[SUTheme colors] darkGrayBackgroundColor];
+        
         if (imageNameNormal.length != 0) {
             self.imageNormal = [UIImage imageNamed:imageNameNormal];
         }
@@ -53,7 +56,12 @@
         [self.button addTarget:self action:@selector(onUp) forControlEvents:UIControlEventTouchUpInside | UIControlEventTouchUpOutside];
         [self addSubview:self.button];
         
+        // Init separator
+        self.separatorImageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"vertical_separator.png"]];
+        [self addSubview:self.separatorImageView];
+        
         self.enabled = YES;
+        self.isSeparatorShown = YES;
     }
     
     return self;
@@ -64,19 +72,22 @@
     [super layoutSubviews];
     
     CGSize sz = self.frame.size;
-            
-    self.imageView.frame = CGRectMake(0.0f, 0.0f, sz.width, sz.height);
 
     // Layout button
     self.button.frame = CGRectMake(0.0f, 0.0f, sz.width, sz.height);
+    
+    // Layout image
+    self.imageView.center = self.button.center;
+    
+    // Layout separator
+    self.separatorImageView.frame = CGRectMake(sz.width - kSUSeparatorWidth, 0.0f, kSUSeparatorWidth, sz.height);
 }
 
 #pragma mark - Actions
 
 - (void)onDown
 {
-//TODO: Uncomment when design will be provided
-//    self.imageView.image = self.imagePressed;
+    self.imageView.image = self.imagePressed;
 }
 
 - (void)onUp
@@ -109,8 +120,7 @@
     _enabled = newEnabled;
     if (self.enabled){
         self.state = SUCompositeButtonStateNormal;
-    }
-    else{
+    } else {
         self.state = SUCompositeButtonStateActivated;
     }
     
@@ -127,7 +137,28 @@
     else if (state == SUCompositeButtonStateActivated) {
         self.imageView.image = self.imageActivated;
     }
+}
 
+- (void)setIsSeparatorShown:(BOOL)isSeparatorShown
+{
+    _isSeparatorShown = isSeparatorShown;
+    
+    if (self.isSeparatorShown) {
+        self.separatorState = SUSeparatorShown;
+    } else {
+        self.separatorState = SUSeparatorHidden;
+    }
+}
+
+- (void)setSeparatorState:(SUSeparatorState)separatorState
+{
+    _separatorState = separatorState;
+    
+    if (separatorState == SUSeparatorShown) {
+        self.separatorImageView.hidden = NO;
+    } else if (separatorState == SUSeparatorHidden) {
+        self.separatorImageView.hidden = YES;
+    }
 }
 
 @end

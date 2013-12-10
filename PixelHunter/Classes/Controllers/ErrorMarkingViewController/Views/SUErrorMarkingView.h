@@ -19,6 +19,5 @@
 @property (nonatomic, strong) UIPinchGestureRecognizer *pinchGesture;
 
 - (id)initWithScreenshotImage:(UIImage *)screenshotImage;
-- (void)showSlider;
 
 @end

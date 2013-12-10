@@ -31,13 +31,13 @@
         self.colorViews = [[NSMutableArray alloc] init];
         
         // Init colors array
-        self.colorArray = [NSArray arrayWithObjects:[UIColor redColor],
-                                                    [UIColor blueColor],
-                                                    [UIColor greenColor],
-                                                    [UIColor grayColor],
-                                                    [UIColor purpleColor],
-                                                    [UIColor orangeColor],
-                                                    [UIColor yellowColor], nil];
+        self.colorArray = [NSArray arrayWithObjects:[UIColor colorWithRed:255.0f/255.0f green:0.0f/255.0f blue:19.0f/255.0f alpha:1.0f],
+                                                    [UIColor colorWithRed:255.0f/255.0f green:98.0f/255.0f blue:36.0f/255.0f alpha:1.0f],
+                                                    [UIColor colorWithRed:253.0f/255.0f green:254.0f/255.0f blue:80.0f/255.0f alpha:1.0f],
+                                                    [UIColor colorWithRed:0.0f/255.0f green:185.0f/255.0f blue:59.0f/255.0f alpha:1.0f],
+                                                    [UIColor colorWithRed:22.0f/255.0f green:183.0f/255.0f blue:243.0f/255.0f alpha:1.0f],
+                                                    [UIColor colorWithRed:14.0f/255.0f green:60.0f/255.0f blue:181.0f/255.0f alpha:1.0f],
+                                                    [UIColor colorWithRed:231.0f/255.0f green:0.0f/255.0f blue:205.0f/255.0f alpha:1.0f], nil];
         
         // Init color views
         for (NSInteger i = 0; i < [self.colorArray count]; i++) {
@@ -66,7 +66,7 @@
     [UIView animateWithDuration:kSUStandardAnimationTime animations:^{
         self.selectedColorView.center = ((SUColorView *)colorViewButton.superview).center;
     }];
-    [self.delegate colorViewPickedWithColor:((SUColorView *)colorViewButton.superview).smallColorView.backgroundColor withSelectedColorViewCenter:((SUColorView *)colorViewButton.superview).center];
+    [self.delegate colorViewPickedWithColor:((SUColorView *)colorViewButton.superview).color withSelectedColorViewCenter:((SUColorView *)colorViewButton.superview).center];
 }
 
 - (CGRect)rectWithIndex:(NSInteger)index

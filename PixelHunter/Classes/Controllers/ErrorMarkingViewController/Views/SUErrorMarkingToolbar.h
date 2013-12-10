@@ -6,15 +6,15 @@
 //  Copyright (c) 2013 Sigma Ukraine. All rights reserved.
 //
 
-#import "SUToolbarView.h"
 #import "SUCompositeButton.h"
 
 
-@interface SUErrorMarkingToolbar : SUToolbarView
+@interface SUErrorMarkingToolbar : UIView
 
 @property (nonatomic, strong) SUCompositeButton *addMarkingViewButton;
 @property (nonatomic, strong) SUCompositeButton *sendMailButton;
 @property (nonatomic, strong) SUCompositeButton *showMarkingViewToolbarButton;
 @property (nonatomic, strong) SUCompositeButton *addTextMarkingViewButton;
+@property (nonatomic, strong) SUCompositeButton *backButton;
 
 @end

@@ -11,8 +11,8 @@
 
 @interface SUColorView : UIView
 
-@property (nonatomic, strong) UIView *smallColorView;
 @property (nonatomic, strong) UIButton *colorViewButton;
+@property (nonatomic, strong) UIColor *color;
 
 - (id)initWithColor:(UIColor *)color;
 

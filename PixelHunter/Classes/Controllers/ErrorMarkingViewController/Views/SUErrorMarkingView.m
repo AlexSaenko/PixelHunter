@@ -9,7 +9,6 @@
 #import "SUErrorMarkingView.h"
 #import "SUConstants.h"
 
-
 @interface SUErrorMarkingView ()
 
 @property (nonatomic, strong) UIImageView *screenshotImageView;
@@ -61,9 +60,9 @@
         
         // Init button actions
         [self.markViewToolbar.borderWidthSliderButton addTarget:self
-                                                        action:@selector(showSlider)];
+                                                         action:@selector(showSlider:)];
         [self.markViewToolbar.borderColorPickerButton addTarget:self
-                                                         action:@selector(showColorPicker)];
+                                                         action:@selector(showColorPicker:)];
         
     }
     
@@ -103,7 +102,7 @@
 
 }
 
-- (void)showSlider
+- (void)showSlider:(SUMarkViewToolbarCompositeButton *)button
 {
     if (!self.markViewToolbar.markColorView.hidden) {
         [UIView animateWithDuration:kSUStandardAnimationTime animations:^{
@@ -112,6 +111,7 @@
                                                     newFrame.origin.y,
                                                     newFrame.size.width, newFrame.size.height);
         } completion:^(BOOL finished) {
+            [self showSeparatorWithButton:button];
             self.markViewToolbar.markColorView.hidden = YES;
             self.markViewToolbar.widthSlider.hidden = NO;
             [UIView animateWithDuration:kSUStandardAnimationTime animations:^{
@@ -131,6 +131,8 @@
                 self.markViewToolbar.frame = CGRectMake(newFrame.origin.x - kSUMarkViewToolbarWidth / 2,
                                                                          newFrame.origin.y,
                                                                          newFrame.size.width, newFrame.size.height);
+            } completion:^(BOOL finished) {
+                [self showSeparatorWithButton:button];
             }];
             
         } else {
@@ -146,7 +148,7 @@
     }
 }
 
-- (void)showColorPicker
+- (void)showColorPicker:(SUMarkViewToolbarCompositeButton *)button
 {
     if (!self.markViewToolbar.widthSlider.hidden) {
         [UIView animateWithDuration:kSUStandardAnimationTime animations:^{
@@ -155,6 +157,7 @@
                                                     newFrame.origin.y,
                                                     newFrame.size.width, newFrame.size.height);
         } completion:^(BOOL finished) {
+            [self showSeparatorWithButton:button];
             self.markViewToolbar.widthSlider.hidden = YES;
             self.markViewToolbar.markColorView.hidden = NO;
             [UIView animateWithDuration:kSUStandardAnimationTime animations:^{
@@ -172,6 +175,8 @@
                 self.markViewToolbar.frame = CGRectMake(newFrame.origin.x - kSUMarkViewToolbarWidth / 2,
                                                         newFrame.origin.y,
                                                         newFrame.size.width, newFrame.size.height);
+            } completion:^(BOOL finished) {
+                [self showSeparatorWithButton:button];
             }];
             
         } else {
@@ -184,6 +189,20 @@
                 self.markViewToolbar.markColorView.hidden = YES;
             }];
         }
+    }
+}
+
+- (void)showSeparatorWithButton:(SUMarkViewToolbarCompositeButton *)button
+{
+    for (SUMarkViewToolbarCompositeButton *button in [self.markViewToolbar subviews]) {
+        if ([button isKindOfClass:[SUMarkViewToolbarCompositeButton class]]) {
+            button.isSeparatorShown = YES;
+        }
+    }
+    if (button.isSeparatorShown) {
+        button.isSeparatorShown = NO;
+    } else {
+        button.isSeparatorShown = YES;
     }
 }
 
@@ -227,6 +246,7 @@
             self.markViewToolbar.markColorView.hidden = YES;
         }];
     }
+    
     [[[UIApplication sharedApplication] keyWindow] endEditing:YES];
 }
 

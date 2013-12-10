@@ -7,15 +7,15 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "SUCompositeButton.h"
+#import "SUMarkViewToolbarCompositeButton.h"
 #import "SUMarkColorView.h"
 
 
 @interface SUMarkViewToolbar : UIView
 
-@property (nonatomic, strong) SUCompositeButton *cornerTypeButton;
-@property (nonatomic, strong) SUCompositeButton *borderWidthSliderButton;
-@property (nonatomic, strong) SUCompositeButton *borderColorPickerButton;
+@property (nonatomic, strong) SUMarkViewToolbarCompositeButton *cornerTypeButton;
+@property (nonatomic, strong) SUMarkViewToolbarCompositeButton *borderWidthSliderButton;
+@property (nonatomic, strong) SUMarkViewToolbarCompositeButton *borderColorPickerButton;
 @property (nonatomic, strong) SUMarkColorView *markColorView;
 @property (nonatomic, strong) UISlider *widthSlider;
 

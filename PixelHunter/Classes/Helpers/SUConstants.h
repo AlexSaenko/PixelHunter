@@ -18,15 +18,28 @@ static CGFloat const arrSizes [] = {1.0f, 2.0f, 5.0f, 10.0f, 20.0f, 50.0f, 100.0
 
 static CGFloat const kSUToolBarHeight = 88.0f;
 static CGFloat const kSUToolBarWidth = 320.0f;
-static CGFloat const kSUCloseButtonWidth = 60.0f;
-static CGFloat const kSUCloseButtonHeight = 44.0f;
+static CGFloat const kSUCloseButtonWidth = 82.0f;
+static CGFloat const kSUCloseButtonHeight = 48.0f;
 static CGFloat const kSUStartAlpha = 0.5f;
+
+static CGFloat const kSUSeparatorWidth = 2.0f;
+static CGFloat const kSUSeparatorHeight = 47.0f;
+static CGFloat const kSUHorizontalSeparatorWidth = 46.0f;
+static CGFloat const kSUHorizontalSeparatorHeight = 2.0f;
+
+static CGFloat const kSUErrorMarkingToolbarButtonWidth = 65.0f;
+static CGFloat const kSUErrorMarkingToolbarButtonHeight = 48.0f;
+
+static CGFloat const kSUMarkViewToolbarButtonWidth = 46.0f;
+static CGFloat const kSUMarkViewToolbarColorViewWidth = 42.0f;
+static CGFloat const kSUMarkViewToolbarButtonHeight = 105.0f;
+static CGFloat const kSUMarkViewToolbarSeparatorHeight = 105.0f;
 
 static CGFloat const kSUCornerRadius = 10.0f;
 
-static CGFloat const kSUMarkViewToolbarHeight = 320.0f;
+static CGFloat const kSUMarkViewToolbarHeight = 315.0f;
 static CGFloat const kSUMarkViewToolbarWidth = 88.0f;
 
-static CGRect const kSUColorViewRect = {0.0f, 0.0f, 44.0f, 44.0f};
+static CGRect const kSUColorViewRect = {0.0f, 0.0f, 36.0f, 36.0f};
 
 static CGFloat const kSUStandardAnimationTime = 0.25f;

@@ -52,8 +52,7 @@
     
     // Toolbar actions
     [self.gridRootView.toolbar.closeButton addTarget:self
-                                              action:@selector(tapOnCloseButton)
-                                    forControlEvents:UIControlEventTouchUpInside];
+                                              action:@selector(tapOnCloseButton)];
     [self.gridRootView.toolbar.showPickerButton addTarget:self
                                                    action:@selector(showImagePicker)];
     [self.gridRootView.toolbar.showMarkingViewControllerButton addTarget:self
