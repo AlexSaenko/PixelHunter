@@ -137,6 +137,7 @@ static CGFloat const kSURemovableViewShakeAnimationTime = 0.1f;
     [markView.tapGesture addTarget:self action:@selector(handleTap:)];
     [markView.longPressGesture addTarget:self action:@selector(handleLongPress:)];
     self.errorMarkingView.markViewToolbar.widthSlider.value = markView.layer.borderWidth;
+    self.errorMarkingView.markViewToolbar.cornerTypeButton.state = SUCompositeButtonStateNormal;
     [self.errorMarkingView insertSubview:markView belowSubview:self.errorMarkingView.errorMarkingToolbar];
 }
 
@@ -156,30 +157,6 @@ static CGFloat const kSURemovableViewShakeAnimationTime = 0.1f;
 }
 
 #pragma mark - Mark View toolbar
-- (void)switchCornerType
-{
-    BOOL pressed = (self.errorMarkingView.markViewToolbar.cornerTypeButton.state == SUCompositeButtonStateNormal) ? YES : NO;
-    
-    self.errorMarkingView.markViewToolbar.cornerTypeButton.state = (pressed)? SUCompositeButtonStateActivated : SUCompositeButtonStateNormal;
-    
-    for (SUMarkView *subview in [self.errorMarkingView subviews]) {
-        if ([subview isKindOfClass:[SUMarkView class]]) {
-            if (subview.isActive) {
-                if (subview.layer.cornerRadius == kSUCornerRadius) {
-                    subview.layer.cornerRadius = 0.0f;
-                    if ([subview isKindOfClass:[SUTextMarkView class]]) {
-                        ((SUTextMarkView *)subview).commentTextView.layer.cornerRadius = 0.0f;
-                    }
-                } else {
-                    subview.layer.cornerRadius = kSUCornerRadius;
-                    if ([subview isKindOfClass:[SUTextMarkView class]]) {
-                        ((SUTextMarkView *)subview).commentTextView.layer.cornerRadius = kSUCornerRadius;
-                    }
-                }
-            }
-        }
-    }
-}
 
 - (void)changeBorderWidth:(UISlider *)sender
 {
@@ -215,6 +192,7 @@ static CGFloat const kSURemovableViewShakeAnimationTime = 0.1f;
 - (void)handleLongPress:(UILongPressGestureRecognizer *)recognizer
 {
     [self makeViewActiveWithRecognizer:recognizer];
+    [self switchCornerTypeWithRecognizer:recognizer];
     
     for (SUMarkView *subview in [self.errorMarkingView subviews]) {
         if ([subview isKindOfClass:[SUMarkView class]]) {
@@ -277,6 +255,7 @@ static CGFloat const kSURemovableViewShakeAnimationTime = 0.1f;
 - (void)handleTap:(UITapGestureRecognizer *)recognizer
 {
     [self makeViewActiveWithRecognizer:recognizer];
+    [self switchCornerTypeWithRecognizer:recognizer];
     
     for (SUTextMarkView *subview in [self.errorMarkingView subviews]) {
         if ([subview isKindOfClass:[SUTextMarkView class]]) {
@@ -294,6 +273,7 @@ static CGFloat const kSURemovableViewShakeAnimationTime = 0.1f;
 - (void)panGestureActivated:(UIPanGestureRecognizer *)recognizer
 {
     [self makeViewActiveWithRecognizer:recognizer];
+    [self switchCornerTypeWithRecognizer:recognizer];
     
     for (SUTextMarkView *subview in [self.errorMarkingView subviews]) {
         if ([subview isKindOfClass:[SUTextMarkView class]]) {
@@ -387,6 +367,42 @@ static CGFloat const kSURemovableViewShakeAnimationTime = 0.1f;
     [UIView animateWithDuration:kSUStandardAnimationTime animations:^{
         view.frame = newFrame;
     }];
+}
+
+#pragma mark - Switch corner type
+
+- (void)switchCornerType
+{
+    BOOL pressed = (self.errorMarkingView.markViewToolbar.cornerTypeButton.state == SUCompositeButtonStateNormal) ? YES : NO;
+    
+    self.errorMarkingView.markViewToolbar.cornerTypeButton.state = (pressed)? SUCompositeButtonStateActivated : SUCompositeButtonStateNormal;
+    
+    for (SUMarkView *subview in [self.errorMarkingView subviews]) {
+        if ([subview isKindOfClass:[SUMarkView class]]) {
+            if (subview.isActive) {
+                if (subview.layer.cornerRadius == kSUCornerRadius) {
+                    subview.layer.cornerRadius = 0.0f;
+                    if ([subview isKindOfClass:[SUTextMarkView class]]) {
+                        ((SUTextMarkView *)subview).commentTextView.layer.cornerRadius = 0.0f;
+                    }
+                } else {
+                    subview.layer.cornerRadius = kSUCornerRadius;
+                    if ([subview isKindOfClass:[SUTextMarkView class]]) {
+                        ((SUTextMarkView *)subview).commentTextView.layer.cornerRadius = kSUCornerRadius;
+                    }
+                }
+            }
+        }
+    }
+}
+
+- (void)switchCornerTypeWithRecognizer:(UIGestureRecognizer *)recognizer
+{
+    if (recognizer.view.layer.cornerRadius != kSUCornerRadius) {
+        self.errorMarkingView.markViewToolbar.cornerTypeButton.state = SUCompositeButtonStateActivated;
+    } else {
+        self.errorMarkingView.markViewToolbar.cornerTypeButton.state = SUCompositeButtonStateNormal;
+    }
 }
 
 #pragma mark - Different delegate methods
